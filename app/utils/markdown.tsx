@@ -56,13 +56,35 @@ export function MarkdownContent({
             const { src, alt } = props;
             if (!src) return null;
 
-            // Use a regular img tag for simplicity and reliability
+            // Check if the source is an external URL
+            const isExternal =
+              src.startsWith("http") || src.startsWith("https");
+
+            if (isExternal) {
+              return (
+                <div className="relative w-full my-4 h-auto min-h-[240px]">
+                  <Image
+                    src={src}
+                    alt={alt || ""}
+                    fill
+                    className="rounded-lg object-contain"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              );
+            }
+
+            // For local images with known dimensions
             return (
-              <img
-                src={src}
-                alt={alt || ""}
-                className="rounded-lg my-4 max-w-full h-auto"
-              />
+              <div className="relative w-full my-4">
+                <Image
+                  src={src}
+                  alt={alt || ""}
+                  width={800}
+                  height={500}
+                  className="rounded-lg max-w-full h-auto"
+                />
+              </div>
             );
           },
         }}
