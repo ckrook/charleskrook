@@ -65,6 +65,9 @@ export type BlogPost = {
   id: string;
   title: string;
   slug: string;
+  body: {
+    json: any;
+  };
   createdAt: string;
   updatedAt: string;
   markdown: string;

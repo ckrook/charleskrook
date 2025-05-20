@@ -30,7 +30,7 @@ export default function StickyNav() {
     <div
       className={`fixed top-0 left-0 right-0 z-50 transform transition-transform duration-300 ease-in-out  ${
         isVisible ? "translate-y-0" : "-translate-y-full"
-      } md:hidden px-4 py-2 bg-white`}
+      } md:hidden px-4 py-2 bg-white dark:bg-zinc-950`}
     >
       <nav className="flex w-full font-medium bg-stone-100 dark:bg-stone-800 py-1 px-2 rounded-lg text-xs ">
         <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">

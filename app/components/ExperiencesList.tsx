@@ -21,7 +21,7 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
 
   return (
     <section className="mb-16 md:mb-32">
-      <h2 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8">
+      <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
         Experiences
       </h2>
 
@@ -44,7 +44,7 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
               onMouseEnter={() => setHoveredId(experience.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div className="flex flex-col md:flex-row justify-between px-2 md:px-4 gap-4 md:gap-0">
+              <div className="flex md:flex-row justify-between px-2 md:px-4 gap-4 md:gap-0">
                 <CardItem
                   title={experience.name}
                   subtitle={experience.role}

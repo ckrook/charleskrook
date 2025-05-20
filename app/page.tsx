@@ -6,6 +6,7 @@ import IntroSection from "./components/IntroSection";
 import Link from "next/link";
 import ProjectCard from "./components/ProjectCard";
 import ExperiencesList from "./components/ExperiencesList";
+import HoverImageBlogPost from "./components/HoverImageBlogPost";
 import { Work } from "./types";
 
 export default async function Home() {
@@ -32,7 +33,7 @@ export default async function Home() {
         {/* Selected Work Section */}
         <section className="mb-16 md:mb-32">
           <div>
-            <h2 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
               Selected Work
             </h2>
             <div className="flex flex-col gap-6 md:gap-8">
@@ -49,27 +50,13 @@ export default async function Home() {
         {/* Blog Posts Section */}
         <section className="mb-16 md:mb-32">
           <div>
-            <h2 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
               Blog Posts
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               <div className="col-span-4">
                 {blogPosts.map((post) => (
-                  <Link
-                    href={`/blog/${post?.id}`}
-                    key={post.id}
-                    className="block border-b py-6 md:py-8 px-4 border-neutral-200"
-                  >
-                    <div className="mb-2">
-                      <p className="text-sm text-neutral-600">
-                        {new Date(post.createdAt).toLocaleDateString()}
-                      </p>
-                    </div>
-                    <h3 className="text-lg font-medium mb-2">{post.title}</h3>
-                    <div className="prose prose-sm text-neutral-700">
-                      {/* <p>{post.markdown.substring(0, 150)}...</p> */}
-                    </div>
-                  </Link>
+                  <HoverImageBlogPost key={post.id} post={post} />
                 ))}
               </div>
             </div>
@@ -79,7 +66,7 @@ export default async function Home() {
         {/* Side Projects Section */}
         <section className="mb-16 md:mb-32">
           <div>
-            <h2 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
               Side Projects
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">

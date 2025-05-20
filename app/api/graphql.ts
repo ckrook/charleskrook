@@ -124,6 +124,9 @@ export async function fetchBlogPostBySlug(
         title
         slug
         createdAt
+        body {
+          json
+        }
         updatedAt
         markdown
         coverimage {

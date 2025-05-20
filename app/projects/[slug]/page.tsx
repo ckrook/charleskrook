@@ -61,7 +61,7 @@ export default async function ProjectPage({
         <section className="mb-8 md:mb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="mb-8 md:mb-0">
-              <div className="flex flex-col items-center md:flex-row gap-4 mb-6">
+              <div className="flex flex-row items-center justify-between md:flex-row gap-4 mb-6">
                 <CardItem
                   title={project.name}
                   subtitle={project.role}
@@ -69,59 +69,48 @@ export default async function ProjectPage({
                   imageWidth={44}
                   logoImageUrl={project?.logo?.url}
                 />
-              </div>
-              <p className="mb-6">{project.description.text}</p>
-
-              <div className="mb-6">
-                <h3 className="font-medium mb-2 uppercase">Technologies</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.technoligies.map((technology) => (
-                    <div
-                      key={technology.name}
-                      className="relative w-24 h-10 bg-white border border-neutral-200 rounded-md"
-                    >
-                      <Image
-                        src={technology?.logoWhite?.url || ""}
-                        alt={technology.name}
-                        className="p-2"
-                        objectFit="contain"
-                        fill
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Project details in a 2-column grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6 mt-8 relative before:absolute before:inset-0 before:grid before:grid-cols-2 before:content-[''] before:border-r before:border-zinc-200 dark:before:border-zinc-800 before:top-16 before:bottom-6">
-                <div className="relative z-10">
-                  <h3 className="font-medium mb-2 uppercase">Role</h3>
-                  <p>{project.role}</p>
-                </div>
-
-                <div className="relative z-10">
-                  <h3 className="font-medium mb-2 uppercase">Industry</h3>
-                  <p className="text-neutral-700 dark:text-neutral-300">
-                    E-commerce
-                  </p>
-                </div>
-
-                <div className="sm:col-span-1 w-full border-t border-zinc-200 dark:border-zinc-800 pt-4 mt-2 relative z-10">
-                  <h3 className="font-medium mb-2 uppercase">Live Site</h3>
+                <div className="md:hidden h-full">
                   <Link
                     href={project.liveSite}
-                    className="font-medium text-primary hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="block md:hidden text-center bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors h-full"
                   >
-                    {project.liveSite}
+                    View Site →
                   </Link>
                 </div>
-                <div className="border-t border-zinc-200 dark:border-zinc-800 pt-4 mt-2 relative z-10">
-                  <h3 className="font-medium mb-2 uppercase">Timeline</h3>
-                  <p>10 months</p>
+              </div>
+              <p className="mb-6">{project.description.text}</p>
+              <div className="mb-6">
+                <h4 className="font-medium mb-2 uppercase text-sm">
+                  Technologies
+                </h4>
+                <div className="overflow-hidden rounded-md">
+                  <div className="border-l border-neutral-200 dark:border-neutral-700">
+                    <div className="grid grid-cols-2 md:grid-cols-4 -mx-px -mb-px">
+                      {project.technoligies.map((technology) => (
+                        <div
+                          key={technology.name}
+                          className="relative h-12 bg-white dark:bg-neutral-800 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
+                        >
+                          <div className="relative w-16 h-10">
+                            <Image
+                              src={technology?.logoWhite?.url || ""}
+                              alt={technology.name}
+                              className="p-1 object-contain"
+                              fill
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
+              {/* Project details in a 2-column grid */}
+              <button className=" w-full bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
+                View Site →
+              </button>
             </div>
 
             {/* Project Featured Image */}

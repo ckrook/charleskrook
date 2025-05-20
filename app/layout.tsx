@@ -1,6 +1,5 @@
 import "./globals.css";
-import localFont from "next/font/local";
-import { Playfair_Display as FontSerif } from "next/font/google";
+import { Playfair_Display as FontSerif, Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
@@ -11,8 +10,8 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
 import StickyNav from "./components/StickyNav";
 
-const fontSans = localFont({
-  src: "../fonts/PPNeueMontreal-Medium.otf",
+const fontSans = Inter({
+  subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -33,7 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={cn(
-          "min-h-screen bg-white dark:bg-gray-900 font-sans antialiased text-black dark:text-white transition-colors duration-200",
+          "min-h-screen bg-white dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200",
           fontSans.variable,
           fontSerif.variable
         )}
@@ -65,7 +64,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </div>
 
                 {/* Responsive navigation */}
-                <nav className="flex w-full col-span-3 md:col-span-1 font-medium bg-stone-100 dark:bg-stone-800 py-1 px-2 md:px-4 rounded-lg text-xs md:text-sm mt-4 md:mt-0">
+                <nav className="flex w-full col-span-3 md:col-span-1 font-medium bg-stone-100 dark:bg-[#121212] py-1 px-2 md:px-4 rounded-lg text-xs md:text-sm mt-4 md:mt-0">
                   <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">
                     <Link
                       href="/"

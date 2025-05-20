@@ -75,7 +75,7 @@ export default async function BlogPost({
 
             <div className="prose prose-lg max-w-none">
               <div className="whitespace-pre-wrap text-neutral-700">
-                <MarkdownContent content={post.markdown} />
+                {post.body.json}
               </div>
             </div>
           </div>
