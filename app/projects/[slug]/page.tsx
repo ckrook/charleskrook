@@ -40,11 +40,13 @@ export default async function ProjectPage({
   return (
     <main className="flex mx-auto flex-col justify-between scroll-auto">
       <div className="mx-4 rounded-lg overflow-hidden">
-        <ParallaxBanner
-          imageUrl={project?.bannerImage?.url || ""}
-          altText={project?.name}
-          height="h-[400px] md:h-[500px]"
-        />
+        <div className="relative w-full h-[400px] md:h-[500px] bg-stone-950 gradient-to-r from-stone-950 to-stone-900">
+          <Image
+            src={project?.bannerImage?.url || ""}
+            alt={project?.name || ""}
+            fill
+          />
+        </div>
       </div>
       <div className=" mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-8">
         {/* Back Navigation */}
