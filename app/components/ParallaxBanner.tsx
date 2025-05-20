@@ -55,7 +55,8 @@ export default function ParallaxBanner({
           src={imageUrl}
           alt={altText}
           fill
-          className="object-cover opacity-85 mix-blend-overlay"
+          unoptimized
+          className="object-cover"
           priority
         />
       </div>

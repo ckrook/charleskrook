@@ -9,6 +9,7 @@ import NowPlaying from "./components/NowPlaying";
 import Link from "next/link";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
+import StickyNav from "./components/StickyNav";
 
 const fontSans = localFont({
   src: "../fonts/PPNeueMontreal-Medium.otf",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider>
+          <StickyNav />
           <div className="flex-col items-center scroll-auto">
             <header className=" mx-auto w-full max-w-[1400px]  flex flex-col py-4 md:py-8 px-4 gap-4 md:gap-6">
               <div className="grid grid-cols-3 items-center justify-between">
