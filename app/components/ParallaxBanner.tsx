@@ -12,9 +12,10 @@ interface ParallaxBannerProps {
 export default function ParallaxBanner({
   imageUrl,
   altText,
-  height = "h-[400px]",
+  height = "h-[400px] md:h-[400px]",
 }: ParallaxBannerProps) {
   const [scrollY, setScrollY] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(0);
   const bannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,27 +29,43 @@ export default function ParallaxBanner({
       }
     };
 
-    // Initial call to set initial position
+    const updateViewportHeight = () => {
+      setViewportHeight(window.innerHeight);
+    };
+
+    // Initial calls to set initial values
     handleScroll();
+    updateViewportHeight();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", updateViewportHeight);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateViewportHeight);
+    };
   }, []);
 
-  // Negative translateY to move upward as scroll increases
-  const translateY = -Math.min(scrollY * 0.2, 80);
+  // Reduce parallax effect and limit the maximum movement
+  const translateY = -Math.min(scrollY * 0.1, 40);
 
   return (
     <div
       ref={bannerRef}
       className={`relative w-full overflow-hidden ${height}`}
+      style={{
+        height:
+          viewportHeight > 0 && window.innerWidth < 768
+            ? `${Math.min(viewportHeight * 0.7, 1000)}px`
+            : undefined,
+      }}
     >
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 to-zinc-900 z-0" />
 
-      {/* Parallax image with opacity to let gradient show through */}
+      {/* Parallax image with extra height to prevent showing background */}
       <div
-        className="absolute inset-0 h-[100%] w-full"
+        className="absolute inset-0 h-[120%] w-full"
         style={{ transform: `translateY(${translateY}px)` }}
       >
         <Image
