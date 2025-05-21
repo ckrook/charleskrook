@@ -8,7 +8,6 @@ import NowPlaying from "./components/NowPlaying";
 import Link from "next/link";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
-import StickyNav from "./components/StickyNav";
 import PrintHandler from "./components/PrintHandler";
 import MobileMenu from "./components/MobileMenu";
 
@@ -45,13 +44,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider>
-          <StickyNav />
           <div className="grid grid-cols-12 max-w-[1600px] mx-auto">
-            <header className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 grid grid-cols-4 sm:grid-cols-8 py-4 md:py-4 px-4 gap-4 md:gap-6">
+            <header className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 px-4 gap-4 md:gap-6 hidden md:grid">
               {/* Logo and Name */}
               <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
                 <Link href="/" className="flex items-center gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-10 md:h-10">
+                  <div className="w-[33px] h-[33px] md:w-10 md:h-10">
                     <Image
                       src="/logo-avatar.png"
                       alt="Charles Krook"
@@ -70,12 +68,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
               {/* Navigation */}
               <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
-                {/* Mobile Menu (visible only on mobile) */}
-                <MobileMenu />
-
                 {/* Desktop Navigation (visible only on desktop) */}
-                <nav className="hidden md:flex justify-end items-center w-full">
-                  <div className="flex  dark:bg-neutral-900  border-neutral-200 dark:border-neutral-800 overflow-hidden">
+                <nav className="flex justify-end items-center w-full">
+                  <div className="flex dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 overflow-hidden">
                     <Link
                       href="/"
                       className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
@@ -102,12 +97,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     </Link>
                   </div>
                   {/* Desktop ThemeToggle */}
-                  <div className="ml-4 hidden md:flex">
+                  <div className="ml-4 flex">
                     <ThemeToggle />
                   </div>
                 </nav>
               </div>
             </header>
+
+            {/* Mobile Menu (shown only on mobile) */}
+            <div className="md:hidden">
+              <MobileMenu />
+              {/* Spacer for fixed mobile header */}
+              <div className="h-16"></div>
+            </div>
 
             {children}
 
