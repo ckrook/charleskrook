@@ -20,30 +20,28 @@ export default function CardItem({
   imageHeight = 48,
   bgColor,
 }: CardItemProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLLIElement>(null);
 
   return (
-    <div ref={cardRef}>
-      <li className="flex w-full">
-        <div className="flex items-center">
-          <div className="relative overflow-hidden flex items-center justify-center">
-            {logoImageUrl && (
-              <Image
-                src={logoImageUrl}
-                alt={`${title} image`}
-                width={imageWidth}
-                height={imageHeight}
-                className="w-auto h-auto rounded-[10px] mr-[11px]"
-                style={{ backgroundColor: bgColor }}
-              />
-            )}
-          </div>
-          <div className="flex flex-col">
-            <h2 className="font-medium leading-6">{title}</h2>
-            <p className="eading-6">{subtitle}</p>
-          </div>
+    <li className="flex w-full" ref={cardRef}>
+      <div className="flex items-center">
+        <div className="relative overflow-hidden flex items-center justify-center">
+          {logoImageUrl && (
+            <Image
+              src={logoImageUrl}
+              alt={`${title} image`}
+              width={imageWidth}
+              height={imageHeight}
+              className="w-auto h-auto rounded-[10px] mr-[11px]"
+              style={{ backgroundColor: bgColor }}
+            />
+          )}
         </div>
-      </li>
-    </div>
+        <div className="flex flex-col">
+          <h3 className="font-medium leading-6">{title}</h3>
+          <p className="leading-6">{subtitle}</p>
+        </div>
+      </div>
+    </li>
   );
 }

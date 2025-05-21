@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -12,15 +12,32 @@ type HoverImageBlogPostProps = {
 
 export default function HoverImageBlogPost({ post }: HoverImageBlogPostProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const hasCoverImage = post.coverimage && post.coverimage.length > 0;
-  const imageHeight = 180;
-  const imageWidth = 240;
-  const imageOffset = 20;
+
+  // Responsive image sizes
+  const imageHeight = isMobile ? 140 : 180;
+  const imageWidth = isMobile ? 180 : 240;
+  const imageOffset = isMobile ? 10 : 20;
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   // Track mouse position relative to the container
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
+    if (containerRef.current && !isMobile) {
       const rect = containerRef.current.getBoundingClientRect();
       setMousePosition({
         x: e.clientX - rect.left,
@@ -33,21 +50,35 @@ export default function HoverImageBlogPost({ post }: HoverImageBlogPostProps) {
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative border-b py-6 md:py-8 px-4 border-neutral-200 group transition-colors "
+      className="relative border-b py-4 sm:py-6 md:py-8 px-2 sm:px-4 border-neutral-200 dark:border-neutral-800 group transition-colors"
     >
       <Link href={`/blog/${post?.slug}`} className="block">
         <div className="mb-2">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
             {new Date(post.createdAt).toLocaleDateString()}
           </p>
         </div>
-        <h3 className="text-lg font-medium mb-2 group-hover:text-primary transition-colors">
+        <h3 className="text-base sm:text-lg font-medium mb-2 group-hover:text-primary transition-colors">
           {post.title}
         </h3>
       </Link>
 
-      {/* Floating image that follows the cursor using Framer Motion */}
-      {hasCoverImage && post.coverimage && (
+      {/* Mobile thumbnail image (always visible on mobile) */}
+      {hasCoverImage && post.coverimage && isMobile && (
+        <div className="w-full h-40 relative mt-3 mb-2 rounded-lg overflow-hidden">
+          <Image
+            src={post.coverimage[0].url}
+            alt={post.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 240px"
+            className="object-cover"
+            priority={false}
+          />
+        </div>
+      )}
+
+      {/* Floating image that follows the cursor using Framer Motion (desktop only) */}
+      {hasCoverImage && post.coverimage && !isMobile && (
         <motion.div
           initial={false}
           animate={{

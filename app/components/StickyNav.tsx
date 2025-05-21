@@ -33,17 +33,17 @@ export default function StickyNav() {
       } md:hidden px-4 py-2 bg-white dark:bg-zinc-950`}
     >
       <nav className="flex w-full font-medium bg-stone-100 dark:bg-stone-800 py-1 px-2 rounded-lg text-xs ">
-        <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">
+        <div className="flex-1 text-center py-1 md:py-2 border-r border-neutral-200 dark:border-neutral-800">
           <Link href="/" className="block hover:font-bold transition-all">
             Home
           </Link>
         </div>
-        <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">
+        <div className="flex-1 text-center py-1 md:py-2 border-r border-neutral-200 dark:border-neutral-800">
           <Link href="/about" className="block hover:font-bold transition-all">
             About
           </Link>
         </div>
-        <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">
+        <div className="flex-1 text-center py-1 md:py-2 border-r border-neutral-200 dark:border-neutral-800">
           <Link
             href="/projects"
             className="block hover:font-bold transition-all"

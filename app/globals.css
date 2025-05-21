@@ -91,6 +91,16 @@
       @apply transition-colors duration-200;
     }
 
+    /* Basic responsive adjustments */
+    html, body {
+      @apply overflow-x-hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      @apply max-w-full h-auto;
+    }
+
     ::selection{
       @apply bg-gray-900 text-white dark:bg-white dark:text-stone-900;
     }
@@ -100,7 +110,11 @@
     }
 
     p{
-      @apply text-gray-600 dark:text-gray-300 text-[16px] font-medium;
+      @apply text-gray-600 dark:text-gray-300 text-[14px] sm:text-[16px] font-medium;
+    }
+
+    h2{
+      @apply text-gray-800 dark:text-gray-300 text-base sm:text-lg font-medium mb-4 sm:mb-6;
     }
     
     /* Border utility classes */
@@ -127,4 +141,70 @@
     .marquee__inner {
       @apply flex;
     }
+    
+    /* Responsive container classes */
+    .container-sm {
+      @apply w-full max-w-[640px] mx-auto px-4;
+    }
+    
+    .container-md {
+      @apply w-full max-w-[768px] mx-auto px-4;
+    }
+    
+    .container-lg {
+      @apply w-full max-w-[1024px] mx-auto px-4;
+    }
+    
+    .container-xl {
+      @apply w-full max-w-[1280px] mx-auto px-4;
+    }
+    
+    .container-2xl {
+      @apply w-full max-w-[1536px] mx-auto px-4;
+    }
+    
+    /* Mobile menu styles */
+    .mobile-menu-overlay {
+      @apply fixed inset-0 z-50 bg-white dark:bg-zinc-950;
+    }
+    
+    .hamburger-line {
+      @apply block h-0.5 w-6 bg-black dark:bg-white transition-all duration-300;
+    }
+    
+    .hamburger-active .hamburger-line:nth-child(1) {
+      @apply rotate-45 translate-y-1.5;
+    }
+    
+    .hamburger-active .hamburger-line:nth-child(2) {
+      @apply opacity-0;
+    }
+    
+    .hamburger-active .hamburger-line:nth-child(3) {
+      @apply -rotate-45 -translate-y-1.5;
+    }
   }
+
+@media (max-width: 640px) {
+  .grid {
+    --gap: 1rem;
+  }
+}
+
+/* Smoother scrolling on all devices */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improves touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Better focus states for accessibility */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-blue-500;
+}

@@ -21,9 +21,7 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
 
   return (
     <section className="mb-16 md:mb-32">
-      <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
-        Experiences
-      </h2>
+      <h2>Experiences</h2>
 
       <div className="flex flex-col">
         {experiences.map((experience) => {
@@ -38,7 +36,7 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
           return (
             <div
               key={experience.id}
-              className={`border-b py-6 md:py-8 border-neutral-200 cursor-pointer transition-opacity duration-300 ${
+              className={`border-b py-6 md:py-8 border-neutral-200 dark:border-neutral-800 cursor-pointer transition-opacity duration-300 ${
                 showFaded ? "opacity-40" : "opacity-100"
               }`}
               onMouseEnter={() => setHoveredId(experience.id)}

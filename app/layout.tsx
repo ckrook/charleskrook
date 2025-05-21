@@ -9,6 +9,8 @@ import Link from "next/link";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
 import StickyNav from "./components/StickyNav";
+import PrintHandler from "./components/PrintHandler";
+import MobileMenu from "./components/MobileMenu";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -28,8 +30,13 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <head />
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-white dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200",
@@ -39,11 +46,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider>
           <StickyNav />
-          <div className="flex-col items-center scroll-auto">
-            <header className=" mx-auto w-full max-w-[1400px]  flex flex-col py-4 md:py-8 px-4 gap-4 md:gap-6">
-              <div className="grid grid-cols-3 items-center justify-between">
-                <div className="flex items-center gap-2 md:gap-4 col-span-2 md:col-span-1">
-                  <div className="w-10 h-10 md:w-12 md:h-12">
+          <div className="grid grid-cols-12 max-w-[1600px] mx-auto">
+            <header className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 grid grid-cols-4 sm:grid-cols-8 py-4 md:py-4 px-4 gap-4 md:gap-6">
+              {/* Logo and Name */}
+              <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
+                <Link href="/" className="flex items-center gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-10 md:h-10">
                     <Image
                       src="/logo-avatar.png"
                       alt="Charles Krook"
@@ -54,67 +62,69 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   <p className="flex flex-col font-medium text-black dark:text-white text-sm md:text-base">
                     <span>Charles Krook</span>
                     <span className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
-                      Software Engineer Stockholm, Sweden
+                      Frontend Engineer
                     </span>
                   </p>
-                </div>
+                </Link>
+              </div>
 
-                <div className="flex items-center justify-end md:hidden">
-                  <ThemeToggle />
-                </div>
+              {/* Navigation */}
+              <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
+                {/* Mobile Menu (visible only on mobile) */}
+                <MobileMenu />
 
-                {/* Responsive navigation */}
-                <nav className="flex w-full col-span-3 md:col-span-1 font-medium bg-stone-100 dark:bg-[#121212] py-1 px-2 md:px-4 rounded-lg text-xs md:text-sm mt-4 md:mt-0">
-                  <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">
+                {/* Desktop Navigation (visible only on desktop) */}
+                <nav className="hidden md:flex justify-end items-center w-full">
+                  <div className="flex  dark:bg-neutral-900  border-neutral-200 dark:border-neutral-800 overflow-hidden">
                     <Link
                       href="/"
-                      className="block hover:font-bold transition-all"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
                     >
                       Home
                     </Link>
-                  </div>
-                  <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">
                     <Link
                       href="/about"
-                      className="block hover:font-bold transition-all"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
                     >
                       About
                     </Link>
-                  </div>
-                  <div className="flex-1 text-center py-1 md:py-2 border-r border-stone-300 dark:border-stone-700">
                     <Link
                       href="/projects"
-                      className="block hover:font-bold transition-all"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
                     >
                       Projects
                     </Link>
-                  </div>
-                  <div className="flex-1 text-center py-1 md:py-2">
                     <Link
                       href="/blog"
-                      className="block hover:font-bold transition-all"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
                     >
                       Blog
                     </Link>
                   </div>
+                  {/* Desktop ThemeToggle */}
+                  <div className="ml-4 hidden md:flex">
+                    <ThemeToggle />
+                  </div>
                 </nav>
-
-                {/* Desktop-only ThemeToggle */}
-                <div className="hidden md:flex items-center justify-end md:col-span-1">
-                  <ThemeToggle />
-                </div>
               </div>
             </header>
 
-            <main>{children}</main>
+            {children}
 
-            <footer className="w-full max-w-[1400px] px-4 py-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
-              <NowPlaying />
-              <small className="text-gray-600 dark:text-gray-400">
-                &copy; 2025
-              </small>
+            <footer className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 mx-auto w-full px-4 py-8">
+              <div className="grid grid-cols-4 sm:grid-cols-8 gap-4">
+                <div className="col-span-4 sm:col-span-6">
+                  <NowPlaying />
+                </div>
+                <div className="col-span-4 sm:col-span-2 flex justify-start sm:justify-end items-center">
+                  <small className="text-gray-600 dark:text-gray-400">
+                    &copy; 2025
+                  </small>
+                </div>
+              </div>
             </footer>
           </div>
+          <PrintHandler />
         </ThemeProvider>
       </body>
     </html>

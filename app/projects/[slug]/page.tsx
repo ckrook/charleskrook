@@ -1,6 +1,5 @@
 import { fetchProjectBySlug } from "@/app/api/graphql";
 import CardItem from "@/app/components/CardItem";
-import ParallaxBanner from "@/app/components/ParallaxBanner";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import type { PluginAPI } from "tailwindcss/types/config";
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 // Generate a comprehensive spacing scale
@@ -27,10 +28,21 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "4rem",
+        xl: "5rem",
+        "2xl": "6rem",
       },
+    },
+    screens: {
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     extend: {
       // Color palette
@@ -160,9 +172,32 @@ const config = {
         out: "cubic-bezier(0, 0, 0.2, 1)",
         "in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
       },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        "16": "repeat(16, minmax(0, 1fr))",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: PluginAPI) {
+      const newUtilities = {
+        ".safe-top": {
+          paddingTop: "env(safe-area-inset-top)",
+        },
+        ".safe-bottom": {
+          paddingBottom: "env(safe-area-inset-bottom)",
+        },
+        ".safe-left": {
+          paddingLeft: "env(safe-area-inset-left)",
+        },
+        ".safe-right": {
+          paddingRight: "env(safe-area-inset-right)",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 } satisfies Config;
 
 export default config;

@@ -27,7 +27,6 @@ export default function ThemeToggle() {
           >
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
           </svg>
-          <span className="hidden md:inline">Dark Mode</span>
         </>
       ) : (
         <>
@@ -53,7 +52,6 @@ export default function ThemeToggle() {
             <path d="M2 12h2"></path>
             <path d="M20 12h2"></path>
           </svg>
-          <span className="hidden md:inline text-white">Light Mode</span>
         </>
       )}
     </button>
