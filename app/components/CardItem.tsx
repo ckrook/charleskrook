@@ -32,7 +32,7 @@ export default function CardItem({
               alt={`${title} image`}
               width={imageWidth}
               height={imageHeight}
-              className="w-auto h-auto rounded-[10px] mr-[11px]"
+              className="w-auto h-auto rounded-[10px] mr-[11px] border border-neutral-200 dark:border-neutral-800"
               style={{ backgroundColor: bgColor }}
             />
           )}

@@ -54,7 +54,7 @@ export default function NowPlaying() {
 
   return (
     <div className="flex mt-2 justify-start">
-      <div className="flex items-center gap-3 bg-stone-300 dark:bg-stone-700 py-1 px-4 rounded-full text-neutral-900 dark:text-neutral-100 font-medium transition-colors duration-200 border border-theme-light">
+      <div className="flex items-center gap-3  py-1 px-4 rounded-full text-neutral-900 dark:text-neutral-100 font-medium transition-colors duration-200 border border-theme-light">
         <Link
           href={data?.songUrl || "#"}
           className="no-underline"

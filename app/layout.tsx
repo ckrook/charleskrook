@@ -78,25 +78,25 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   <div className="flex  dark:bg-neutral-900  border-neutral-200 dark:border-neutral-800 overflow-hidden">
                     <Link
                       href="/"
-                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
                     >
                       Home
                     </Link>
                     <Link
                       href="/about"
-                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
                     >
                       About
                     </Link>
                     <Link
                       href="/projects"
-                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
                     >
                       Projects
                     </Link>
                     <Link
                       href="/blog"
-                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+                      className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
                     >
                       Blog
                     </Link>
@@ -117,6 +117,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   <NowPlaying />
                 </div>
                 <div className="col-span-4 sm:col-span-2 flex justify-start sm:justify-end items-center">
+                  cmd + P
                   <small className="text-gray-600 dark:text-gray-400">
                     &copy; 2025
                   </small>

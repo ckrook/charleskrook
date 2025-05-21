@@ -4,29 +4,19 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import ProfileImageFlip from "../components/ProfileImageFlip";
 import PageHeader from "../components/PageHeader";
+import { fetchTechnologies } from "../api/graphql";
+import { Technology } from "../types";
 
-export default function About() {
-  // Skills array for displaying badges
-  const skills = [
-    "React",
-    "TypeScript",
-    "Next.js",
-    "TailwindCSS",
-    "GraphQL",
-    "Node.js",
-    "UI/UX Design",
-    "Design Systems",
-    "Accessibility",
-    "Performance Optimization",
-    "Responsive Design",
-  ];
+export default async function About() {
+  // Fetch technologies from the API
+  const technologies = await fetchTechnologies();
 
   return (
     <div className="grid grid-cols-8 col-start-3 col-end-11 pb-16">
       {/* Header Section */}
       <div className="col-start-2 col-end-8">
         <PageHeader
-          highlightWord="Hello"
+          highlightWord="Bonjour,"
           titleSuffix="I'm Charles"
           subtitle="Frontend engineer passionate about crafting beautiful, accessible digital experiences"
           breakAfterHighlight={false}
@@ -34,7 +24,7 @@ export default function About() {
       </div>
 
       {/* Bio Section */}
-      <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8">
+      <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-16">
         {/* Image column */}
         <div className="col-span-2 col-md-4 d-flex justify-content-center justify-content-md-start">
           <ProfileImageFlip
@@ -74,15 +64,28 @@ export default function About() {
             <h2 className="text-xl md:text-2xl font-medium mb-6">
               Skills & Expertise
             </h2>
-            <div className="d-flex flex-wrap gap-2 md:gap-3">
-              {skills.map((skill) => (
-                <Badge
-                  key={skill}
-                  className="px-3 py-1 text-sm bg-neutral-100 hover:bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-700"
-                >
-                  {skill}
-                </Badge>
-              ))}
+            <div className="overflow-hidden rounded-md">
+              <div className="border-l border-neutral-200 dark:border-neutral-700">
+                <div className="grid grid-cols-2 md:grid-cols-4 -mx-px -mb-px">
+                  {technologies.map((tech: Technology) => (
+                    <div
+                      key={tech.name}
+                      className="relative h-12 bg-white p-2 dark:bg-neutral-800 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
+                    >
+                      <div className="relative w-20 h-8">
+                        {tech.logoWhite?.url && (
+                          <Image
+                            src={tech.logoWhite.url}
+                            alt={tech.name}
+                            className="p-1 object-contain"
+                            fill
+                          />
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -65,7 +65,7 @@ export default function PageHeader({
     >
       <div className="row">
         <div className="col-12">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal leading-tight tracking-tight dark:text-white mb-4 md:mb-6">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal leading-tight tracking-tight dark:text-white mb-4 md:mb-2">
             {renderTitle()}
           </h1>
           <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 mx-auto">

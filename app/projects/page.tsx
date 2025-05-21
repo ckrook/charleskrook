@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CardItem from "@/app/components/CardItem";
 import ProjectCard from "@/app/components/ProjectCard";
-import PageHeader from "@/app/components/PageHeader";
+import PageHeader from "../components/PageHeader";
 
 export default async function Projects() {
   const projects: Work[] = await fetchProjects();
@@ -20,17 +20,12 @@ export default async function Projects() {
   return (
     <div className="col-start-3 col-end-11  pb-16">
       <PageHeader
-        title="Projects"
+        highlightWord="Projects"
         titleSuffix="& Case Studies"
-        subtitle="A collection of projects I've worked on, from e-commerce sites to design systems and content platforms."
+        subtitle="A collection of projects I've worked on, from e-commerce sites to design systems."
+        breakAfterHighlight={false}
       />
 
-      {/* Selected Work Section */}
-      <div className="grid grid-cols-8">
-        <h2 className="col-start-2 col-end-8 md:text-2xl font-medium mb-6 md:mb-8">
-          Featured Projects
-        </h2>
-      </div>
       <section className="mb-16 md:mb-24">
         <div className="row">
           <div className="col-12">

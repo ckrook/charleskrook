@@ -75,3 +75,10 @@ export type BlogPost = {
     url: string;
   }>;
 };
+
+export type Technology = {
+  name: string;
+  logoWhite: {
+    url: string;
+  };
+};

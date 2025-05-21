@@ -25,7 +25,17 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-8 md:mb-16">
+    <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-8 md:mb-16 ">
+      <div className="col-span-4 sm:col-span-8 relative w-full h-[200px] sm:h-[300px] md:h-[500px]">
+        <Image
+          src={project.showCaseImages?.[0]?.url || ""}
+          alt={project.name}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw"
+          className="rounded-lg object-cover border border-neutral-200 dark:border-neutral-800"
+          priority={true}
+        />
+      </div>
       <div className="col-span-4 sm:col-start-2 sm:col-end-8 py-4 md:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-center">
         <div className="w-full">
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
@@ -43,16 +53,6 @@ export default function ProjectCard({
             <p className="text-sm sm:text-base">{project.description.text}</p>
           </div>
         </div>
-      </div>
-      <div className="col-span-4 sm:col-span-8 relative w-full h-[200px] sm:h-[300px] md:h-[500px]">
-        <Image
-          src={project.showCaseImages?.[0]?.url || ""}
-          alt={project.name}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw"
-          className="rounded-lg object-cover border border-neutral-200 dark:border-neutral-800"
-          priority={true}
-        />
       </div>
     </div>
   );

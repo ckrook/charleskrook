@@ -37,7 +37,7 @@ export default async function ProjectPage({
   }
 
   return (
-    <main className="flex mx-auto flex-col justify-between scroll-auto">
+    <main className=" col-start-3 col-end-11 justify-between scroll-auto">
       <div className="mx-4 rounded-lg overflow-hidden">
         <div className="relative w-full h-[400px] md:h-[500px] bg-stone-950 gradient-to-r from-stone-950 to-stone-900">
           <Image

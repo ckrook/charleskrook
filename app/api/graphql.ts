@@ -190,3 +190,22 @@ export async function fetchProjectBySlug(slug: string): Promise<Work | null> {
   const data = await fetchGraphQL(query);
   return data?.project || null;
 }
+
+/**
+ * Fetch all technologies from the GraphQL API
+ */
+export async function fetchTechnologies() {
+  const query = `
+    query {
+      technologies {
+        name
+        logoWhite {
+          url
+        }
+      }
+    }
+  `;
+
+  const data = await fetchGraphQL(query);
+  return data?.technologies || [];
+}
