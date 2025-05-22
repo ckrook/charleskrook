@@ -34,6 +34,12 @@ export async function fetchProjects(): Promise<Work[]> {
         id
         slug
         sideproject
+        backgroundImage {
+          url
+        }
+        mockupImage {
+          url
+        }
         selectedWork
         name
         description {
@@ -151,6 +157,16 @@ export async function fetchProjectBySlug(slug: string): Promise<Work | null> {
         name
         slug
         liveSite
+        backgroundImage {
+          url
+          width
+          height
+        }
+        mockupImage {
+          url
+          width
+          height
+        }
         bannerImage {
           url
           width
