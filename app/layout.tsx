@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Playfair_Display as FontSerif, Inter } from "next/font/google";
+import { Metadata } from "next";
 
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
@@ -24,6 +25,55 @@ const fontSerif = FontSerif({
   variable: "--font-serif",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: "Charles Krook | Frontend Engineer",
+    template: "%s | Charles Krook",
+  },
+  description:
+    "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
+  metadataBase: new URL("https://charleskrook.com"),
+  keywords: [
+    "frontend",
+    "developer",
+    "engineer",
+    "react",
+    "nextjs",
+    "stockholm",
+    "web development",
+  ],
+  authors: [{ name: "Charles Krook" }],
+  creator: "Charles Krook",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://charleskrook.com",
+    siteName: "Charles Krook",
+    title: "Charles Krook | Frontend Engineer",
+    description:
+      "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Charles Krook - Frontend Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Charles Krook | Frontend Engineer",
+    description:
+      "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
+    images: ["/opengraph-image"],
+    creator: "@charleskrook",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
 interface RootLayoutProps {
   children: ReactNode;
