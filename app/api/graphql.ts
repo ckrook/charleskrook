@@ -34,6 +34,9 @@ export async function fetchProjects(): Promise<Work[]> {
         id
         slug
         sideproject
+        logowhite {
+          url
+        }
         backgroundImage {
           url
         }

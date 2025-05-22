@@ -83,6 +83,18 @@ export default function ProjectCard({
           />
         </div>
 
+        {/* Logo displayed on the left side of the card  */}
+        <div className="absolute top-0 left-[20%] w-[100px] h-full items-center hidden md:flex">
+          <Image
+            src={project.logowhite?.url || ""}
+            alt={`${project.name} logo`}
+            fill
+            className="object-contain md:translate-x-[30%] md:translate-y-[2%]"
+            priority={true}
+            sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
+          />
+        </div>
+
         {/* Mockup Image displayed above the background */}
         {project.mockupImage?.url && (
           <div

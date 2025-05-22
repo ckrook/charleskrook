@@ -8,6 +8,9 @@ export type Work = {
   liveSite: string;
   selectedWork: boolean;
   sideproject: boolean;
+  logowhite: {
+    url: string;
+  };
   backgroundImage: {
     url: string;
     width: number;
