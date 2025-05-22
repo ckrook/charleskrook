@@ -11,5 +11,7 @@ const nextConfig = {
       },
     ],
   },
+  // The sitemap and robots will be generated automatically by Next.js
+  // as per files app/sitemap.ts and app/robots.ts
 }
 module.exports = nextConfig
