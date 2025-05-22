@@ -25,9 +25,9 @@ export default function About() {
   }, []);
 
   return (
-    <div className="grid grid-cols-8 col-start-3 col-end-11 pb-16">
+    <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-4 md:px-0">
       {/* Header Section */}
-      <div className="col-start-2 col-end-8">
+      <div className="sm:col-start-2 sm:col-end-8 col-span-8">
         <PageHeader
           highlightWord="Bonjour,"
           titleSuffix="I'm Charles"
@@ -39,14 +39,14 @@ export default function About() {
       {/* Bio Section */}
       <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-4">
         {/* Image column */}
-        <div className=" col-span-2 col-md-4 d-flex justify-content-center justify-content-md-start">
+        <div className=" sm:col-span-2 col-span-8 h-64  col-md-4 d-flex justify-content-center justify-content-md-start">
           <ProfileImageFlip
             frontImage="/charles-liten.png"
             alt="Charles Krook"
           />
         </div>
         {/* Content column */}
-        <div className="col-span-6 col-md-8">
+        <div className="sm:col-span-6 col-span-8">
           <h2 className="text-xl md:text-2xl font-medium mb-4">My Journey</h2>
           <div className="space-y-4 text-neutral-800 dark:text-neutral-200">
             <p>
@@ -72,8 +72,8 @@ export default function About() {
 
       {/* Skills Section */}
       <section className=" col-span-8 mb-16 md:mb-24">
-        <div className="row">
-          <div className="col-12">
+        <div>
+          <div>
             <h2 className="text-xl md:text-2xl font-medium mb-6">
               Skills & Expertise
             </h2>
@@ -109,7 +109,7 @@ export default function About() {
         <h2 className=" col-span-3 text-xl md:text-2xl font-medium mb-6">
           My Approach
         </h2>
-        <div className="col-span-1 mb-4 mb-md-0">
+        <div className="sm:col-span-1 col-span-3 mb-4 mb-md-0">
           <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 ">
             <div className="font-serif italic text-2xl text-red-500 mb-3">
               01
@@ -121,19 +121,19 @@ export default function About() {
             </p>
           </div>
         </div>
-        <div className="col-span-1 mb-4 mb-md-0">
+        <div className="sm:col-span-1 col-span-3 mb-4 mb-md-0">
           <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
             <div className="font-serif italic text-2xl text-red-500 mb-3">
               02
             </div>
             <h3 className="text-lg font-medium mb-2">Design</h3>
             <p>
-              Creating thoughtful solutions that are both functionally sound and
+              Cre andating thoughtful sions that are both functionally sound and
               aesthetically pleasing.
             </p>
           </div>
         </div>
-        <div className="col-span-1 mb-4 mb-md-0">
+        <div className="sm:col-span-1 col-span-3 mb-4 mb-md-0">
           <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
             <div className="font-serif italic text-2xl text-red-500 mb-3">
               03
@@ -157,7 +157,7 @@ export default function About() {
               </h2>
               <div className="mb-4">
                 <p>
-                  Have a project in mind or just want to connect? I&apos;m
+                  Hj ect in mind ocreativer just want to connect? I&apos;m
                   always interested in hearing about new opportunities and
                   creative collaborations.
                 </p>
