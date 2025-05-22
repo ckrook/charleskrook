@@ -9,17 +9,19 @@ export default async function BlogPage() {
   const blogPosts: BlogPost[] = await fetchBlogPosts();
 
   return (
-    <main className=" col-start-3 col-end-11 flex flex-col scroll-auto px-4 md:px-0 pb-16">
+    <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-4 md:px-0">
       {/* Header Section */}
-      <PageHeader
-        highlightWord="Thoughts"
-        titleSuffix="&amp; Reflections"
-        subtitle="Articles about frontend development, design systems, and user experience"
-      />
+      <div className="sm:col-start-2 sm:col-end-8 col-span-8">
+        <PageHeader
+          highlightWord="Thoughts"
+          titleSuffix="&amp; Reflections"
+          subtitle="Articles about frontend development, design systems, and user experience"
+        />
+      </div>
 
       {/* Featured Post (if exists) */}
       {blogPosts.length > 0 && (
-        <section className="mb-16 md:mb-24">
+        <section className="mb-16 md:mb-24 col-span-8">
           <Link href={`/blog/${blogPosts[0].slug}`} className="block group">
             <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6">
               {blogPosts[0].coverimage && (
@@ -50,7 +52,7 @@ export default async function BlogPage() {
       )}
 
       {/* All Blog Posts */}
-      <section className="mb-16">
+      <section className="mb-16 col-span-8">
         <h2 className="text-xl md:text-2xl font-medium mb-6">All Articles</h2>
 
         {blogPosts.length > 0 ? (
@@ -67,7 +69,7 @@ export default async function BlogPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="mb-8">
+      <section className="mb-8 col-span-8">
         <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-xl border border-neutral-200 dark:border-neutral-800 text-center">
           <h2 className="text-xl md:text-2xl font-medium mb-4">Stay Updated</h2>
           <p>
@@ -82,6 +84,6 @@ export default async function BlogPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
