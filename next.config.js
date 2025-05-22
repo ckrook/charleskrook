@@ -13,5 +13,20 @@ const nextConfig = {
   },
   // The sitemap and robots will be generated automatically by Next.js
   // as per files app/sitemap.ts and app/robots.ts
+  
+  // Ensure static files are handled properly
+  async headers() {
+    return [
+      {
+        source: '/favicon/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
 }
 module.exports = nextConfig
