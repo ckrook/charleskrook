@@ -26,6 +26,10 @@ const fontSerif = FontSerif({
   display: "swap",
 });
 
+// OG image URL from opengraph.xyz's CDN
+const ogImageUrl =
+  "https://opengraph.b-cdn.net/production/images/a9acc92f-1fe6-45e1-b798-666380e626e2.png?token=9xefLA4KJdml_EVI6bX1bYgmYrneDGZnIbXfewXZ9zo&height=630&width=1200&expires=33283914200";
+
 export const metadata: Metadata = {
   title: {
     default: "Charles Krook | Frontend Engineer",
@@ -55,7 +59,7 @@ export const metadata: Metadata = {
       "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
     images: [
       {
-        url: "https://charleskrook.com/opengraph-image.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "Charles Krook - Frontend Engineer",
@@ -67,7 +71,7 @@ export const metadata: Metadata = {
     title: "Charles Krook | Frontend Engineer",
     description:
       "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
-    images: ["https://charleskrook.com/opengraph-image.png"],
+    images: [ogImageUrl],
     creator: "@charleskrook",
   },
   icons: {
