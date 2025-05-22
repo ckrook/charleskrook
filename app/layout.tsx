@@ -169,22 +169,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
 
               {children}
-
-              <footer className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 mx-auto w-full px-4 py-8">
-                <div className="grid grid-cols-4 sm:grid-cols-8 gap-4">
-                  <div className="col-span-4 sm:col-span-5">
-                    <NowPlaying />
-                  </div>
-                  <div className="col-span-4 sm:col-span-3">
-                    <div className="flex flex-col sm:items-end space-y-2">
-                      <KeyboardShortcuts />
-                      <small className="text-gray-600 dark:text-gray-400 text-right">
-                        &copy; 2025 Charles Krook
-                      </small>
-                    </div>
-                  </div>
-                </div>
-              </footer>
             </div>
           </CommandMenu>
           <PrintHandler />
