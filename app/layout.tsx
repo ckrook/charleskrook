@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
     images: [
       {
-        url: "/opengraph-image",
+        url: "https://charleskrook.com/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Charles Krook - Frontend Engineer",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "Charles Krook | Frontend Engineer",
     description:
       "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
-    images: ["/opengraph-image"],
+    images: ["https://charleskrook.com/opengraph-image.png"],
     creator: "@charleskrook",
   },
   icons: {

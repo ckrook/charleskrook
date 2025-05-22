@@ -24,6 +24,9 @@ export async function generateMetadata({
     description += "...";
   }
 
+  const slug = params.slug;
+  const ogImageUrl = `https://charleskrook.com/blog/${slug}/opengraph-image.png`;
+
   return {
     title: post.title,
     description,
@@ -34,11 +37,20 @@ export async function generateMetadata({
       publishedTime: post.createdAt,
       modifiedTime: post.updatedAt,
       authors: ["Charles Krook"],
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       title: post.title,
       description,
       card: "summary_large_image",
+      images: [ogImageUrl],
     },
   };
 }

@@ -17,6 +17,9 @@ export async function generateMetadata({
   const description =
     project.description?.text || `${project.name} - A project by Charles Krook`;
 
+  const slug = params.slug;
+  const ogImageUrl = `https://charleskrook.com/projects/${slug}/opengraph-image.png`;
+
   return {
     title: project.name,
     description,
@@ -24,11 +27,20 @@ export async function generateMetadata({
       title: `${project.name} | ${project.role}`,
       description,
       type: "website",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: project.name,
+        },
+      ],
     },
     twitter: {
       title: project.name,
       description,
       card: "summary_large_image",
+      images: [ogImageUrl],
     },
   };
 }
