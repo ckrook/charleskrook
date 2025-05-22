@@ -44,6 +44,7 @@ export default async function ProjectPage({
             src={project?.bannerImage?.url || ""}
             alt={project?.name || ""}
             fill
+            objectFit="cover"
           />
         </div>
       </div>
@@ -59,9 +60,9 @@ export default async function ProjectPage({
         </section>
 
         {/* Project Header */}
-        <section className="mb-8 md:mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="mb-8 md:mb-0">
+        <section className="grid mb-8 md:mb-16">
+          <div className="grid col-start-2 col-end-8 gap-6">
+            <div className=" col-span-3 md:col-span-2 mb-8 md:mb-0">
               <div className="flex flex-row items-center justify-between md:flex-row gap-4 mb-6">
                 <CardItem
                   title={project.name}
@@ -111,13 +112,13 @@ export default async function ProjectPage({
                 </div>
               </div>
               {/* Project details in a 2-column grid */}
-              <button className=" w-full bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
+              <button className=" mb-8 w-full bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
                 View Site →
               </button>
             </div>
 
             {/* Project Featured Image */}
-            <div className="col-span-1 md:col-span-2">
+            <div className="">
               {project.showCaseImages && project.showCaseImages.length > 0 && (
                 <div className="mb-8">
                   <div className="relative w-full h-[300px] md:h-[500px]">

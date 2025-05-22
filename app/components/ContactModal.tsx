@@ -165,7 +165,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   Thanks!
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  I'll be in touch soon.
+                  I&apos;ll be in touch soon.
                 </p>
               </motion.div>
             )}

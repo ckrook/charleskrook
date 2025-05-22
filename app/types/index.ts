@@ -18,6 +18,11 @@ export type Work = {
     width: number;
     height: number;
   };
+  bannerImage: {
+    url: string;
+    width: number;
+    height: number;
+  };
   technoligies: {
     name: string;
     logoWhite: {

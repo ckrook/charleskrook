@@ -21,6 +21,9 @@ export default function ProjectCard({
       setScrollY(window.scrollY);
     };
 
+    // Store the current value of the ref
+    const currentRef = mockupRef.current;
+
     // Add scroll event listener
     window.addEventListener("scroll", handleScroll, { passive: true });
 
@@ -39,14 +42,14 @@ export default function ProjectCard({
       { threshold: 0.1 }
     );
 
-    if (mockupRef.current) {
-      observer.observe(mockupRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (mockupRef.current) {
-        observer.unobserve(mockupRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -68,7 +71,7 @@ export default function ProjectCard({
 
   return (
     <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-8 md:mb-16 ">
-      <div className="col-span-4 sm:col-span-8 relative w-full h-[400px] sm:h-[300px] md:h-[500px] overflow-hidden rounded-lg">
+      <div className="col-span-4 sm:col-span-8 relative w-full h-[400px] sm:h-[300px] md:h-[500px] overflow-hidden rounded-2xl">
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -87,9 +90,9 @@ export default function ProjectCard({
             className="absolute inset-0 w-full h-full flex items-center"
           >
             <div
-              className="relative w-[200%] h-[200%] transform translate-x-[25%]"
+              className="relative w-[400%] md:w-[200%] h-auto aspect-[3/2] ml-auto"
               style={{
-                transform: `translateY(${-parallaxOffset}px) translateX(25%) translateY(25%)`,
+                transform: `translateY(${-parallaxOffset}px)`,
                 transition: "transform 0.05s ease-out",
               }}
             >
@@ -98,7 +101,7 @@ export default function ProjectCard({
                 alt={`${project.name} mockup`}
                 fill
                 sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
-                className="object-contain"
+                className="object-contain md:translate-x-[20%] md:translate-y-[20%] translate-x-[0%] translate-y-[0%]"
                 priority={true}
               />
             </div>
