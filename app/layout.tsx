@@ -75,7 +75,30 @@ export const metadata: Metadata = {
     creator: "@charleskrook",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon/favicon.ico" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: "/favicon/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    other: [
+      {
+        rel: "android-chrome",
+        url: "/favicon/android-chrome-192x192.png",
+        sizes: "192x192",
+      },
+      {
+        rel: "android-chrome",
+        url: "/favicon/android-chrome-512x512.png",
+        sizes: "512x512",
+      },
+    ],
   },
 };
 
@@ -91,6 +114,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body
         className={cn(
