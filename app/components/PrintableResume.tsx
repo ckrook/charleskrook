@@ -57,9 +57,7 @@ export default function PrintableResume() {
             </div>
             <div>
               <h1 className="text-2xl font-serif font-bold">Charles Krook</h1>
-              <p className="text-sm text-gray-600">
-                Software Engineer • Stockholm, Sweden
-              </p>
+              <p>Software Engineer • Stockholm, Sweden</p>
             </div>
           </div>
           <div className="text-sm text-right">
@@ -93,9 +91,7 @@ export default function PrintableResume() {
               <h3 className="font-medium">Senior Software Engineer</h3>
               <span className="text-xs text-gray-600">2021 - Present</span>
             </div>
-            <p className="text-sm font-medium text-gray-700">
-              Tech Company AB, Stockholm
-            </p>
+            <p>Tech Company AB, Stockholm</p>
             <ul className="text-sm mt-1 list-disc pl-5">
               <li>
                 Led the development of a Next.js web application with TypeScript
@@ -112,9 +108,7 @@ export default function PrintableResume() {
               <h3 className="font-medium">Frontend Developer</h3>
               <span className="text-xs text-gray-600">2018 - 2021</span>
             </div>
-            <p className="text-sm font-medium text-gray-700">
-              Digital Agency XYZ, Stockholm
-            </p>
+            <p>Digital Agency XYZ, Stockholm</p>
             <ul className="text-sm mt-1 list-disc pl-5">
               <li>
                 Developed responsive web applications using React and Redux
@@ -138,25 +132,19 @@ export default function PrintableResume() {
           <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
             <div>
               <h3 className="font-medium">Frontend</h3>
-              <p className="text-gray-700">
-                React, Next.js, TypeScript, HTML/CSS, Tailwind CSS
-              </p>
+              <p>React, Next.js, TypeScript, HTML/CSS, Tailwind CSS</p>
             </div>
             <div>
               <h3 className="font-medium">Backend</h3>
-              <p className="text-gray-700">
-                Node.js, Express, RESTful APIs, GraphQL
-              </p>
+              <p>Node.js, Express, RESTful APIs, GraphQL</p>
             </div>
             <div>
               <h3 className="font-medium">Tools & Practices</h3>
-              <p className="text-gray-700">
-                Git, GitHub Actions, Jest, Testing Library
-              </p>
+              <p>Git, GitHub Actions, Jest, Testing Library</p>
             </div>
             <div>
               <h3 className="font-medium">Other</h3>
-              <p className="text-gray-700">AWS, Docker, Agile/Scrum, CI/CD</p>
+              <p>AWS, Docker, Agile/Scrum, CI/CD</p>
             </div>
           </div>
         </section>
@@ -170,9 +158,7 @@ export default function PrintableResume() {
             <h3 className="font-medium">MSc in Computer Science</h3>
             <span className="text-xs text-gray-600">2014 - 2018</span>
           </div>
-          <p className="text-sm text-gray-700">
-            KTH Royal Institute of Technology, Stockholm
-          </p>
+          <p>KTH Royal Institute of Technology, Stockholm</p>
         </section>
 
         {/* Languages */}

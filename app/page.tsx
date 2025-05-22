@@ -23,7 +23,7 @@ export default async function Home() {
 
   return (
     <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
-      <div className="col-span-4 sm:col-start-2 sm:col-end-8 py-12 md:py-8">
+      <div className="col-span-4 sm:col-start-1 sm:col-end-9">
         <PageHeader
           titlePrefix="Stockholm-based"
           highlightWord="frontend engineer"
@@ -72,9 +72,7 @@ export default async function Home() {
                 key={project.id}
               >
                 <CardItem title={project.name} subtitle={project.role} />
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  {project.description.text}
-                </p>
+                <p>{project.description.text}</p>
                 <div className="mt-4">
                   <Image
                     src={project.showCaseImages?.[0]?.url || ""}

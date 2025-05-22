@@ -54,9 +54,7 @@ export default function HoverImageBlogPost({ post }: HoverImageBlogPostProps) {
     >
       <Link href={`/blog/${post?.slug}`} className="block">
         <div className="mb-2">
-          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
-            {new Date(post.createdAt).toLocaleDateString()}
-          </p>
+          <p>{new Date(post.createdAt).toLocaleDateString()}</p>
         </div>
         <h3 className="text-base sm:text-lg font-medium mb-2 group-hover:text-primary transition-colors">
           {post.title}

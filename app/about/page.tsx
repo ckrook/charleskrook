@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -6,10 +8,21 @@ import ProfileImageFlip from "../components/ProfileImageFlip";
 import PageHeader from "../components/PageHeader";
 import { fetchTechnologies } from "../api/graphql";
 import { Technology } from "../types";
+import ContactModal from "../components/ContactModal";
 
-export default async function About() {
-  // Fetch technologies from the API
-  const technologies = await fetchTechnologies();
+export default function About() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [technologies, setTechnologies] = useState<Technology[]>([]);
+
+  // Fetch technologies on the client-side
+  React.useEffect(() => {
+    const loadTechnologies = async () => {
+      const techs = await fetchTechnologies();
+      setTechnologies(techs);
+    };
+
+    loadTechnologies();
+  }, []);
 
   return (
     <div className="grid grid-cols-8 col-start-3 col-end-11 pb-16">
@@ -24,9 +37,9 @@ export default async function About() {
       </div>
 
       {/* Bio Section */}
-      <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-16">
+      <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-4">
         {/* Image column */}
-        <div className="col-span-2 col-md-4 d-flex justify-content-center justify-content-md-start">
+        <div className=" col-span-2 col-md-4 d-flex justify-content-center justify-content-md-start">
           <ProfileImageFlip
             frontImage="/charles-liten.png"
             alt="Charles Krook"
@@ -70,7 +83,7 @@ export default async function About() {
                   {technologies.map((tech: Technology) => (
                     <div
                       key={tech.name}
-                      className="relative h-12 bg-white p-2 dark:bg-neutral-800 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
+                      className="relative h-12 bg-white p-2 dark:bg-stone-950 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
                     >
                       <div className="relative w-20 h-8">
                         {tech.logoWhite?.url && (
@@ -92,44 +105,44 @@ export default async function About() {
       </section>
 
       {/* Working Process Section */}
-      <section className=" col-span-8 mb-16 md:mb-24">
-        <h2 className="text-xl md:text-2xl font-medium mb-6">My Approach</h2>
-        <div className="row">
-          <div className="col-12 col-md-4 mb-4 mb-md-0">
-            <div className="bg-white dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
-              <div className="font-serif italic text-2xl text-red-500 mb-3">
-                01
-              </div>
-              <h3 className="text-lg font-medium mb-2">Understand</h3>
-              <p className="text-neutral-700 dark:text-neutral-300">
-                I start by deeply understanding the problem, the users, and the
-                business goals before writing any code.
-              </p>
+      <section className="grid grid-cols-3 gap-4 col-span-8 mb-16 md:mb-24">
+        <h2 className=" col-span-3 text-xl md:text-2xl font-medium mb-6">
+          My Approach
+        </h2>
+        <div className="col-span-1 mb-4 mb-md-0">
+          <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 ">
+            <div className="font-serif italic text-2xl text-red-500 mb-3">
+              01
             </div>
+            <h3 className="text-lg font-medium mb-2">Understand</h3>
+            <p>
+              I start by deeply understanding the problem, the users, and the
+              business goals before writing any code.
+            </p>
           </div>
-          <div className="col-12 col-md-4 mb-4 mb-md-0">
-            <div className="bg-white dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
-              <div className="font-serif italic text-2xl text-red-500 mb-3">
-                02
-              </div>
-              <h3 className="text-lg font-medium mb-2">Design</h3>
-              <p className="text-neutral-700 dark:text-neutral-300">
-                Creating thoughtful solutions that are both functionally sound
-                and aesthetically pleasing.
-              </p>
+        </div>
+        <div className="col-span-1 mb-4 mb-md-0">
+          <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
+            <div className="font-serif italic text-2xl text-red-500 mb-3">
+              02
             </div>
+            <h3 className="text-lg font-medium mb-2">Design</h3>
+            <p>
+              Creating thoughtful solutions that are both functionally sound and
+              aesthetically pleasing.
+            </p>
           </div>
-          <div className="col-12 col-md-4">
-            <div className="bg-white dark:bg-neutral-900 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
-              <div className="font-serif italic text-2xl text-red-500 mb-3">
-                03
-              </div>
-              <h3 className="text-lg font-medium mb-2">Build & Refine</h3>
-              <p className="text-neutral-700 dark:text-neutral-300">
-                Implementing with clean, maintainable code and continuously
-                refining based on feedback and data.
-              </p>
+        </div>
+        <div className="col-span-1 mb-4 mb-md-0">
+          <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
+            <div className="font-serif italic text-2xl text-red-500 mb-3">
+              03
             </div>
+            <h3 className="text-lg font-medium mb-2">Build & Refine</h3>
+            <p>
+              Implementing with clean, maintainable code and continuously
+              refining based on feedback and data.
+            </p>
           </div>
         </div>
       </section>
@@ -142,21 +155,29 @@ export default async function About() {
               <h2 className="text-xl md:text-2xl font-medium mb-4">
                 Let&apos;s Connect
               </h2>
-              <p className="text-neutral-700 dark:text-neutral-300 mx-auto mb-6 max-w-xl">
-                Have a project in mind or just want to connect? I&apos;m always
-                interested in hearing about new opportunities and creative
-                collaborations.
-              </p>
-              <Link
-                href="mailto:contact@charleskrook.com"
+              <div className="mb-4">
+                <p>
+                  Have a project in mind or just want to connect? I&apos;m
+                  always interested in hearing about new opportunities and
+                  creative collaborations.
+                </p>
+              </div>
+              <button
+                onClick={() => setIsContactModalOpen(true)}
                 className="inline-block bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
               >
                 Get in Touch
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </div>
   );
 }

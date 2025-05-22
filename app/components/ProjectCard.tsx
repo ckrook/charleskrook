@@ -40,7 +40,7 @@ export default function ProjectCard({
         <div className="w-full">
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
             {/* Logo and Title */}
-            <div className="flex-shrink-0 mb-4 sm:mb-0">
+            <div className="flex-shrink-0 sm:mb-0">
               <CardItem
                 title={project.name}
                 subtitle={project.role}
@@ -50,7 +50,7 @@ export default function ProjectCard({
               />
             </div>
             {/* Description */}
-            <p className="text-sm sm:text-base">{project.description.text}</p>
+            <p>{project.description.text}</p>
           </div>
         </div>
       </div>

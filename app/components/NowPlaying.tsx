@@ -54,14 +54,14 @@ export default function NowPlaying() {
 
   return (
     <div className="flex mt-2 justify-start">
-      <div className="flex items-center gap-3  py-1 px-4 rounded-full text-neutral-900 dark:text-neutral-100 font-medium transition-colors duration-200 border border-theme-light">
+      <div className="flex items-center gap-3  rounded-full text-neutral-900 dark:text-neutral-100 font-medium transition-colors duration-200 ">
         <Link
           href={data?.songUrl || "#"}
           className="no-underline"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div className="flex font-semibold text-sm items-center gap-2">
+          <div className="flex font-medium text-sm items-center gap-2">
             {nowPlaying.length > 38 ? (
               <div className="text-neutral-900 dark:text-neutral-100">
                 {trimText(nowPlaying, 38)}

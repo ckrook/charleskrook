@@ -60,9 +60,7 @@ export default async function Projects() {
                         subtitle={project.role}
                         logoImageUrl={project?.logo?.url}
                       />
-                      <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-3 mb-4">
-                        {project.description.text}
-                      </p>
+                      <p>{project.description.text}</p>
                       {project.showCaseImages?.[0]?.url && (
                         <div className="mt-4 aspect-video relative overflow-hidden rounded-lg">
                           <Image

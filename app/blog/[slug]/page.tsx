@@ -20,11 +20,10 @@ export default async function BlogPost({
   params: { slug: string };
 }) {
   const post = await fetchBlogPostBySlug(params.slug);
-  console.log("Markdown: ", post?.markdown);
   if (!post) {
     return (
       <main className="flex items-center mx-auto flex-col justify-between scroll-auto">
-        <div className="w-full max-w-[1400px] px-4 sm:px-6 md:px-8">
+        <div className="">
           <section className="mb-16 md:mb-32">
             <h1 className="text-2xl font-semibold mb-4">Post not found</h1>
             <Link href="/" className="text-blue-600 hover:underline">
@@ -37,18 +36,8 @@ export default async function BlogPost({
   }
 
   return (
-    <main className="flex items-center mx-auto flex-col justify-between scroll-auto">
-      <div className="w-full max-w-[1400px] px-4 sm:px-6 md:px-8">
-        {/* Back Navigation */}
-        <section className="mb-8 md:mb-16">
-          <Link
-            href="/"
-            className="inline-block text-neutral-600 hover:text-neutral-900 transition-colors"
-          >
-            ← Back to home
-          </Link>
-        </section>
-
+    <main className=" mt-16 col-start-3 col-end-11  items-center flex-col justify-between scroll-auto">
+      <div className=" ">
         {/* Blog Post Content */}
         <section className="mb-16 md:mb-32">
           <div>

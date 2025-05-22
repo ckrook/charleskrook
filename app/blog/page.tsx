@@ -34,16 +34,17 @@ export default async function BlogPage() {
               )}
             </div>
             <div className="mb-2">
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                {new Date(blogPosts[0].createdAt).toLocaleDateString()}
-              </p>
+              <p>{new Date(blogPosts[0].createdAt).toLocaleDateString()}</p>
             </div>
             <h2 className="text-xl md:text-2xl font-medium mb-3 group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors">
               {blogPosts[0].title}
             </h2>
-            <div className="inline-block bg-neutral-100 dark:bg-neutral-800 rounded-full px-4 py-2 text-sm">
+            <Link
+              href={`/blog/${blogPosts[0].slug}`}
+              className="inline-block bg-neutral-100 dark:bg-neutral-800 rounded-full px-4 py-2"
+            >
               Read article
-            </div>
+            </Link>
           </Link>
         </section>
       )}
@@ -60,9 +61,7 @@ export default async function BlogPage() {
           </div>
         ) : (
           <div className="bg-neutral-50 dark:bg-neutral-900 rounded-xl p-8 text-center">
-            <p className="text-neutral-600 dark:text-neutral-400">
-              No articles yet. Check back soon!
-            </p>
+            <p>No articles yet. Check back soon!</p>
           </div>
         )}
       </section>
@@ -71,7 +70,7 @@ export default async function BlogPage() {
       <section className="mb-8">
         <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-xl border border-neutral-200 dark:border-neutral-800 text-center">
           <h2 className="text-xl md:text-2xl font-medium mb-4">Stay Updated</h2>
-          <p className="text-neutral-700 dark:text-neutral-300 max-w-[600px] mx-auto mb-6">
+          <p>
             Subscribe to receive notifications when I publish new articles about
             design and development.
           </p>

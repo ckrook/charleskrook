@@ -48,7 +48,7 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
                   subtitle={experience.role}
                   logoImageUrl={experience?.logo?.url}
                 />
-                <div className="flex flex-col">
+                <div className="flex shrink-0 flex-col">
                   <p className="text-neutral-700">{period}</p>
                 </div>
               </div>

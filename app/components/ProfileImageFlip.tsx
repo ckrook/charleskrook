@@ -21,8 +21,9 @@ export default function ProfileImageFlip({
 
   return (
     <div
-      className="w-64 h-64 relative cursor-pointer perspective"
-      onClick={toggleFlip}
+      className="w-full h-full relative cursor-pointer perspective"
+      onMouseEnter={toggleFlip}
+      onMouseLeave={toggleFlip}
     >
       <motion.div
         className="w-full h-full relative"

@@ -81,7 +81,9 @@ export default async function ProjectPage({
                   </Link>
                 </div>
               </div>
-              <p className="mb-6">{project.description.text}</p>
+              <div className="mb-6">
+                <p>{project.description.text}</p>
+              </div>
               <div className="mb-6">
                 <h4 className="font-medium mb-2 uppercase text-sm">
                   Technologies

@@ -61,16 +61,14 @@ export default function PageHeader({
 
   return (
     <section
-      className={`py-8 md:py-32 d-flex flex-column align-items-center justify-content-center text-center ${className}`}
+      className={`py-16 text-start md:py-32 d-flex flex-column align-items-center justify-content-center md:text-center ${className}`}
     >
       <div className="row">
         <div className="col-12">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal leading-tight tracking-tight dark:text-white mb-4 md:mb-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal leading-tight tracking-tight dark:text-white mb-2 md:mb-2">
             {renderTitle()}
           </h1>
-          <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 mx-auto">
-            {subtitle}
-          </p>
+          <p>{subtitle}</p>
         </div>
       </div>
     </section>
