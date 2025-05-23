@@ -5,14 +5,12 @@ import { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import Image from "next/image";
-import NowPlaying from "./components/NowPlaying";
 import Link from "next/link";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
 import PrintHandler from "./components/PrintHandler";
 import MobileMenu from "./components/MobileMenu";
 import CommandMenu from "./components/CommandMenu";
-import KeyboardShortcuts from "./components/KeyboardShortcuts";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -112,7 +110,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon/favicon.ico" />

@@ -61,20 +61,6 @@ export default function HoverImageBlogPost({ post }: HoverImageBlogPostProps) {
         </h3>
       </Link>
 
-      {/* Mobile thumbnail image (always visible on mobile) */}
-      {hasCoverImage && post.coverimage && isMobile && (
-        <div className="w-full h-40 relative mt-3 mb-2 rounded-lg overflow-hidden">
-          <Image
-            src={post.coverimage[0].url}
-            alt={post.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 240px"
-            className="object-cover"
-            priority={false}
-          />
-        </div>
-      )}
-
       {/* Floating image that follows the cursor using Framer Motion (desktop only) */}
       {hasCoverImage && post.coverimage && !isMobile && (
         <motion.div
