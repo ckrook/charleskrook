@@ -170,7 +170,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
                   {/* Desktop Navigation (visible only on desktop) */}
                   <nav className="flex justify-end items-center w-full">
-                    <div className="flex dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 overflow-hidden">
+                    <div className="flex  border-neutral-200 dark:border-neutral-800 overflow-hidden">
                       <Link
                         href="/"
                         className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"

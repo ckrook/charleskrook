@@ -121,7 +121,7 @@ export function RichTextContent({
         return (
           <pre
             key={index}
-            className="bg-neutral-100 p-4 rounded-lg my-4 overflow-x-auto"
+            className="bg-neutral-100 p-4 rounded-lg my-4 overflow-x-auto dark:bg-neutral-800 dark:text-neutral-200"
           >
             <code className="text-sm whitespace-pre">{codeText}</code>
           </pre>
