@@ -37,8 +37,8 @@ export default async function ProjectPage({
   }
 
   return (
-    <main className=" col-start-3 col-end-11 justify-between scroll-auto">
-      <div className="mx-4 rounded-lg overflow-hidden">
+    <main className=" col-span-12 grid grid-cols-12 justify-between scroll-auto mt-16">
+      <div className="col-span-12 md:col-span-8 md:col-start-3 rounded-none md:rounded-lg overflow-hidden">
         <div className="relative w-full h-[400px] md:h-[500px] bg-stone-950 gradient-to-r from-stone-950 to-stone-900">
           <Image
             src={project?.bannerImage?.url || ""}
@@ -48,7 +48,7 @@ export default async function ProjectPage({
           />
         </div>
       </div>
-      <div className=" mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-8">
+      <div className="col-span-12 md:col-span-6 md:col-start-4 mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-8">
         {/* Back Navigation */}
         <section className="flex justify-between items-center py-4 mb-6 md:mb-12">
           <Link
@@ -76,7 +76,7 @@ export default async function ProjectPage({
                     href={project.liveSite}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block md:hidden text-center bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors h-full"
+                    className="block md:hidden text-center bg-stone-100 dark:bg-black hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors h-full"
                   >
                     View Site →
                   </Link>
@@ -95,7 +95,7 @@ export default async function ProjectPage({
                       {project.technoligies.map((technology) => (
                         <div
                           key={technology.name}
-                          className="relative h-12 bg-white dark:bg-neutral-800 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
+                          className="relative h-12 bg-white dark:bg-neutral-950 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
                         >
                           <div className="relative w-16 h-10">
                             <Image
@@ -112,7 +112,7 @@ export default async function ProjectPage({
                 </div>
               </div>
               {/* Project details in a 2-column grid */}
-              <button className=" mb-8 w-full bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
+              <button className=" mb-8 w-full bg-stone-100 dark:bg-neutral-900 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
                 View Site →
               </button>
             </div>
