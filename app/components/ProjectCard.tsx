@@ -70,7 +70,7 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-8 md:mb-16 ">
+    <div className="grid grid-cols-4 sm:grid-cols-8 mb-8 md:mb-16 ">
       <div className="col-span-4 sm:col-span-8 relative w-full h-[400px] sm:h-[300px] md:h-[500px] overflow-hidden rounded-2xl">
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
