@@ -32,6 +32,9 @@ export type Work = {
     logoWhite: {
       url: string;
     };
+    logoDark?: {
+      url: string;
+    };
   }[];
   description: {
     text: string;

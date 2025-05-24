@@ -95,13 +95,23 @@ export default async function ProjectPage({
                       {project.technoligies.map((technology) => (
                         <div
                           key={technology.name}
-                          className="relative h-12 bg-white dark:bg-neutral-950 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
+                          className="relative h-12 bg-white dark:bg-black border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
                         >
                           <div className="relative w-16 h-10">
                             <Image
                               src={technology?.logoWhite?.url || ""}
                               alt={technology.name}
-                              className="p-1 object-contain"
+                              className="p-1 object-contain dark:hidden"
+                              fill
+                            />
+                            <Image
+                              src={
+                                technology?.logoDark?.url ||
+                                technology?.logoWhite?.url ||
+                                ""
+                              }
+                              alt={technology.name}
+                              className="p-1 object-contain hidden dark:block"
                               fill
                             />
                           </div>
@@ -118,7 +128,7 @@ export default async function ProjectPage({
             </div>
 
             {/* Project Featured Image */}
-            <div className="">
+            <div>
               {project.showCaseImages && project.showCaseImages.length > 0 && (
                 <div className="mb-8">
                   <div className="relative w-full h-[300px] md:h-[500px]">

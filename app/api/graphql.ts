@@ -182,6 +182,9 @@ export async function fetchProjectBySlug(slug: string): Promise<Work | null> {
           logoWhite{
             url
           }
+          logoDark{
+            url
+          }
         }
         description {
           text
