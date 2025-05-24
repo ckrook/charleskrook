@@ -215,11 +215,14 @@ export async function fetchProjectBySlug(slug: string): Promise<Work | null> {
 /**
  * Fetch all technologies from the GraphQL API
  */
-export async function fetchTechnologies() {
+export async function fetchTechnologies(skip: number = 0, first: number = 10) {
   const query = `
     query {
-      technologies {
+      technologies(skip: ${skip}, first: ${first}) {
         name
+        logoDark {
+          url
+        }
         logoWhite {
           url
         }
@@ -229,4 +232,22 @@ export async function fetchTechnologies() {
 
   const data = await fetchGraphQL(query);
   return data?.technologies || [];
+}
+
+/**
+ * Fetch the total count of technologies
+ */
+export async function fetchTechnologiesCount() {
+  const query = `
+    query {
+      technologiesConnection {
+        aggregate {
+          count
+        }
+      }
+    }
+  `;
+
+  const data = await fetchGraphQL(query);
+  return data?.technologiesConnection?.aggregate?.count || 0;
 }

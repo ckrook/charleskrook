@@ -1,28 +1,72 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import ProfileImageFlip from "../components/ProfileImageFlip";
 import PageHeader from "../components/PageHeader";
-import { fetchTechnologies } from "../api/graphql";
+import { fetchTechnologies, fetchTechnologiesCount } from "../api/graphql";
 import { Technology } from "../types";
 import ContactModal from "../components/ContactModal";
 
 export default function About() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const [totalTechnologies, setTotalTechnologies] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
 
-  // Fetch technologies on the client-side
-  React.useEffect(() => {
+  // Fetch technologies on the client-side with pagination
+  useEffect(() => {
     const loadTechnologies = async () => {
-      const techs = await fetchTechnologies();
-      setTechnologies(techs);
+      setIsLoading(true);
+      try {
+        // Fetch the total count first
+        const count = await fetchTechnologiesCount();
+        setTotalTechnologies(count);
+
+        // Get the first page of technologies
+        const techs = await fetchTechnologies(0, itemsPerPage);
+        setTechnologies(techs);
+      } catch (error) {
+        console.error("Error loading technologies:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     loadTechnologies();
   }, []);
+
+  // Load more technologies when page changes
+  useEffect(() => {
+    const loadMoreTechnologies = async () => {
+      if (currentPage === 1) return; // First page is already loaded
+
+      setIsLoading(true);
+      try {
+        const skip = (currentPage - 1) * itemsPerPage;
+        const newTechs = await fetchTechnologies(skip, itemsPerPage);
+
+        // Append new technologies to existing ones
+        setTechnologies((prevTechs) => [...prevTechs, ...newTechs]);
+      } catch (error) {
+        console.error("Error loading more technologies:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadMoreTechnologies();
+  }, [currentPage]);
+
+  // Function to load more technologies
+  const loadMore = () => {
+    if (isLoading) return;
+    if (technologies.length >= totalTechnologies) return;
+
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
 
   return (
     <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-4 md:px-0">
@@ -86,20 +130,37 @@ export default function About() {
                       className="relative h-12 bg-white p-2 dark:bg-stone-950 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
                     >
                       <div className="relative w-20 h-8">
-                        {tech.logoWhite?.url && (
-                          <Image
-                            src={tech.logoWhite.url}
-                            alt={tech.name}
-                            className="p-1 object-contain"
-                            fill
-                          />
-                        )}
+                        <Image
+                          src={tech.logoWhite?.url || ""}
+                          alt={tech.name}
+                          className="p-1 object-contain dark:hidden"
+                          fill
+                        />
+                        <Image
+                          src={tech.logoDark?.url || ""}
+                          alt={tech.name}
+                          className="p-1 object-contain hidden dark:block"
+                          fill
+                        />
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
+
+            {/* Load More Button */}
+            {technologies.length < totalTechnologies && (
+              <div className="mt-6 text-center">
+                <button
+                  onClick={loadMore}
+                  disabled={isLoading}
+                  className="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-md transition-colors"
+                >
+                  {isLoading ? "Loading..." : "Load More"}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>

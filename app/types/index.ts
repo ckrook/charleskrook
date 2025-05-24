@@ -96,4 +96,7 @@ export type Technology = {
   logoWhite: {
     url: string;
   };
+  logoDark: {
+    url: string;
+  };
 };
