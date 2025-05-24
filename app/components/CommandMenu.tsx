@@ -128,13 +128,6 @@ export default function CommandMenu({ children }: CommandMenuProps) {
         )}
       </AnimatePresence>
       {children}
-      <button
-        onClick={() => setOpen(true)}
-        className="fixed bottom-5 right-5 bg-black dark:bg-white text-white dark:text-black rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:scale-105 transition-transform z-10"
-        aria-label="Open Command Menu"
-      >
-        <kbd className="text-xs">⌘K</kbd>
-      </button>
     </>
   );
 }
