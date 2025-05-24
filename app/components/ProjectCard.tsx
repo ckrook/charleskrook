@@ -119,7 +119,7 @@ export default function ProjectCard({
                   alt={`${project.name} mockup`}
                   fill
                   sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
-                  className="object-contain transform-gpu translate-y-[2%] md:translate-x-[20%] md:translate-y-[20%]"
+                  className="object-contain transform-gpu translate-y-[25%] md:translate-x-[20%] md:translate-y-[20%]"
                   priority={true}
                 />
               </div>
