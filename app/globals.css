@@ -114,7 +114,7 @@
     }
 
     h2{
-      @apply text-gray-800 dark:text-gray-300 text-base sm:text-lg font-medium mb-4 sm:mb-6;
+      @apply text-gray-800 dark:text-gray-300 text-base sm:text-lg font-medium mb-4 sm:mb-4;
     }
     
     /* Border utility classes */
