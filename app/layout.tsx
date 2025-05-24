@@ -11,6 +11,7 @@ import ThemeToggle from "./components/ThemeToggle";
 import PrintHandler from "./components/PrintHandler";
 import MobileMenu from "./components/MobileMenu";
 import CommandMenu from "./components/CommandMenu";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -27,6 +28,9 @@ const fontSerif = FontSerif({
 // OG image URL from opengraph.xyz's CDN
 const ogImageUrl =
   "https://opengraph.b-cdn.net/production/images/a9acc92f-1fe6-45e1-b798-666380e626e2.png?token=9xefLA4KJdml_EVI6bX1bYgmYrneDGZnIbXfewXZ9zo&height=630&width=1200&expires=33283914200";
+
+// Get the Google Analytics Measurement ID from environment variables
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 export const metadata: Metadata = {
   title: {
@@ -140,6 +144,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSerif.variable
         )}
       >
+        <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
         <ThemeProvider>
           <CommandMenu>
             <div className="grid grid-cols-12">
