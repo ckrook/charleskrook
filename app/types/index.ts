@@ -7,6 +7,7 @@ export type Work = {
   slug: string;
   liveSite: string;
   selectedWork: boolean;
+  industry: string;
   sideproject: boolean;
   logowhite: {
     url: string;

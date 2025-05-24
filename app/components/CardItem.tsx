@@ -10,6 +10,8 @@ type CardItemProps = {
   imageWidth?: number;
   imageHeight?: number;
   bgColor?: string;
+  industry?: string;
+  rounded?: boolean;
 };
 
 export default function CardItem({
@@ -19,6 +21,8 @@ export default function CardItem({
   imageWidth = 48,
   imageHeight = 48,
   bgColor,
+  industry,
+  rounded = false,
 }: CardItemProps) {
   const cardRef = useRef<HTMLLIElement>(null);
 
@@ -32,7 +36,9 @@ export default function CardItem({
               alt={`${title} image`}
               width={imageWidth}
               height={imageHeight}
-              className="w-auto h-auto rounded-[10px] mr-[11px] border border-neutral-200 dark:border-neutral-800"
+              className={`w-auto h-auto rounded-[10px] mr-[11px] border border-neutral-200 dark:border-neutral-800 ${
+                rounded ? "rounded-full" : ""
+              }`}
               style={{ backgroundColor: bgColor }}
             />
           )}

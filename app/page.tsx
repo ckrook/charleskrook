@@ -1,12 +1,12 @@
 import { fetchProjects, fetchExperiences, fetchBlogPosts } from "./api/graphql";
 import type { BlogPost, Experience } from "./types";
 import CardItem from "./components/CardItem";
-import Image from "next/image";
 import ProjectCard from "./components/ProjectCard";
 import ExperiencesList from "./components/ExperiencesList";
 import HoverImageBlogPost from "./components/HoverImageBlogPost";
 import { Work } from "./types";
 import PageHeader from "./components/PageHeader";
+import Link from "next/link";
 
 export default async function Home() {
   const projects: Work[] = await fetchProjects();
@@ -67,25 +67,19 @@ export default async function Home() {
           <h2>Side Projects</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             {sideProjects.map((project) => (
-              <div
-                className="bg-gray-50 dark:bg-neutral-900 h-auto min-h-[320px] rounded-xl p-4 border border-neutral-200 dark:border-neutral-800 relative overflow-hidden"
+              <Link
+                target="_blank"
+                href={project.liveSite || "#"}
+                className=""
                 key={project.id}
               >
-                <CardItem title={project.name} subtitle={project.role} />
-                <p>{project.description.text}</p>
-                <div className="mt-4">
-                  <Image
-                    src={project.showCaseImages?.[0]?.url || ""}
-                    alt={project.name}
-                    width={1500}
-                    height={600}
-                    className="transform rounded-t-lg w-full h-auto"
-                  />
-                </div>
-                <button className="absolute bottom-4 right-4 bg-white dark:bg-neutral-900 rounded-full px-4 py-2 border border-neutral-200 dark:border-neutral-800">
-                  View Project
-                </button>
-              </div>
+                <CardItem
+                  title={project.name}
+                  subtitle={project.industry}
+                  logoImageUrl={project?.logo?.url}
+                  rounded={true}
+                />
+              </Link>
             ))}
           </div>
         </div>
