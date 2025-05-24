@@ -33,29 +33,38 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
 
           const isHovered = hoveredId === experience.id;
           const showFaded = hoveredId !== null && !isHovered;
+          const hasUrl = !!experience.url;
 
-          return (
-            <Link
-              target="_blank"
-              href={experience.url || "#"}
-              key={experience.id}
-              className={`border-b py-6 md:py-8 border-neutral-200 dark:border-neutral-800 cursor-pointer transition-opacity duration-300 ${
-                showFaded ? "opacity-40" : "opacity-100"
-              }`}
-              onMouseEnter={() => setHoveredId(experience.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <div className="flex md:flex-row justify-between px-2 md:px-4 gap-4 md:gap-0">
-                <CardItem
-                  title={experience.name}
-                  subtitle={experience.role}
-                  logoImageUrl={experience?.logo?.url}
-                />
-                <div className="flex shrink-0 flex-col">
-                  <p className="text-neutral-700">{period}</p>
-                </div>
+          // Common props shared between link and div
+          const commonProps = {
+            key: experience.id,
+            className: `border-b py-6 md:py-8 border-neutral-200 dark:border-neutral-800 transition-opacity duration-300 ${
+              showFaded ? "opacity-40" : "opacity-100"
+            } ${hasUrl ? "cursor-pointer" : "cursor-default"}`,
+            onMouseEnter: () => setHoveredId(experience.id),
+            onMouseLeave: () => setHoveredId(null),
+          };
+
+          const content = (
+            <div className="flex md:flex-row justify-between px-2 md:px-4 gap-4 md:gap-0">
+              <CardItem
+                title={experience.name}
+                subtitle={experience.role}
+                logoImageUrl={experience?.logo?.url}
+              />
+              <div className="flex shrink-0 flex-col">
+                <p className="text-neutral-700">{period}</p>
               </div>
+            </div>
+          );
+
+          // Render as a link only if URL exists
+          return hasUrl ? (
+            <Link target="_blank" href={experience.url || "#"} {...commonProps}>
+              {content}
             </Link>
+          ) : (
+            <div {...commonProps}>{content}</div>
           );
         })}
       </div>
