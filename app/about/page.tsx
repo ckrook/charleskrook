@@ -91,7 +91,7 @@ export default function About() {
         </div>
         {/* Content column */}
         <div className="sm:col-span-6 col-span-8">
-          <h2 className="text-xl md:text-2xl font-medium mb-4">My Journey</h2>
+          <h2 className="mb-4">My Journey</h2>
           <div className="space-y-4 text-neutral-800 dark:text-neutral-200">
             <p>
               Based in Stockholm, I&apos;m a frontend engineer at Umain™ with a
@@ -118,9 +118,7 @@ export default function About() {
       <section className=" col-span-8 mb-16 md:mb-24">
         <div>
           <div>
-            <h2 className="text-xl md:text-2xl font-medium mb-6">
-              Skills & Expertise
-            </h2>
+            <h2 className="mb-6">Skills & Expertise</h2>
             <div className="overflow-hidden rounded-md">
               <div className="border-l border-neutral-200 dark:border-neutral-700">
                 <div className="grid grid-cols-2 md:grid-cols-4 -mx-px -mb-px">
@@ -167,9 +165,7 @@ export default function About() {
 
       {/* Working Process Section */}
       <section className="grid grid-cols-3 gap-4 col-span-8 mb-16 md:mb-24">
-        <h2 className=" col-span-3 text-xl md:text-2xl font-medium mb-6">
-          My Approach
-        </h2>
+        <h2 className=" col-span-3 mb-6">My Approach</h2>
         <div className="sm:col-span-1 col-span-3 mb-4 mb-md-0">
           <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 ">
             <div className="font-serif italic text-2xl text-red-500 mb-3">
