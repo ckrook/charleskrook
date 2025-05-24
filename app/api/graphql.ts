@@ -79,6 +79,7 @@ export async function fetchExperiences(): Promise<Experience[]> {
       workplaces {
         id
         name
+        url
         description {
           markdown
         }

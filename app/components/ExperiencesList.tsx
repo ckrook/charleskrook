@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { Experience } from "../types/index";
 import CardItem from "./CardItem";
 import { useState } from "react";
@@ -34,7 +35,9 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
           const showFaded = hoveredId !== null && !isHovered;
 
           return (
-            <div
+            <Link
+              target="_blank"
+              href={experience.url || "#"}
               key={experience.id}
               className={`border-b py-6 md:py-8 border-neutral-200 dark:border-neutral-800 cursor-pointer transition-opacity duration-300 ${
                 showFaded ? "opacity-40" : "opacity-100"
@@ -52,7 +55,7 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
                   <p className="text-neutral-700">{period}</p>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

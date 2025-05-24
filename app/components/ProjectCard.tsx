@@ -99,23 +99,25 @@ export default function ProjectCard({
         {project.mockupImage?.url && (
           <div
             ref={mockupRef}
-            className="absolute inset-0 w-full h-full flex items-center"
+            className="absolute inset-0 w-full h-full flex items-center justify-center"
           >
             <div
-              className="relative w-[400%] md:w-[200%] h-auto aspect-[3/2] ml-auto"
+              className="relative h-[600px] md:h-auto w-full md:w-[200%] aspect-[3/2] flex items-center justify-center md:justify-end"
               style={{
                 transform: `translateY(${-parallaxOffset}px)`,
                 transition: "transform 0.05s ease-out",
               }}
             >
-              <Image
-                src={project.mockupImage.url}
-                alt={`${project.name} mockup`}
-                fill
-                sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
-                className="object-contain md:translate-x-[20%] md:translate-y-[20%] translate-x-[0%] translate-y-[0%]"
-                priority={true}
-              />
+              <div className="relative w-[400%] md:w-full h-full">
+                <Image
+                  src={project.mockupImage.url}
+                  alt={`${project.name} mockup`}
+                  fill
+                  sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1200px) 60vw, 40vw"
+                  className="object-contain transform-gpu translate-y-[25%] md:translate-x-[20%] md:translate-y-[20%]"
+                  priority={true}
+                />
+              </div>
             </div>
           </div>
         )}

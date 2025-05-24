@@ -61,6 +61,7 @@ export type Work = {
 export type Experience = {
   id: string;
   name: string;
+  url: string;
   description: {
     markdown: string;
   };
