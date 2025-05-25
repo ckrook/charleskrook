@@ -132,15 +132,17 @@ export function RichTextContent({
           return (
             <div
               key={index}
-              className="relative w-full my-4 h-auto min-h-[240px]"
+              className="col-span-12 md:col-span-8 md:col-start-3 rounded-none md:rounded-lg overflow-hidden"
             >
-              <Image
-                src={node.src}
-                alt={node.alt || ""}
-                fill
-                className="rounded-lg object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              <div className="relative w-full h-[400px] md:h-[500px] bg-stone-950 gradient-to-r from-stone-950 to-stone-900">
+                <Image
+                  src={node.src}
+                  alt={node.alt || ""}
+                  fill
+                  objectFit="cover"
+                  unoptimized
+                />
+              </div>
             </div>
           );
         }
@@ -276,28 +278,32 @@ export function MarkdownContent({
 
             if (isExternal) {
               return (
-                <div className="relative w-full my-4 h-auto min-h-[240px]">
-                  <Image
-                    src={src}
-                    alt={alt || ""}
-                    fill
-                    className="rounded-lg object-contain"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                <div className="col-span-12 md:col-span-8 md:col-start-3 rounded-none md:rounded-lg overflow-hidden">
+                  <div className="relative w-full h-[400px] md:h-[500px] bg-stone-950 gradient-to-r from-stone-950 to-stone-900">
+                    <Image
+                      src={src}
+                      alt={alt || ""}
+                      fill
+                      objectFit="cover"
+                      unoptimized
+                    />
+                  </div>
                 </div>
               );
             }
 
             // For local images with known dimensions
             return (
-              <div className="relative w-full my-4">
-                <Image
-                  src={src}
-                  alt={alt || ""}
-                  width={800}
-                  height={500}
-                  className="rounded-lg max-w-full h-auto"
-                />
+              <div className="col-span-12 md:col-span-8 md:col-start-3 rounded-none md:rounded-lg overflow-hidden">
+                <div className="relative w-full h-[400px] md:h-[500px] bg-stone-950 gradient-to-r from-stone-950 to-stone-900">
+                  <Image
+                    src={src}
+                    alt={alt || ""}
+                    fill
+                    objectFit="cover"
+                    unoptimized
+                  />
+                </div>
               </div>
             );
           },

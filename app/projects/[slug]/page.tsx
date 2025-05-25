@@ -143,22 +143,20 @@ export default async function ProjectPage({
           </div>
         </section>
 
-        <section>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mb-32 mb-16">
-            {/* Render the rich text content here */}
-            <div className="col-span-1 md:col-span-3">
-              {parsedContent ? (
-                <RichTextRenderer
-                  content={parsedContent}
-                  className="project-content"
-                  debug={true}
-                />
-              ) : (
-                <p className="text-neutral-500">
-                  No content available for this project.
-                </p>
-              )}
-            </div>
+        <section className="  grid grid-cols-1 md:grid-cols-3 gap-8 md:mb-32 mb-16">
+          {/* Render the rich text content here */}
+          <div className="col-span-1 md:col-span-3">
+            {parsedContent ? (
+              <RichTextRenderer
+                content={parsedContent}
+                className="project-content"
+                debug={true}
+              />
+            ) : (
+              <p className="text-neutral-500">
+                No content available for this project.
+              </p>
+            )}
           </div>
         </section>
       </div>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "./ThemeProvider";
 
 type CommandMenuProps = {
   children?: React.ReactNode;
@@ -12,6 +13,7 @@ type CommandMenuProps = {
 export default function CommandMenu({ children }: CommandMenuProps) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const { toggleTheme } = useTheme();
 
   // Toggle the menu when ⌘K is pressed
   useEffect(() => {
@@ -104,7 +106,7 @@ export default function CommandMenu({ children }: CommandMenuProps) {
                   >
                     <Command.Item
                       onSelect={() => {
-                        document.documentElement.classList.toggle("dark");
+                        toggleTheme();
                         setOpen(false);
                       }}
                       className="px-3 py-2 rounded-md text-sm cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 text-black dark:text-white"

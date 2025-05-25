@@ -53,7 +53,7 @@ export default function NowPlaying() {
   const nowPlaying = `${data?.title} - ${data?.artist}`;
 
   return (
-    <div className="flex mt-2 justify-start">
+    <div className="flex mt-2 justify-center">
       <div className="flex items-center gap-3  rounded-full text-neutral-900 dark:text-neutral-100 font-medium transition-colors duration-200 ">
         <Link
           href={data?.songUrl || "#"}

@@ -99,7 +99,6 @@ export default function MobileMenu() {
 
           <div className="flex items-center gap-2">
             {/* Theme Toggle */}
-            <ThemeToggle />
 
             {/* Hamburger Icon */}
             <button

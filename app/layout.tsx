@@ -217,7 +217,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
               {children}
               <footer className="md:flex md:col-span-6 md:col-start-4 col-span-12 flex-col justify-center text-center md:justify-between items-center py-4">
-                <div className="flex justify-center items-center">
+                <div>
                   <NowPlaying />
                 </div>
                 <span className="text-xs text-gray-600 dark:text-gray-300">
