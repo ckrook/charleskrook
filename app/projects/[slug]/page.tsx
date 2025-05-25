@@ -144,7 +144,7 @@ export default async function ProjectPage({
         </section>
 
         <section>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mb-32 mb-16">
             {/* Render the rich text content here */}
             <div className="col-span-1 md:col-span-3">
               {parsedContent ? (
