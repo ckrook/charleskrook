@@ -33,7 +33,52 @@ export function normalizeRichTextContent(content: any): RichTextNode[] | null {
     return content.json.children;
   }
 
-  // Case 4: Array of objects with json property (another common CMS format)
+  // Case 4: Direct children array at the top level (matches your console.log output)
+  if (content?.children && Array.isArray(content.children)) {
+    return content.children;
+  }
+
+  // Case 5: GraphCMS raw format - often a stringified JSON
+  if (typeof content === "string") {
+    try {
+      const parsedContent = JSON.parse(content);
+
+      // Check different possible structures in the parsed content
+      if (parsedContent.children && Array.isArray(parsedContent.children)) {
+        return parsedContent.children;
+      }
+
+      if (parsedContent.json && parsedContent.json.children) {
+        return parsedContent.json.children;
+      }
+
+      if (
+        Array.isArray(parsedContent) &&
+        parsedContent.length > 0 &&
+        parsedContent[0].type
+      ) {
+        return parsedContent;
+      }
+
+      // If we have a parsable string but no recognized structure, convert to paragraph
+      return [
+        {
+          type: "paragraph",
+          children: [{ text: content }],
+        },
+      ];
+    } catch (e) {
+      // If it's not valid JSON, treat as simple string (Case 7)
+      return [
+        {
+          type: "paragraph",
+          children: [{ text: content }],
+        },
+      ];
+    }
+  }
+
+  // Case 6: Array of objects with json property (another common CMS format)
   if (Array.isArray(content) && content[0]?.json) {
     // Check if json has a children property
     if (content[0].json?.children && Array.isArray(content[0].json.children)) {
@@ -42,18 +87,7 @@ export function normalizeRichTextContent(content: any): RichTextNode[] | null {
     return content[0].json;
   }
 
-  // Case 5: Simple string content
-  if (typeof content === "string") {
-    // Convert simple string to rich text paragraph format
-    return [
-      {
-        type: "paragraph",
-        children: [{ text: content }],
-      },
-    ];
-  }
-
-  // Case 6: Debug object with the structure
+  // Case 7: Debug object with the structure
   console.log("Could not normalize rich text content. Got:", content);
   return null;
 }

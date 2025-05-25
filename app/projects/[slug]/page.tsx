@@ -2,6 +2,7 @@ import { fetchProjectBySlug } from "@/app/api/graphql";
 import CardItem from "@/app/components/CardItem";
 import Image from "next/image";
 import Link from "next/link";
+import RichTextRenderer from "@/app/components/RichTextRenderer";
 
 export async function generateMetadata({
   params,
@@ -20,6 +21,19 @@ export default async function ProjectPage({
   params: { slug: string };
 }) {
   const project = await fetchProjectBySlug(params.slug);
+
+  console.log("project.content?.raw ", project?.content?.raw);
+
+  // Try to parse the raw content if it's a string
+  let parsedContent = project?.content?.raw;
+  if (typeof parsedContent === "string") {
+    try {
+      parsedContent = JSON.parse(parsedContent);
+      console.log("Successfully parsed raw content");
+    } catch (e) {
+      console.error("Failed to parse raw content:", e);
+    }
+  }
 
   if (!project) {
     return (
@@ -126,52 +140,25 @@ export default async function ProjectPage({
                 View Site →
               </button>
             </div>
-
-            {/* Project Featured Image */}
-            <div>
-              {project.showCaseImages && project.showCaseImages.length > 0 && (
-                <div className="mb-8">
-                  <div className="relative w-full h-[300px] md:h-[500px]">
-                    <Image
-                      src={project.showCaseImages[0].url}
-                      alt={project.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw"
-                      className="rounded-lg object-cover "
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         </section>
 
         <section>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {project.showCaseImages && project.showCaseImages.length > 1 && (
-              <div className="col-span-2 md:col-span-3">
-                <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 md:gap-6">
-                  {project.showCaseImages.map((image, index) => {
-                    // Skip first image
-                    if (index === 0) return null;
-                    return (
-                      <div
-                        key={image.url}
-                        className="relative w-full h-[240px] md:h-[400px] lg:h-[800px]"
-                      >
-                        <Image
-                          src={image.url}
-                          alt={project.name}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="rounded-lg object-cover"
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+            {/* Render the rich text content here */}
+            <div className="col-span-1 md:col-span-3">
+              {parsedContent ? (
+                <RichTextRenderer
+                  content={parsedContent}
+                  className="project-content"
+                  debug={true}
+                />
+              ) : (
+                <p className="text-neutral-500">
+                  No content available for this project.
+                </p>
+              )}
+            </div>
           </div>
         </section>
       </div>

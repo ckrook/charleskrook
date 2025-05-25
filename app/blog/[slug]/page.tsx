@@ -22,9 +22,6 @@ export default async function BlogPost({
 }) {
   const post = await fetchBlogPostBySlug(params.slug);
 
-  // Debug the post structure
-  console.log("Post data structure:", JSON.stringify(post?.body, null, 2));
-
   if (!post) {
     return (
       <main className="flex items-center mx-auto flex-col justify-between scroll-auto">
