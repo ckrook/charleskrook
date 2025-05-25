@@ -28,19 +28,19 @@ export default async function Projects() {
         />
       </div>
 
-      <section className="mb-16 md:mb-24 col-span-8">
-        <div className="row">
-          <div className="col-12">
-            <div className="d-flex flex-column gap-6 md:gap-12">
-              {selectedWork.map((project) => (
-                <Link key={project.id} href={`/projects/${project.slug}`}>
-                  <ProjectCard project={project} />
-                </Link>
-              ))}
-            </div>
-          </div>
+      <div className="mb-16 md:mb-32 col-span-4 sm:col-span-8">
+        <div className="flex flex-col gap-6 md:gap-8">
+          {selectedWork.map((project) => (
+            <Link
+              key={project.id}
+              href={`/projects/${project.slug}`}
+              className="mb-10 last:mb-0"
+            >
+              <ProjectCard project={project} />
+            </Link>
+          ))}
         </div>
-      </section>
+      </div>
 
       {/* Side Projects Section */}
       <section className="mb-16 md:mb-24 col-span-8">
@@ -104,7 +104,13 @@ export default async function Projects() {
                         href={`/projects/${project.slug}`}
                         className="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 hover:shadow-sm transition-all d-block h-100"
                       >
-                        <ProjectCard project={project} variant="compact" />
+                        <div className="p-4 md:p-6 rounded-lg">
+                          <CardItem
+                            title={project.name}
+                            subtitle={project.industry}
+                            logoImageUrl={project?.logo?.url}
+                          />
+                        </div>
                       </Link>
                     </div>
                   ))}

@@ -24,10 +24,10 @@ export default function CardItem({
   industry,
   rounded = false,
 }: CardItemProps) {
-  const cardRef = useRef<HTMLLIElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   return (
-    <li className="flex w-full" ref={cardRef}>
+    <div className="flex w-full" ref={cardRef}>
       <div className="flex items-center">
         <div className="relative overflow-hidden flex items-center justify-center">
           {logoImageUrl && (
@@ -48,6 +48,6 @@ export default function CardItem({
           <p className="leading-6">{subtitle}</p>
         </div>
       </div>
-    </li>
+    </div>
   );
 }

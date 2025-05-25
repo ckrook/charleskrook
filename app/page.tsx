@@ -37,7 +37,13 @@ export default async function Home() {
       <div className="mb-16 md:mb-32 col-span-4 sm:col-span-8">
         <div className="flex flex-col gap-6 md:gap-8">
           {selectedWork.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <Link
+              key={project.id}
+              href={`/projects/${project.slug}`}
+              className="mb-10 last:mb-0"
+            >
+              <ProjectCard project={project} />
+            </Link>
           ))}
         </div>
       </div>
