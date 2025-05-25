@@ -54,29 +54,13 @@ export default async function Projects() {
                 href={`/projects/${project.slug}`}
                 className="group d-block h-100"
               >
-                <div className="bg-gray-50 dark:bg-neutral-900 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 relative overflow-hidden h-100 transition-all duration-300 hover:shadow-md">
+                <div className=" dark:bg-neutral-900 rounded-xl p-6  border-neutral-200 dark:border-neutral-800 relative overflow-hidden h-100 transition-all duration-300 ">
                   <CardItem
                     title={project.name}
-                    subtitle={project.role}
+                    subtitle={project.description.text}
+                    rounded
                     logoImageUrl={project?.logo?.url}
                   />
-                  <p>{project.description.text}</p>
-                  {project.showCaseImages?.[0]?.url && (
-                    <div className="mt-4 aspect-video relative overflow-hidden rounded-lg">
-                      <Image
-                        src={project.showCaseImages[0].url}
-                        alt={project.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                  )}
-                  <div className="absolute bottom-6 right-6">
-                    <span className="bg-white dark:bg-neutral-800 rounded-full px-4 py-2 text-sm border border-neutral-200 dark:border-neutral-700 transition-all duration-300 group-hover:bg-neutral-100 dark:group-hover:bg-neutral-700">
-                      View Project
-                    </span>
-                  </div>
                 </div>
               </Link>
             </div>

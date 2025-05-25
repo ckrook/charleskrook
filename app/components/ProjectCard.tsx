@@ -3,7 +3,6 @@ import Image from "next/image";
 import CardItem from "./CardItem";
 import { Work } from "../types/index";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
 interface ProjectCardProps {
   project: Work;

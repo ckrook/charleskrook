@@ -67,23 +67,6 @@ export default async function BlogPage() {
           </div>
         )}
       </section>
-
-      {/* Newsletter Section */}
-      <section className="mb-8 col-span-8">
-        <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-xl border border-neutral-200 dark:border-neutral-800 text-center">
-          <h2 className="text-xl md:text-2xl font-medium mb-4">Stay Updated</h2>
-          <p>
-            Subscribe to receive notifications when I publish new articles about
-            design and development.
-          </p>
-          <Link
-            href="mailto:subscribe@charleskrook.com"
-            className="inline-block bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
-          >
-            Subscribe
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }
