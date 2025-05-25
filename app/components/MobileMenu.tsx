@@ -73,12 +73,10 @@ export default function MobileMenu() {
     <>
       <div
         className={`md:hidden fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-          scrolled
-            ? "bg-white/80 dark:bg-zinc-950 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
+          scrolled ? "bg-white dark:bg-zinc-950 " : "bg-transparent"
         }`}
       >
-        <div className="flex justify-between items-center h-12 px-4">
+        <div className="flex justify-between items-center h-14 px-4">
           {/* Logo and Name */}
           <Link href="/" className="flex items-center gap-2">
             <div className="w-[33px] h-[33px]">
