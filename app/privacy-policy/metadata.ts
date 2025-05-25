@@ -1,0 +1,31 @@
+import { Metadata } from "next";
+
+// OG image URL from opengraph.xyz's CDN
+const ogImageUrl =
+  "https://opengraph.b-cdn.net/production/images/a9acc92f-1fe6-45e1-b798-666380e626e2.png?token=9xefLA4KJdml_EVI6bX1bYgmYrneDGZnIbXfewXZ9zo&height=630&width=1200&expires=33283914200";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Privacy Policy for Charles Krook's website - Learn how we collect, use, and protect your information",
+  openGraph: {
+    title: "Privacy Policy | Charles Krook",
+    description:
+      "Privacy Policy for Charles Krook's website - Learn how we collect, use, and protect your information",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "Privacy Policy | Charles Krook - Frontend Engineer",
+      },
+    ],
+  },
+  twitter: {
+    title: "Privacy Policy | Charles Krook",
+    description:
+      "Privacy Policy for Charles Krook's website - Learn how we collect, use, and protect your information",
+    images: [ogImageUrl],
+    card: "summary_large_image",
+  },
+};

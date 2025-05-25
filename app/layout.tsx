@@ -13,6 +13,7 @@ import MobileMenu from "./components/MobileMenu";
 import CommandMenu from "./components/CommandMenu";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import NowPlaying from "./components/NowPlaying";
+import CookieConsent from "./components/CookieConsent";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -145,7 +146,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSerif.variable
         )}
       >
-        <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
         <ThemeProvider>
           <CommandMenu>
             <div className="grid grid-cols-12">
@@ -226,6 +226,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </span>
               </footer>
             </div>
+
+            {/* Cookie Consent Banner - Loaded before Google Analytics */}
+            <CookieConsent />
+
+            {/* Google Analytics - Only initialized after consent */}
+            <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
           </CommandMenu>
           <PrintHandler />
         </ThemeProvider>
