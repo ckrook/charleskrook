@@ -12,6 +12,7 @@ import PrintHandler from "./components/PrintHandler";
 import MobileMenu from "./components/MobileMenu";
 import CommandMenu from "./components/CommandMenu";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import NowPlaying from "./components/NowPlaying";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -215,6 +216,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
 
               {children}
+              <footer className="md:flex md:col-span-6 md:col-start-4 col-span-12 flex-col justify-center text-center md:justify-between items-center py-4">
+                <div className="flex justify-center items-center">
+                  <NowPlaying />
+                </div>
+                <span className="text-xs text-gray-600 dark:text-gray-300">
+                  &copy; {new Date().getFullYear()} Charles Krook. All rights
+                  reserved.
+                </span>
+              </footer>
             </div>
           </CommandMenu>
           <PrintHandler />

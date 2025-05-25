@@ -61,13 +61,13 @@ export default function NowPlaying() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div className="flex font-medium text-sm items-center gap-2">
+          <div className="flex font-medium text-xs items-center gap-2 ">
             {nowPlaying.length > 38 ? (
-              <div className="text-neutral-900 dark:text-neutral-100">
+              <div className="text-gray-600 dark:text-gray-300">
                 {trimText(nowPlaying, 38)}
               </div>
             ) : (
-              <div className="text-neutral-900 dark:text-neutral-100">
+              <div className="text-gray-600 dark:text-gray-300">
                 {nowPlaying}
               </div>
             )}
