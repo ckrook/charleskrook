@@ -61,7 +61,7 @@ export function RichTextContent({
     switch (node.type) {
       case "paragraph":
         return (
-          <p key={index} className="text-neutral-700 mb-4 leading-relaxed">
+          <p key={index} className="mb-8 leading-relaxed">
             {safeMap(node.children, (child, i) => renderChild(child, i))}
           </p>
         );
@@ -245,17 +245,11 @@ export function MarkdownContent({
           h1: ({ children }) => (
             <h1 className="text-3xl font-semibold mb-6">{children}</h1>
           ),
-          h2: ({ children }) => (
-            <h2 className="text-2xl font-semibold mb-4">{children}</h2>
-          ),
-          h3: ({ children }) => (
-            <h3 className="text-xl font-semibold mb-3">{children}</h3>
-          ),
+          h2: ({ children }) => <h2>{children}</h2>,
+          h3: ({ children }) => <h3>{children}</h3>,
 
           // Paragraphs and text - simplified
-          p: ({ children }) => (
-            <p className="text-neutral-700 mb-4 leading-relaxed">{children}</p>
-          ),
+          p: ({ children }) => <p>{children}</p>,
 
           // Code blocks - simplified using any to bypass type checking
           code: (props: any) => {
