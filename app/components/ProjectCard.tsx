@@ -71,7 +71,7 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-8 mb-8 md:mb-16 ">
+    <div className="grid grid-cols-4 sm:grid-cols-8 mb-8 md:mb-16 last:mb-0">
       <Link
         target="_blank"
         href={"projects/" + project.slug || "#"}
