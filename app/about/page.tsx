@@ -85,7 +85,7 @@ export default function About() {
         {/* Image column */}
         <div className=" sm:col-span-2 col-span-8 h-64  col-md-4 d-flex justify-content-center justify-content-md-start">
           <ProfileImageFlip
-            frontImage="/charles-liten.png"
+            frontImage="/charles-about.png"
             alt="Charles Krook"
           />
         </div>
