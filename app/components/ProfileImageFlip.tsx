@@ -56,9 +56,7 @@ export default function ProfileImageFlip({
           }}
         >
           <div className="text-center">
-            <h3 className="text-3xl font-serif italic text-neutral-800 dark:text-neutral-200">
-              Charles 5 år
-            </h3>
+            <h3 className="text-3xl font-serif italic text-neutral-800 dark:text-neutral-200"></h3>
           </div>
         </motion.div>
       </motion.div>
