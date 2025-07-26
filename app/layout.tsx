@@ -157,6 +157,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                       <Image
                         src="/logo-avatar.png"
                         alt="Charles Krook"
+                        className=" rounded-full "
                         width={100}
                         height={100}
                       />

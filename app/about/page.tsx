@@ -81,18 +81,11 @@ export default function About() {
       </div>
 
       {/* Bio Section */}
-      <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-4">
+      <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-4 h-full">
         {/* Image column */}
-        <div className=" sm:col-span-2 col-span-8 h-64  col-md-4 d-flex justify-content-center justify-content-md-start">
-          <ProfileImageFlip
-            frontImage="/charles-about.png"
-            alt="Charles Krook"
-          />
-        </div>
         {/* Content column */}
-        <div className="sm:col-span-6 col-span-8">
-          <h2 className="mb-4">My Journey</h2>
-          <div className="space-y-4 text-neutral-800 dark:text-neutral-200">
+        <div className="sm:col-span-8 col-span-12">
+          <div className="space-y-4 text-neutral-800 dark:text-neutral-200 text-justify">
             <p>
               Based in Stockholm, I&apos;m a frontend engineer at Umain™ with a
               passion for elegant code and thoughtful design. My work spans
