@@ -71,8 +71,8 @@ export default function CookieConsent() {
 
             <p className="text-sm text-gray-700 dark:text-gray-300">
               This website uses cookies to enhance your browsing experience. By
-              clicking "Accept", you consent to the use of cookies for
-              analytics, personalized content and ads.
+              clicking &ldquo;Accept&rdquo;, you consent to the use of cookies
+              for analytics, personalized content and ads.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mt-1">

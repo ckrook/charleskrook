@@ -68,16 +68,16 @@ export default function PrivacyPolicy() {
             <p>
               This website uses cookies to enhance your browsing experience.
               Cookies are small files that a site or its service provider
-              transfers to your computer's hard drive through your browser that
-              enables the site to recognize your browser and remember certain
-              information.
+              transfers to your computer&apos;s hard drive through your browser
+              that enables the site to recognize your browser and remember
+              certain information.
             </p>
             <p>
               You can choose to have your computer warn you each time a cookie
               is being sent, or you can choose to turn off all cookies through
               your browser settings. Since each browser is different, look at
-              your browser's Help Menu to learn the correct way to modify your
-              cookies.
+              your browser&apos;s Help Menu to learn the correct way to modify
+              your cookies.
             </p>
           </div>
         </section>
@@ -129,7 +129,7 @@ export default function PrivacyPolicy() {
               and providing other services relating to website activity and
               internet usage. Google may also transfer this information to third
               parties where required to do so by law, or where such third
-              parties process the information on Google's behalf.
+              parties process the information on Google&apos;s behalf.
             </p>
           </div>
         </section>
@@ -170,9 +170,9 @@ export default function PrivacyPolicy() {
           <div className="space-y-4 text-neutral-800 dark:text-neutral-200">
             <p>
               I may update this privacy policy from time to time. The updated
-              version will be indicated by an updated "Last Updated" date. I
-              encourage you to review this privacy policy frequently to be
-              informed of how your information is being protected.
+              version will be indicated by an updated &ldquo;Last Updated&rdquo;
+              date. I encourage you to review this privacy policy frequently to
+              be informed of how your information is being protected.
             </p>
           </div>
         </section>
