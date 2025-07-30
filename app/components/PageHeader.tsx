@@ -61,7 +61,7 @@ export default function PageHeader({
 
   return (
     <section
-      className={`py-16 text-start md:py-32 d-flex flex-column align-items-center justify-content-center md:text-center ${className}`}
+      className={`py-16 text-start md:py-48 d-flex flex-column align-items-center justify-content-center md:text-center ${className}`}
     >
       <div className="row">
         <div className="col-12">

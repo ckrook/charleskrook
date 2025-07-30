@@ -7,6 +7,7 @@ import PageHeader from "../components/PageHeader";
 import { fetchTechnologies, fetchTechnologiesCount } from "../api/graphql";
 import { Technology } from "../types";
 import ContactModal from "../components/ContactModal";
+import { HeroSection } from "../components/sections";
 
 export default function About() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -69,22 +70,15 @@ export default function About() {
   };
 
   return (
-    <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-4 md:px-0">
+    <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
       {/* Header Section */}
-      <div className="sm:col-start-2 sm:col-end-8 col-span-8">
-        <PageHeader
-          highlightWord="Bonjour,"
-          titleSuffix="I'm Charles"
-          subtitle="Frontend engineer passionate about crafting beautiful, accessible digital experiences"
-          breakAfterHighlight={false}
-        />
-      </div>
+      <HeroSection />
 
       {/* Bio Section */}
-      <section className=" col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-4 h-full">
+      <section className="px-4 col-span-8 mb-16 md:mb-24 grid grid-cols-8 gap-4 h-full">
         {/* Image column */}
         {/* Content column */}
-        <div className="sm:col-span-8 col-span-12">
+        <div className="sm:col-span-4 col-span-12">
           <div className="space-y-4 text-neutral-800 dark:text-neutral-200 text-justify">
             <p>
               Based in Stockholm, I&apos;m a frontend engineer at Umain™ with a
@@ -108,7 +102,7 @@ export default function About() {
       </section>
 
       {/* Skills Section */}
-      <section className=" col-span-8 mb-16 md:mb-24">
+      <section className="px-4 col-span-8 mb-16 md:mb-24">
         <div>
           <div>
             <h2 className="mb-6">Skills & Expertise</h2>
@@ -156,47 +150,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Working Process Section */}
-      <section className="grid grid-cols-3 gap-4 col-span-8 mb-16 md:mb-24">
-        <h2 className=" col-span-3 mb-6">My Approach</h2>
-        <div className="sm:col-span-1 col-span-3 mb-4 mb-md-0">
-          <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 ">
-            <div className="font-serif italic text-2xl text-red-500 mb-3">
-              01
-            </div>
-            <h3 className="text-lg font-medium mb-2">Understand</h3>
-            <p>
-              I start by deeply understanding the problem, the users, and the
-              business goals before writing any code.
-            </p>
-          </div>
-        </div>
-        <div className="sm:col-span-1 col-span-3 mb-4 mb-md-0">
-          <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
-            <div className="font-serif italic text-2xl text-red-500 mb-3">
-              02
-            </div>
-            <h3 className="text-lg font-medium mb-2">Design</h3>
-            <p>
-              Cre andating thoughtful sions that are both functionally sound and
-              aesthetically pleasing.
-            </p>
-          </div>
-        </div>
-        <div className="sm:col-span-1 col-span-3 mb-4 mb-md-0">
-          <div className="bg-white dark:bg-stone-950 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800">
-            <div className="font-serif italic text-2xl text-red-500 mb-3">
-              03
-            </div>
-            <h3 className="text-lg font-medium mb-2">Build & Refine</h3>
-            <p>
-              Implementing with clean, maintainable code and continuously
-              refining based on feedback and data.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className=" col-span-8 mb-8">
         <div className="row">
@@ -228,6 +181,6 @@ export default function About() {
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}
       />
-    </div>
+    </main>
   );
 }

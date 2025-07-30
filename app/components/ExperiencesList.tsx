@@ -23,7 +23,14 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
   return (
     <section className="mb-16 md:mb-32">
       <h2>Experiences</h2>
-
+      <p className="col-span-4 sm:col-start-1 sm:col-end-4 mb-8 w-1/2 text-stone-400">
+        <span className="text-black dark:text-white">
+          My professional journey across different companies and roles.{" "}
+        </span>
+        Each experience has shaped my approach to frontend development and
+        taught me valuable lessons about building scalable, user-focused
+        applications.
+      </p>
       <div className="flex flex-col">
         {experiences.map((experience) => {
           const period = formatPeriod(
@@ -46,7 +53,7 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
           };
 
           const content = (
-            <div className="flex md:flex-row justify-between px-2 md:px-4 gap-4 md:gap-0">
+            <div className="flex md:flex-row justify-between gap-4 md:gap-0">
               <CardItem
                 title={experience.name}
                 subtitle={experience.role}

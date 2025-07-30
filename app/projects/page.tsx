@@ -5,6 +5,7 @@ import Image from "next/image";
 import CardItem from "@/app/components/CardItem";
 import ProjectCard from "@/app/components/ProjectCard";
 import PageHeader from "../components/PageHeader";
+import { HeroSection } from "../components/sections";
 
 export default async function Projects() {
   const projects: Work[] = await fetchProjects();
@@ -18,17 +19,12 @@ export default async function Projects() {
   );
 
   return (
-    <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-4 md:px-0">
+    <main className=" col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
       <div className="sm:col-start-2 sm:col-end-8 col-span-8">
-        <PageHeader
-          highlightWord="Projects"
-          titleSuffix="& Case Studies"
-          subtitle="A collection of projects I've worked on, from e-commerce sites to design systems."
-          breakAfterHighlight={false}
-        />
+        <HeroSection />
       </div>
 
-      <div className="mb-16 md:mb-32 col-span-4 sm:col-span-8">
+      <section className="px-4 mb-16 md:mb-32 col-span-4 sm:col-span-8">
         <div className="flex flex-col gap-6 md:gap-8">
           {selectedWork.map((project) => (
             <Link
@@ -40,10 +36,10 @@ export default async function Projects() {
             </Link>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Side Projects Section */}
-      <section className="mb-16 md:mb-24 col-span-8">
+      <section className="px-4 mb-16 md:mb-24 col-span-8">
         <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8 ">
           Side Projects
         </h2>
@@ -103,6 +99,6 @@ export default async function Projects() {
           </div>
         </section>
       )}
-    </div>
+    </main>
   );
 }

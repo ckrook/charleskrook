@@ -145,20 +145,7 @@ export default function MobileMenu() {
                   Home
                 </Link>
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="py-6 w-full border-b border-neutral-100 dark:border-neutral-800"
-              >
-                <Link
-                  href="/about"
-                  onClick={handleNavigate}
-                  className="block text-2xl font-medium text-black dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
-                >
-                  About
-                </Link>
-              </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -171,20 +158,6 @@ export default function MobileMenu() {
                   className="block text-2xl font-medium text-black dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   Projects
-                </Link>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="py-6 w-full"
-              >
-                <Link
-                  href="/blog"
-                  onClick={handleNavigate}
-                  className="block text-2xl font-medium text-black dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
-                >
-                  Blog
                 </Link>
               </motion.div>
             </nav>
