@@ -1,14 +1,12 @@
 import Link from "next/link";
 import ProjectCard from "../ProjectCard";
-import { Work } from "../../types";
+import type { Work } from "../../types";
 
 interface SelectedWorkSectionProps {
   selectedWork: Work[];
 }
 
-export default function SelectedWorkSection({
-  selectedWork,
-}: SelectedWorkSectionProps) {
+const SelectedWorkSection = ({ selectedWork }: SelectedWorkSectionProps) => {
   return (
     <div className="my-16 col-span-4 sm:col-start-1 sm:col-end-9">
       <h2 className="px-4 col-span-4 sm:col-start-1 sm:col-end-9 ">
@@ -36,4 +34,6 @@ export default function SelectedWorkSection({
       </div>
     </div>
   );
-}
+};
+
+export default SelectedWorkSection;

@@ -1,11 +1,11 @@
 import "./globals.css";
 import { Playfair_Display as FontSerif, Inter } from "next/font/google";
-import { Metadata } from "next";
-
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
 import PrintHandler from "./components/PrintHandler";
@@ -110,7 +110,7 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -227,4 +227,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

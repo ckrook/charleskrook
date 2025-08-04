@@ -1,11 +1,11 @@
 import HoverImageBlogPost from "../HoverImageBlogPost";
-import { BlogPost } from "../../types";
+import type { BlogPost } from "../../types";
 
 interface BlogPostsSectionProps {
   blogPosts: BlogPost[];
 }
 
-export default function BlogPostsSection({ blogPosts }: BlogPostsSectionProps) {
+const BlogPostsSection = ({ blogPosts }: BlogPostsSectionProps) => {
   return (
     <section className="py-16 px-4 col-span-4 sm:col-start-1 sm:col-end-9">
       <div>
@@ -20,4 +20,6 @@ export default function BlogPostsSection({ blogPosts }: BlogPostsSectionProps) {
       </div>
     </section>
   );
-}
+};
+
+export default BlogPostsSection;

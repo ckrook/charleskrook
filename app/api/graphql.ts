@@ -4,24 +4,24 @@ import { BlogPost, Experience, Work } from "../types";
  * Fetch data from the GraphQL API with the provided query
  */
 async function fetchGraphQL(query: string) {
-  try {
-    const response = await fetch(
-      "https://eu-west-2.cdn.hygraph.com/content/cm8iosp2t016r07w6ztrci1jc/master",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query }),
-      }
-    );
+  const response = await fetch(
+    "https://eu-west-2.cdn.hygraph.com/content/cm8iosp2t016r07w6ztrci1jc/master",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query }),
+      next: { revalidate: 3600 }, // Cache for 1 hour
+    }
+  );
 
-    const data = await response.json();
-    return data.data;
-  } catch (error) {
-    console.error("GraphQL fetch error:", error);
-    return null;
+  if (!response.ok) {
+    throw new Error(`GraphQL request failed: ${response.statusText}`);
   }
+
+  const data = await response.json();
+  return data.data;
 }
 
 /**

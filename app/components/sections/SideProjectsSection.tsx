@@ -1,14 +1,12 @@
 import Link from "next/link";
 import CardItem from "../CardItem";
-import { Work } from "../../types";
+import type { Work } from "../../types";
 
 interface SideProjectsSectionProps {
   sideProjects: Work[];
 }
 
-export default function SideProjectsSection({
-  sideProjects,
-}: SideProjectsSectionProps) {
+const SideProjectsSection = ({ sideProjects }: SideProjectsSectionProps) => {
   return (
     <section className="py-16 px-4 col-span-4 sm:col-start-1 sm:col-end-9">
       <div>
@@ -33,4 +31,6 @@ export default function SideProjectsSection({
       </div>
     </section>
   );
-}
+};
+
+export default SideProjectsSection;

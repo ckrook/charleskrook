@@ -1,7 +1,7 @@
 /**
  * Project data type from GraphQL
  */
-export type Work = {
+export interface Work {
   id: string;
   name: string;
   slug: string;
@@ -57,12 +57,12 @@ export type Work = {
     width: number;
     height: number;
   }[];
-};
+}
 
 /**
  * Workplace data type from GraphQL
  */
-export type Experience = {
+export interface Experience {
   id: string;
   name: string;
   url?: string;
@@ -77,9 +77,9 @@ export type Experience = {
   startDate: string;
   endDate: string;
   role: string;
-};
+}
 
-export type BlogPost = {
+export interface BlogPost {
   id: string;
   title: string;
   slug: string;
@@ -92,9 +92,9 @@ export type BlogPost = {
   coverimage?: Array<{
     url: string;
   }>;
-};
+}
 
-export type Technology = {
+export interface Technology {
   name: string;
   logoWhite: {
     url: string;
@@ -102,4 +102,4 @@ export type Technology = {
   logoDark: {
     url: string;
   };
-};
+}

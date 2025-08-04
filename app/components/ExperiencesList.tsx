@@ -1,8 +1,9 @@
 "use client";
+
 import Link from "next/link";
-import { Experience } from "../types/index";
-import CardItem from "./CardItem";
 import { useState } from "react";
+import type { Experience } from "../types/index";
+import CardItem from "./CardItem";
 
 interface ExperiencesListProps {
   experiences: Experience[];
@@ -17,7 +18,7 @@ const formatPeriod = (startDate?: string, endDate?: string) => {
   return `${startYear} - ${endYear || "Now"}`;
 };
 
-export default function ExperiencesList({ experiences }: ExperiencesListProps) {
+const ExperiencesList = ({ experiences }: ExperiencesListProps) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
@@ -77,4 +78,6 @@ export default function ExperiencesList({ experiences }: ExperiencesListProps) {
       </div>
     </section>
   );
-}
+};
+
+export default ExperiencesList;
