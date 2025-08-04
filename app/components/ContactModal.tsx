@@ -3,12 +3,12 @@
 import { useState, useRef, useEffect, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type ContactModalProps = {
+interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
-};
+}
 
-export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   const [email, setEmail] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -174,4 +174,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       )}
     </AnimatePresence>
   );
-}
+};
+
+export default ContactModal;

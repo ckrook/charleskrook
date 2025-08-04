@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-export default function CookieConsent() {
+const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -94,4 +94,6 @@ export default function CookieConsent() {
       )}
     </AnimatePresence>
   );
-}
+};
+
+export default CookieConsent;

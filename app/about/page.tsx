@@ -5,11 +5,11 @@ import Image from "next/image";
 import ProfileImageFlip from "../components/ProfileImageFlip";
 import PageHeader from "../components/PageHeader";
 import { fetchTechnologies, fetchTechnologiesCount } from "../api/graphql";
-import { Technology } from "../types";
+import type { Technology } from "../types";
 import ContactModal from "../components/ContactModal";
 import { HeroSection } from "../components/sections";
 
-export default function About() {
+const About = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [totalTechnologies, setTotalTechnologies] = useState(0);
@@ -173,4 +173,6 @@ export default function About() {
       />
     </main>
   );
-}
+};
+
+export default About;

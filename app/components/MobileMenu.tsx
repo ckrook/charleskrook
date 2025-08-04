@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import Image from "next/image";
 
-export default function MobileMenu() {
+const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -169,4 +169,6 @@ export default function MobileMenu() {
       </AnimatePresence>
     </>
   );
-}
+};
+
+export default MobileMenu;

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import PrintableResume from "./PrintableResume";
 
-export default function PrintHandler() {
+const PrintHandler = () => {
   const [showResume, setShowResume] = useState(false);
 
   useEffect(() => {
@@ -27,4 +27,6 @@ export default function PrintHandler() {
   }, []);
 
   return showResume ? <PrintableResume /> : null;
-}
+};
+
+export default PrintHandler;

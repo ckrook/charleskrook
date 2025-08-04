@@ -9,11 +9,11 @@ interface FadeInSectionProps {
   delay?: number;
 }
 
-export default function FadeInSection({
+const FadeInSection = ({
   children,
   className = "",
   delay = 0,
-}: FadeInSectionProps) {
+}: FadeInSectionProps) => {
   const { ref, isVisible } = useScrollAnimation({
     threshold: 0.1,
     rootMargin: "0px 0px -100px 0px",
@@ -33,4 +33,6 @@ export default function FadeInSection({
       {children}
     </section>
   );
-}
+};
+
+export default FadeInSection;

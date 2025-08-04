@@ -20,8 +20,12 @@ declare global {
   }
 }
 
+interface AnalyticsTrackerProps {
+  measurementId: string;
+}
+
 // Analytics event tracking component that uses useSearchParams
-function AnalyticsTracker({ measurementId }: { measurementId: string }) {
+const AnalyticsTracker = ({ measurementId }: AnalyticsTrackerProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [hasConsent, setHasConsent] = useState(false);
@@ -62,13 +66,13 @@ function AnalyticsTracker({ measurementId }: { measurementId: string }) {
   }, [pathname, searchParams, measurementId, hasConsent]);
 
   return null;
+};
+
+interface GoogleAnalyticsProps {
+  measurementId: string;
 }
 
-export default function GoogleAnalytics({
-  measurementId,
-}: {
-  measurementId: string;
-}) {
+const GoogleAnalytics = ({ measurementId }: GoogleAnalyticsProps) => {
   const [hasConsent, setHasConsent] = useState(false);
 
   // Check for cookie consent
@@ -126,4 +130,6 @@ export default function GoogleAnalytics({
       </Suspense>
     </>
   );
-}
+};
+
+export default GoogleAnalytics;
