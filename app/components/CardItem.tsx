@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 
-type CardItemProps = {
+interface CardItemProps {
   title: string;
   subtitle: string;
   logoImageUrl?: string;
@@ -12,9 +12,9 @@ type CardItemProps = {
   bgColor?: string;
   industry?: string;
   rounded?: boolean;
-};
+}
 
-export default function CardItem({
+const CardItem = ({
   title,
   subtitle,
   logoImageUrl,
@@ -23,7 +23,7 @@ export default function CardItem({
   bgColor,
   industry,
   rounded = false,
-}: CardItemProps) {
+}: CardItemProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -50,4 +50,6 @@ export default function CardItem({
       </div>
     </div>
   );
-}
+};
+
+export default CardItem;

@@ -1,11 +1,11 @@
 import "./globals.css";
 import { Playfair_Display as FontSerif, Inter } from "next/font/google";
-import { Metadata } from "next";
-
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ThemeToggle from "./components/ThemeToggle";
 import PrintHandler from "./components/PrintHandler";
@@ -110,7 +110,7 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -141,7 +141,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body
         className={cn(
-          "min-h-screen bg-white dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200",
+          "min-h-screen bg-gray-50 dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200",
           fontSans.variable,
           fontSerif.variable
         )}
@@ -149,22 +149,22 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider>
           <CommandMenu>
             <div className="grid grid-cols-12">
-              <header className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6 hidden md:grid">
+              <header className="px-0 md:px-4 col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6 hidden md:grid">
                 {/* Logo and Name */}
                 <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
-                  <Link href="/" className="flex items-center gap-2 md:gap-4">
-                    <div className="w-[33px] h-[33px] md:w-10 md:h-10">
+                  <Link href="/" className="flex items-center gap-2 md:gap-2">
+                    <div className="w-[33px] h-[33px] md:w-8 md:h-8">
                       <Image
                         src="/logo-avatar.png"
                         alt="Charles Krook"
-                        className=" rounded-full "
+                        className=" rounded-lg"
                         width={100}
                         height={100}
                       />
                     </div>
-                    <p className="flex flex-col font-medium text-black dark:text-white text-sm md:text-base">
-                      <span>Charles Krook</span>
-                      <span className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                    <p className="flex flex-col font-medium text-black dark:text-white md:text-base text-sm">
+                      <span className="text-sm">Charles Krook</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-300 -mt-1">
                         Frontend Engineer
                       </span>
                     </p>
@@ -175,35 +175,25 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
                   {/* Desktop Navigation (visible only on desktop) */}
                   <nav className="flex justify-end items-center w-full">
-                    <div className="flex  border-neutral-200 dark:border-neutral-800 overflow-hidden">
+                    <div className="flex border-neutral-200 dark:border-neutral-800 overflow-hidden font-medium justify-center items-center">
                       <Link
                         href="/"
-                        className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
+                        className="px-3 py-1 text-sm hover:text-stone-500 dark:hover:text-stone-100"
                       >
                         Home
                       </Link>
                       <Link
-                        href="/about"
-                        className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
-                      >
-                        About
-                      </Link>
-                      <Link
                         href="/projects"
-                        className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
+                        className="px-3 py-1 text-sm hover:text-stone-500 dark:hover:text-stone-100"
                       >
                         Projects
                       </Link>
                       <Link
-                        href="/blog"
-                        className="px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors rounded-md"
+                        href="mailto:charles@charleskrook.com"
+                        className="ml-2 text-sm bg-stone-100 dark:bg-stone-800 rounded-md px-3 py-2"
                       >
-                        Blog
+                        Get in touch
                       </Link>
-                    </div>
-                    {/* Desktop ThemeToggle */}
-                    <div className="ml-4 flex">
-                      <ThemeToggle />
                     </div>
                   </nav>
                 </div>
@@ -239,4 +229,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

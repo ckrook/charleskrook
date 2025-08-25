@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 
-type CommandMenuProps = {
+interface CommandMenuProps {
   children?: React.ReactNode;
-};
+}
 
-export default function CommandMenu({ children }: CommandMenuProps) {
+const CommandMenu = ({ children }: CommandMenuProps) => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const { toggleTheme } = useTheme();
@@ -132,4 +132,6 @@ export default function CommandMenu({ children }: CommandMenuProps) {
       {children}
     </>
   );
-}
+};
+
+export default CommandMenu;

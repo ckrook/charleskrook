@@ -4,13 +4,13 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { BlogPost } from "../types";
+import type { BlogPost } from "../types";
 
-type HoverImageBlogPostProps = {
+interface HoverImageBlogPostProps {
   post: BlogPost;
-};
+}
 
-export default function HoverImageBlogPost({ post }: HoverImageBlogPostProps) {
+const HoverImageBlogPost = ({ post }: HoverImageBlogPostProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -95,4 +95,6 @@ export default function HoverImageBlogPost({ post }: HoverImageBlogPostProps) {
       )}
     </div>
   );
-}
+};
+
+export default HoverImageBlogPost;

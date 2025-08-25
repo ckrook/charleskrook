@@ -1,8 +1,9 @@
 "use client";
+
 import Image from "next/image";
-import CardItem from "./CardItem";
-import { Work } from "../types/index";
 import { useEffect, useRef, useState } from "react";
+import CardItem from "./CardItem";
+import type { Work } from "../types/index";
 
 interface ProjectCardProps {
   project: Work;
@@ -10,11 +11,11 @@ interface ProjectCardProps {
   linkUrl?: string;
 }
 
-export default function ProjectCard({
+const ProjectCard = ({
   project,
   variant = "default",
   linkUrl,
-}: ProjectCardProps) {
+}: ProjectCardProps) => {
   const mockupRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
 
@@ -72,8 +73,8 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="grid grid-cols-4 sm:grid-cols-8">
-      <div className="col-span-4 sm:col-span-8 relative w-full h-[400px] sm:h-[300px] md:h-[500px] overflow-hidden rounded-2xl">
+    <div className="grid grid-cols-4 sm:grid-cols-8 gap-4">
+      <div className="col-span-4 sm:col-span-8 relative w-full aspect-[6/3] overflow-hidden rounded-2xl">
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -124,24 +125,28 @@ export default function ProjectCard({
           </div>
         )}
       </div>
-      <div className="col-span-4 sm:col-start-2 sm:col-end-8 py-4 md:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-center">
-        <div className="w-full">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-            {/* Logo and Title */}
-            <div className="flex-shrink-0 sm:mb-0">
-              <CardItem
-                title={project.name}
-                subtitle={project.industry}
-                imageHeight={33}
-                imageWidth={33}
-                logoImageUrl={project?.logo?.url}
-              />
-            </div>
-            {/* Description */}
-            <p>{project.description.text}</p>
+      <div className="col-span-4 sm:col-span-8 py-4 md:py-8">
+        <div className="grid grid-cols-4 sm:grid-cols-8 gap-4 sm:gap-8">
+          {/* Logo and Title */}
+          <div className="col-span-4 sm:col-span-4">
+            <CardItem
+              title={project.name}
+              subtitle={project.industry}
+              imageHeight={33}
+              imageWidth={33}
+              logoImageUrl={project?.logo?.url}
+            />
+          </div>
+          {/* Description */}
+          <div className="col-span-4 sm:col-span-4">
+            <p className="text-neutral-600 dark:text-neutral-400">
+              {project.description.text}
+            </p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default ProjectCard;

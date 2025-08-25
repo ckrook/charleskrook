@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTheme } from "./ThemeProvider";
 
-export default function ThemeToggle() {
+const ThemeToggle = () => {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -164,4 +164,6 @@ export default function ThemeToggle() {
       )}
     </div>
   );
-}
+};
+
+export default ThemeToggle;

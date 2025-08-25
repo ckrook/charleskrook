@@ -5,6 +5,7 @@ import Image from "next/image";
 import CardItem from "@/app/components/CardItem";
 import ProjectCard from "@/app/components/ProjectCard";
 import PageHeader from "../components/PageHeader";
+import { HeroSection } from "../components/sections";
 
 export default async function Projects() {
   const projects: Work[] = await fetchProjects();
@@ -18,17 +19,10 @@ export default async function Projects() {
   );
 
   return (
-    <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-4 md:px-0">
-      <div className="sm:col-start-2 sm:col-end-8 col-span-8">
-        <PageHeader
-          highlightWord="Projects"
-          titleSuffix="& Case Studies"
-          subtitle="A collection of projects I've worked on, from e-commerce sites to design systems."
-          breakAfterHighlight={false}
-        />
-      </div>
+    <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
+      <HeroSection />
 
-      <div className="mb-16 md:mb-32 col-span-4 sm:col-span-8">
+      <section className="px-4  col-span-4 sm:col-span-8 mb-16 md:mb-32">
         <div className="flex flex-col gap-6 md:gap-8">
           {selectedWork.map((project) => (
             <Link
@@ -40,69 +34,58 @@ export default async function Projects() {
             </Link>
           ))}
         </div>
-      </div>
-
+      </section>
       {/* Side Projects Section */}
-      <section className="mb-16 md:mb-24 col-span-8">
-        <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8 ">
+      <section className="px-4 col-span-4 sm:col-span-8 mb-16 md:mb-24">
+        <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
           Side Projects
         </h2>
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {sideProjects.map((project) => (
-            <div className="col-12 col-sm-6 mb-4" key={project.id}>
-              <Link
-                href={`/projects/${project.slug}`}
-                className="group d-block h-100"
-              >
-                <div className=" dark:bg-neutral-900 rounded-xl p-6  border-neutral-200 dark:border-neutral-800 relative overflow-hidden h-100 transition-all duration-300 ">
-                  <CardItem
-                    title={project.name}
-                    subtitle={project.description.text}
-                    rounded
-                    logoImageUrl={project?.logo?.url}
-                  />
-                </div>
-              </Link>
-            </div>
+            <Link
+              key={project.id}
+              href={`/projects/${project.slug}`}
+              className="group block h-full"
+            >
+              <div className="bg-white dark:bg-neutral-900 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 relative overflow-hidden h-full transition-all duration-300 hover:shadow-md">
+                <CardItem
+                  title={project.name}
+                  subtitle={project.description.text}
+                  rounded
+                  logoImageUrl={project?.logo?.url}
+                />
+              </div>
+            </Link>
           ))}
         </div>
       </section>
-
       {/* All Projects Section */}
       {projects.length > selectedWork.length + sideProjects.length && (
-        <section className="mb-16">
-          <div className="row">
-            <div className="col-12">
-              <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
-                Other Projects
-              </h2>
-              <div className="row">
-                {projects
-                  .filter((p) => !p.selectedWork && !p.sideproject)
-                  .map((project) => (
-                    <div
-                      className="col-12 col-sm-6 col-md-4 mb-4"
-                      key={project.id}
-                    >
-                      <Link
-                        href={`/projects/${project.slug}`}
-                        className="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 hover:shadow-sm transition-all d-block h-100"
-                      >
-                        <div className="p-4 md:p-6 rounded-lg">
-                          <CardItem
-                            title={project.name}
-                            subtitle={project.industry}
-                            logoImageUrl={project?.logo?.url}
-                          />
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
-              </div>
-            </div>
+        <section className="col-span-4 sm:col-span-8 mb-16">
+          <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
+            Other Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {projects
+              .filter((p) => !p.selectedWork && !p.sideproject)
+              .map((project) => (
+                <Link
+                  key={project.id}
+                  href={`/projects/${project.slug}`}
+                  className="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 hover:shadow-sm transition-all block h-full"
+                >
+                  <div className="p-4 md:p-6 rounded-lg">
+                    <CardItem
+                      title={project.name}
+                      subtitle={project.industry}
+                      logoImageUrl={project?.logo?.url}
+                    />
+                  </div>
+                </Link>
+              ))}
           </div>
         </section>
       )}
-    </div>
+    </main>
   );
 }

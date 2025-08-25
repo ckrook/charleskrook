@@ -14,7 +14,7 @@ interface NowPlayingData {
   title?: string;
 }
 
-export default function NowPlaying() {
+const NowPlaying = () => {
   const [data, setData] = useState<NowPlayingData>({
     isPlaying: false,
     title: "",
@@ -81,4 +81,6 @@ export default function NowPlaying() {
       </div>
     </div>
   );
-}
+};
+
+export default NowPlaying;
