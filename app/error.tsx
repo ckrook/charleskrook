@@ -14,7 +14,7 @@ export default function Error({ error, reset }: ErrorProps) {
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-0 md:px-4">
       <div className="text-center max-w-md">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Something went wrong!

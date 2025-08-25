@@ -6,6 +6,7 @@ import {
   ExperiencesSection,
   BlogPostsSection,
   SideProjectsSection,
+  TrustedBySection,
 } from "./components/sections";
 
 const Home = async () => {
@@ -20,9 +21,10 @@ const Home = async () => {
   const sideProjects = projects.filter((project) => project.sideproject);
 
   return (
-    <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
+    <main className="col-start-1 col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-4">
       <HeroSection />
       <SelectedWorkSection selectedWork={selectedWork} />
+      {/* <TrustedBySection /> */}
       <ExperiencesSection experiences={experiences} />
       <BlogPostsSection blogPosts={blogPosts} />
       <SideProjectsSection sideProjects={sideProjects} />

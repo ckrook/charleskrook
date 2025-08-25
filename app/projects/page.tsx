@@ -22,7 +22,7 @@ export default async function Projects() {
     <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
       <HeroSection />
 
-      <section className="col-span-4 sm:col-span-8 mb-16 md:mb-32">
+      <section className="px-4  col-span-4 sm:col-span-8 mb-16 md:mb-32">
         <div className="flex flex-col gap-6 md:gap-8">
           {selectedWork.map((project) => (
             <Link
@@ -35,9 +35,8 @@ export default async function Projects() {
           ))}
         </div>
       </section>
-
       {/* Side Projects Section */}
-      <section className="col-span-4 sm:col-span-8 mb-16 md:mb-24">
+      <section className="px-4 col-span-4 sm:col-span-8 mb-16 md:mb-24">
         <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
           Side Projects
         </h2>
@@ -60,7 +59,6 @@ export default async function Projects() {
           ))}
         </div>
       </section>
-
       {/* All Projects Section */}
       {projects.length > selectedWork.length + sideProjects.length && (
         <section className="col-span-4 sm:col-span-8 mb-16">

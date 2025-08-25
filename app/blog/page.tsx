@@ -9,7 +9,7 @@ export default async function BlogPage() {
   const blogPosts: BlogPost[] = await fetchBlogPosts();
 
   return (
-    <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-4 md:px-0">
+    <div className="grid md:grid-cols-8 md:col-start-3 md:col-end-11 grid-cols-4 col-span-12 pb-16 px-0 md:px-4">
       {/* Header Section */}
       <div className="sm:col-start-2 sm:col-end-8 col-span-8">
         <PageHeader
