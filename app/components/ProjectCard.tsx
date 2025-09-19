@@ -125,7 +125,7 @@ const ProjectCard = ({
           </div>
         )}
       </div>
-      <div className="col-span-4 sm:col-span-8 py-4 md:py-8">
+      <div className="col-span-4 sm:col-span-8 md:py-8">
         <div className="grid grid-cols-4 sm:grid-cols-8 gap-4 sm:gap-8">
           {/* Logo and Title */}
           <div className="col-span-4 sm:col-span-4">
