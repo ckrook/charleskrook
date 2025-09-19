@@ -71,28 +71,6 @@ const ExperiencesList = ({ experiences }: ExperiencesListProps) => {
           return hasUrl ? (
             <Link target="_blank" href={experience.url || "#"} {...commonProps}>
               {content}
-              <div className="flex flex-col gap-2 mt-6">
-                {experience.clients.map((client) => (
-                  <div
-                    key={client.name}
-                    className="flex justify-between border-b pb-4 border-neutral-200 dark:border-neutral-800 last:border-b-0 last:pb-0"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className=" bg-gray-200 w-12 h-12 rounded-sm"></div>
-                      <div>{client.name}</div>
-                    </div>
-                    <div className=" flex items-center justify-center">
-                      <Image
-                        src="/arrowb.svg"
-                        alt="Arrow right"
-                        className="w-4 h-4"
-                        width={16}
-                        height={16}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
             </Link>
           ) : (
             <div {...commonProps}>{content}</div>
