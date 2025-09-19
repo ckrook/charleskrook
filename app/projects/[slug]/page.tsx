@@ -74,7 +74,7 @@ export default async function ProjectPage({
         </section>
 
         {/* Project Header */}
-        <section className="grid mb-8 md:mb-16">
+        <section className="grid mb-0 md:mb-8">
           <div className="grid col-start-2 col-end-8 gap-6">
             <div className=" col-span-3 md:col-span-2 mb-8 md:mb-0">
               <div className="flex flex-row items-center justify-between md:flex-row gap-4 mb-6">
@@ -85,18 +85,8 @@ export default async function ProjectPage({
                   imageWidth={44}
                   logoImageUrl={project?.logo?.url}
                 />
-                <div className="md:hidden h-full">
-                  <Link
-                    href={project.liveSite}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block md:hidden text-center bg-stone-100 dark:bg-black hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors h-full"
-                  >
-                    View Site →
-                  </Link>
-                </div>
               </div>
-              <div className="mb-6">
+              <div className="mb-10">
                 <p>{project.description.text}</p>
               </div>
               <div className="mb-6">
@@ -109,7 +99,7 @@ export default async function ProjectPage({
                       {project.technoligies.map((technology) => (
                         <div
                           key={technology.name}
-                          className="relative h-12 bg-white dark:bg-black border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
+                          className="relative h-12 bg-white dark:bg-stone-950 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
                         >
                           <div className="relative w-16 h-10">
                             <Image
@@ -136,7 +126,7 @@ export default async function ProjectPage({
                 </div>
               </div>
               {/* Project details in a 2-column grid */}
-              <button className=" mb-8 w-full bg-stone-100 dark:bg-neutral-900 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
+              <button className=" mb-8 w-full bg-stone-100 dark:bg-stone-900 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
                 View Site →
               </button>
             </div>
