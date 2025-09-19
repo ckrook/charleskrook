@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Experience } from "../types/index";
 import CardItem from "./CardItem";
+import Image from "next/image";
 
 interface ExperiencesListProps {
   experiences: Experience[];
@@ -24,7 +25,7 @@ const ExperiencesList = ({ experiences }: ExperiencesListProps) => {
   return (
     <section className="mb-16 md:mb-32">
       <h2>Experiences</h2>
-      <p className="col-span-4 sm:col-start-1 sm:col-end-4 mb-8 w-1/2 text-stone-400">
+      <p className="col-span-4 sm:col-start-1 sm:col-end-4 mb-8 w-full md:w-1/2 text-stone-400">
         <span className="text-black dark:text-white">
           My professional journey across different companies and roles.{" "}
         </span>

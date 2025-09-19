@@ -77,6 +77,9 @@ export interface Experience {
   startDate: string;
   endDate: string;
   role: string;
+  clients: {
+    name: string;
+  }[];
 }
 
 export interface BlogPost {

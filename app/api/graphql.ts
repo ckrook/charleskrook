@@ -93,6 +93,9 @@ export async function fetchExperiences(): Promise<Experience[]> {
         endDate
         logobackgroundWhite
         role
+        clients {
+          name
+        }
       }
     }
   `;

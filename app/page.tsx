@@ -24,10 +24,9 @@ const Home = async () => {
     <main className="col-start-1 col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-4">
       <HeroSection />
       <SelectedWorkSection selectedWork={selectedWork} />
-      {/* <TrustedBySection /> */}
       <ExperiencesSection experiences={experiences} />
-      <BlogPostsSection blogPosts={blogPosts} />
-      <SideProjectsSection sideProjects={sideProjects} />
+      {/* <BlogPostsSection blogPosts={blogPosts} /> */}
+      {/* <SideProjectsSection sideProjects={sideProjects} /> */}
     </main>
   );
 };
