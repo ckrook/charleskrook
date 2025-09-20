@@ -93,6 +93,7 @@ const config = {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         serif: ["var(--font-serif)", ...fontFamily.serif],
         mono: ["IBM Plex Mono", ...fontFamily.mono],
+        "pp-neue": ["'PP Neue Montreal'", ...fontFamily.sans],
       },
       fontSize: {
         // Text sizes
