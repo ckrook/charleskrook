@@ -29,13 +29,7 @@ const fontSerif = FontSerif({
 });
 
 const ppNeueMontreal = localFont({
-  src: [
-    {
-      path: "../public/fonts/PPNeueMontreal-Medium.otf",
-      weight: "500",
-      style: "normal",
-    },
-  ],
+  src: "./fonts/PPNeueMontreal-Medium.otf",
   variable: "--font-pp-neue",
   display: "swap",
   fallback: ["Inter", "system-ui", "sans-serif"],

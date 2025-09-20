@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Backup font loading - in case Next.js font optimization fails */
-@font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('/fonts/PPNeueMontreal-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
