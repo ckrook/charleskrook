@@ -1,12 +1,8 @@
 import { fetchProjects, fetchExperiences, fetchBlogPosts } from "./api/graphql";
-import type { BlogPost, Experience, Work } from "./types";
 import {
-  HeroSection,
   SelectedWorkSection,
   ExperiencesSection,
-  BlogPostsSection,
-  SideProjectsSection,
-  TrustedBySection,
+  HeroSection,
 } from "./components/sections";
 
 const Home = async () => {
@@ -25,8 +21,6 @@ const Home = async () => {
       <HeroSection />
       <SelectedWorkSection selectedWork={selectedWork} />
       <ExperiencesSection experiences={experiences} />
-      {/* <BlogPostsSection blogPosts={blogPosts} /> */}
-      {/* <SideProjectsSection sideProjects={sideProjects} /> */}
     </main>
   );
 };

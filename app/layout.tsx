@@ -120,7 +120,15 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className={cn(
+        "scroll-smooth",
+        fontSans.variable,
+        fontSerif.variable,
+        ppNeueMontreal.variable
+      )}
+    >
       <head>
         <meta
           name="viewport"
@@ -147,14 +155,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body
-        className={cn(
-          "min-h-screen bg-gray-50 dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200",
-          fontSans.variable,
-          fontSerif.variable,
-          ppNeueMontreal.variable
-        )}
-      >
+      <body className="min-h-screen bg-gray-50 dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200">
         <ThemeProvider>
           <CommandMenu>
             <div className="grid grid-cols-12">
