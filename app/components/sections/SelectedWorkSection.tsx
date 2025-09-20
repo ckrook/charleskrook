@@ -16,7 +16,7 @@ const SelectedWorkSection = ({ selectedWork }: SelectedWorkSectionProps) => {
         <span className="text-black dark:text-white">
           A selection of my work over the years that I&apos;m extra proud of.{" "}
         </span>
-        <span className="text-stone-300 dark:text-grey-900">
+        <span className="text-stone-300 dark:text-grey-800">
           These projects represent my journey in crafting digital experiences
           that balance technical excellence with thoughtful design.
         </span>
