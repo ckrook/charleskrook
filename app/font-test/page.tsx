@@ -24,7 +24,6 @@ export default function FontTest() {
 
           setFontInfo({
             cssVariables: {
-              "--font-pp-neue": rootStyles.getPropertyValue("--font-pp-neue"),
               "--font-sans": rootStyles.getPropertyValue("--font-sans"),
               "--font-serif": rootStyles.getPropertyValue("--font-serif"),
             },
@@ -50,10 +49,6 @@ export default function FontTest() {
       <div className="mb-8 space-y-4">
         <h2 className="text-xl font-semibold">Font Test Elements:</h2>
 
-        <div className="font-pp-neue text-2xl p-4 border">
-          PP Neue Montreal Test (font-pp-neue class)
-        </div>
-
         <div className="font-sans text-2xl p-4 border">
           Inter Test (font-sans class)
         </div>
@@ -63,10 +58,10 @@ export default function FontTest() {
         </div>
 
         <div
-          style={{ fontFamily: "var(--font-pp-neue)" }}
+          style={{ fontFamily: "var(--font-sans)" }}
           className="text-2xl p-4 border"
         >
-          Direct CSS Variable Test
+          Direct CSS Variable Test (Inter)
         </div>
       </div>
 

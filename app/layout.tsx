@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Playfair_Display as FontSerif, Inter } from "next/font/google";
-import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Image from "next/image";
@@ -26,13 +25,6 @@ const fontSerif = FontSerif({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
-});
-
-const ppNeueMontreal = localFont({
-  src: "./fonts/PPNeueMontreal-Medium.otf",
-  variable: "--font-pp-neue",
-  display: "swap",
-  fallback: ["Inter", "system-ui", "sans-serif"],
 });
 
 // OG image URL from opengraph.xyz's CDN
@@ -122,12 +114,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html
       lang="en"
-      className={cn(
-        "scroll-smooth",
-        fontSans.variable,
-        fontSerif.variable,
-        ppNeueMontreal.variable
-      )}
+      className={cn("scroll-smooth", fontSans.variable, fontSerif.variable)}
     >
       <head>
         <meta
