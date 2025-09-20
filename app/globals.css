@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom font loading */
+/* Backup font loading - in case Next.js font optimization fails */
 @font-face {
   font-family: 'PP Neue Montreal';
   src: url('/fonts/PPNeueMontreal-Medium.otf') format('opentype');

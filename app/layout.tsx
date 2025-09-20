@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Playfair_Display as FontSerif, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Image from "next/image";
@@ -25,6 +26,19 @@ const fontSerif = FontSerif({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
+});
+
+const ppNeueMontreal = localFont({
+  src: [
+    {
+      path: "../public/fonts/PPNeueMontreal-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-pp-neue",
+  display: "swap",
+  fallback: ["Inter", "system-ui", "sans-serif"],
 });
 
 // OG image URL from opengraph.xyz's CDN
@@ -143,7 +157,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         className={cn(
           "min-h-screen bg-gray-50 dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200",
           fontSans.variable,
-          fontSerif.variable
+          fontSerif.variable,
+          ppNeueMontreal.variable
         )}
       >
         <ThemeProvider>
