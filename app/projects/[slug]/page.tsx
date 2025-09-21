@@ -51,104 +51,69 @@ export default async function ProjectPage({
   }
 
   return (
-    <main className=" col-span-12 grid grid-cols-12 justify-between scroll-auto mt-16">
-      <div className="col-span-12 md:col-span-8 md:col-start-3 rounded-none md:rounded-lg overflow-hidden">
-        <div className="relative w-full h-[400px] md:h-[500px] bg-stone-950 gradient-to-r from-stone-950 to-stone-900">
+    <main className="col-span-12 grid grid-cols-12 justify-between scroll-auto px-4 sm:px-6 md:px-8">
+      {/* Hero Image Section */}
+      <div className="col-span-12 rounded-lg overflow-hidden mb-8 sm:mb-12 md:mb-16">
+        <div className="relative bg-[#0c0a09] aspect-[4/5] sm:aspect-[16/9]">
           <Image
             src={project?.bannerImage?.url || ""}
             alt={project?.name || ""}
             fill
-            objectFit="cover"
+            className="object-cover"
+            priority
           />
         </div>
       </div>
-      <div className="col-span-12 md:col-span-6 md:col-start-4 mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-8">
-        {/* Back Navigation */}
-        <section className="flex justify-between items-center py-4 mb-6 md:mb-12">
-          <Link
-            href="/"
-            className="inline-block text-neutral-600 hover:text-neutral-900 transition-colors"
-          >
-            ← Back to home
-          </Link>
-        </section>
 
-        {/* Project Header */}
-        <section className="grid mb-0 md:mb-8">
-          <div className="grid col-start-2 col-end-8 gap-6">
-            <div className=" col-span-3 md:col-span-2 mb-8 md:mb-0">
-              <div className="flex flex-row items-center justify-between md:flex-row gap-4 mb-6">
-                <CardItem
-                  title={project.name}
-                  subtitle={project.role}
-                  imageHeight={44}
-                  imageWidth={44}
-                  logoImageUrl={project?.logo?.url}
+      {/* Content Section */}
+      <div className="col-span-12 grid grid-cols-12 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+        {/* Left Column - Project Info */}
+        <div className="col-span-12 md:col-span-5">
+          <div className="flex flex-row items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded flex items-center justify-center flex-shrink-0">
+              {project?.logo?.url && (
+                <Image
+                  src={project.logo.url}
+                  alt={project.name}
+                  width={48}
+                  height={48}
+                  className="rounded-sm"
                 />
-              </div>
-              <div className="mb-10">
-                <p>{project.description.text}</p>
-              </div>
-              <div className="mb-6">
-                <h4 className="font-medium mb-2 uppercase text-sm">
-                  Technologies
-                </h4>
-                <div className="overflow-hidden rounded-md">
-                  <div className="border-l border-neutral-200 dark:border-neutral-700">
-                    <div className="grid grid-cols-2 md:grid-cols-4 -mx-px -mb-px">
-                      {project.technoligies.map((technology) => (
-                        <div
-                          key={technology.name}
-                          className="relative h-12 bg-white dark:bg-stone-950 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
-                        >
-                          <div className="relative w-16 h-10">
-                            <Image
-                              src={technology?.logoWhite?.url || ""}
-                              alt={technology.name}
-                              className="p-1 object-contain dark:hidden"
-                              fill
-                            />
-                            <Image
-                              src={
-                                technology?.logoDark?.url ||
-                                technology?.logoWhite?.url ||
-                                ""
-                              }
-                              alt={technology.name}
-                              className="p-1 object-contain hidden dark:block"
-                              fill
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Project details in a 2-column grid */}
-              <button className=" mb-8 w-full bg-stone-100 dark:bg-stone-900 hover:bg-stone-200 dark:hover:bg-stone-700 py-4 px-6 rounded-lg text-sm font-medium transition-colors">
-                View Site →
-              </button>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-white text-sm sm:text-base font-normal leading-[19.36px] truncate">
+                {project.name}
+              </h1>
+              <p className="text-white text-sm sm:text-base font-normal leading-[19.36px] truncate">
+                {project.role}
+              </p>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section className="  grid grid-cols-1 md:grid-cols-3 gap-8 md:mb-32 mb-16">
-          {/* Render the rich text content here */}
-          <div className="col-span-1 md:col-span-3">
-            {parsedContent ? (
-              <RichTextRenderer
-                content={parsedContent}
-                className="project-content"
-                debug={true}
-              />
-            ) : (
-              <p className="text-neutral-500">
-                No content available for this project.
+        {/* Right Column - Project Description */}
+        <div className="col-span-12 md:col-span-7">
+          {parsedContent ? (
+            <RichTextRenderer
+              content={parsedContent}
+              className="project-content"
+              debug={true}
+            />
+          ) : (
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-white font-serif text-lg sm:text-xl md:text-2xl leading-[1.3] sm:leading-[1.4] md:leading-[32px]">
+                {project.description.text}
               </p>
-            )}
-          </div>
-        </section>
+              <p className="text-white text-sm sm:text-base leading-5 sm:leading-6">
+                A selection of my work over the years that I&apos;m extra proud
+                of. These projects represent my journey in crafting digital
+                experiences that balance technical excellence with thoughtful
+                design.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );
