@@ -36,7 +36,7 @@ const CardItem = ({
               alt={`${title} image`}
               width={imageWidth}
               height={imageHeight}
-              className={`w-auto h-auto rounded-[10px] mr-[11px] border border-neutral-200 dark:border-neutral-800 ${
+              className={`w-auto h-auto rounded-figma-sm mr-[11px] border border-figma-border-primary ${
                 rounded ? "rounded-full" : ""
               }`}
               style={{ backgroundColor: bgColor }}
@@ -44,8 +44,12 @@ const CardItem = ({
           )}
         </div>
         <div className="flex flex-col">
-          <h3 className="font-medium leading-6">{title}</h3>
-          <p className="leading-6">{subtitle}</p>
+          <h3 className="font-figma-regular leading-6 text-figma-text-primary text-figma-base font-figma">
+            {title}
+          </h3>
+          <p className="leading-6 text-figma-text-secondary text-figma-base font-figma font-figma-regular">
+            {subtitle}
+          </p>
         </div>
       </div>
     </div>

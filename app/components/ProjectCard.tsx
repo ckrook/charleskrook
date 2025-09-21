@@ -139,7 +139,7 @@ const ProjectCard = ({
           </div>
           {/* Description */}
           <div className="col-span-4 sm:col-span-4">
-            <p className="text-stone-600 dark:text-stone-50">
+            <p className="text-figma-text-primary text-figma-base font-figma font-figma-medium">
               {project.description.text}
             </p>
           </div>
