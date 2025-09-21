@@ -81,7 +81,7 @@ const ProjectCard = ({
             src={project.backgroundImage?.url || ""}
             alt={`${project.name} background`}
             fill
-            className="object-cover border border-neutral-200 dark:border-neutral-800"
+            className="object-cover "
             priority={true}
           />
         </div>
