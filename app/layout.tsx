@@ -142,7 +142,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
-      <body className="min-h-screen bg-gray-50 dark:bg-zinc-950 font-sans antialiased text-black dark:text-white transition-colors duration-200">
+      <body className="min-h-screen bg-figma-background-primary font-figma antialiased text-figma-text-primary transition-colors duration-200">
         <ThemeProvider>
           <CommandMenu>
             <div className="grid grid-cols-12">
@@ -159,10 +159,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                         height={100}
                       />
                     </div>
-                    <p className="flex flex-col font-medium text-black dark:text-white md:text-base text-sm">
+                    <p className="flex flex-col font-medium text-figma-text-header md:text-figma-base text-sm">
                       <span className="text-sm">Charles Krook</span>
-                      <span className="text-sm text-gray-600 dark:text-gray-300 -mt-1">
-                        Frontend Engineer
+                      <span className="text-sm text-figma-text-header -mt-1">
+                        Fullstack engineer
                       </span>
                     </p>
                   </Link>
@@ -172,22 +172,22 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
                   {/* Desktop Navigation (visible only on desktop) */}
                   <nav className="flex justify-end items-center w-full">
-                    <div className="flex border-neutral-200 dark:border-neutral-800 overflow-hidden font-medium justify-center items-center">
+                    <div className="flex overflow-hidden font-medium justify-center items-center">
                       <Link
                         href="/"
-                        className="px-3 py-1 text-sm hover:text-stone-500 dark:hover:text-stone-100"
+                        className="px-3 py-1 text-sm text-figma-text-header hover:text-figma-text-secondary"
                       >
                         Home
                       </Link>
                       <Link
                         href="/projects"
-                        className="px-3 py-1 text-sm hover:text-stone-500 dark:hover:text-stone-100"
+                        className="px-3 py-1 text-sm text-figma-text-header hover:text-figma-text-secondary"
                       >
                         Projects
                       </Link>
                       <Link
                         href="mailto:charles@charleskrook.com"
-                        className="ml-2 text-sm bg-stone-100 dark:bg-stone-800 rounded-md px-3 py-2"
+                        className="ml-2 text-sm bg-figma-surface-button text-figma-text-header rounded-figma-sm px-3 py-1"
                       >
                         Get in touch
                       </Link>
@@ -208,9 +208,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 <div>
                   <NowPlaying />
                 </div>
-                <span className="text-xs text-gray-600 dark:text-gray-300">
-                  &copy; {new Date().getFullYear()} Charles Krook. All rights
-                  reserved.
+                <span className="text-xs text-figma-text-primary font-figma font-figma-regular">
+                  Copyright All right reserved
                 </span>
               </footer>
             </div>

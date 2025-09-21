@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import type { PluginAPI } from "tailwindcss/types/config";
+import { designTokens } from "./lib/design-tokens";
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 // Generate a comprehensive spacing scale
@@ -45,21 +46,39 @@ const config = {
       "2xl": "1536px",
     },
     extend: {
-      // Color palette
+      // Color palette - Figma Design Tokens
       colors: {
-        // Primary colors
+        // Figma design tokens
+        figma: {
+          background: {
+            primary: designTokens.colors.background.primary,
+            secondary: designTokens.colors.background.secondary,
+          },
+          text: {
+            primary: designTokens.colors.text.primary,
+            secondary: designTokens.colors.text.secondary,
+            tertiary: designTokens.colors.text.tertiary,
+            header: designTokens.colors.text.header,
+          },
+          surface: {
+            button: designTokens.colors.surface.button,
+            placeholder: designTokens.colors.surface.placeholder,
+          },
+          border: {
+            primary: designTokens.colors.border.primary,
+          },
+        },
+        // Legacy colors (keeping for compatibility)
         primary: {
-          DEFAULT: "#F91414", // Red from your design
+          DEFAULT: "#F91414",
           light: "#FF4D4D",
           dark: "#D40000",
         },
-        // Secondary colors
         secondary: {
-          DEFAULT: "#FFFF00", // Yellow from your design
+          DEFAULT: "#FFFF00",
           light: "#FFFF66",
           dark: "#CCCC00",
         },
-        // Neutral colors
         neutral: {
           50: "#F9FAFB",
           100: "#F3F4F6",
@@ -73,29 +92,48 @@ const config = {
           900: "#111827",
           950: "#030712",
         },
-        // Background colors
         background: {
           light: "#FFFFFF",
-          DEFAULT: "#F1F1F1", // From your design
-          dark: "#121212", // From your design
+          DEFAULT: "#F1F1F1",
+          dark: "#121212",
         },
-        // Text colors
         text: {
-          light: "#F1F1F1", // From your design
+          light: "#F1F1F1",
           DEFAULT: "#000000",
           dark: "#6B7280",
         },
       },
       // Spacing scale
-      spacing: generateSpacing(),
+      spacing: {
+        ...generateSpacing(),
+        // Figma design tokens
+        "figma-xs": designTokens.spacing.xs,
+        "figma-sm": designTokens.spacing.sm,
+        "figma-md": designTokens.spacing.md,
+        "figma-lg": designTokens.spacing.lg,
+        "figma-xl": designTokens.spacing.xl,
+        "figma-2xl": designTokens.spacing["2xl"],
+        "figma-3xl": designTokens.spacing["3xl"],
+      },
       // Typography
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         serif: ["var(--font-serif)", ...fontFamily.serif],
         mono: ["IBM Plex Mono", ...fontFamily.mono],
+        // Figma design tokens
+        figma: [designTokens.typography.fontFamily.primary, ...fontFamily.sans],
       },
       fontSize: {
-        // Text sizes
+        // Figma design tokens
+        "figma-xs": [
+          designTokens.typography.fontSize.xs,
+          { lineHeight: "14.52px" },
+        ],
+        "figma-base": [
+          designTokens.typography.fontSize.base,
+          { lineHeight: designTokens.typography.lineHeight.base },
+        ],
+        // Legacy text sizes
         xs: ["0.75rem", { lineHeight: "1rem" }],
         sm: ["0.875rem", { lineHeight: "1.25rem" }],
         base: ["1rem", { lineHeight: "1.5rem" }],
@@ -120,9 +158,16 @@ const config = {
         bold: "700",
         extrabold: "800",
         black: "900",
+        // Figma design tokens
+        "figma-regular": designTokens.typography.fontWeight.regular.toString(),
+        "figma-medium": designTokens.typography.fontWeight.medium.toString(),
       },
       // Border radius
       borderRadius: {
+        // Figma design tokens
+        "figma-sm": designTokens.borderRadius.sm,
+        "figma-md": designTokens.borderRadius.md,
+        // Legacy border radius
         none: "0",
         sm: "0.125rem",
         DEFAULT: "0.25rem",
