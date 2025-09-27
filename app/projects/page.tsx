@@ -35,57 +35,6 @@ export default async function Projects() {
           ))}
         </div>
       </section>
-      {/* Side Projects Section */}
-      <section className="px-4 col-span-4 sm:col-span-8 mb-16 md:mb-24">
-        <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
-          Side Projects
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {sideProjects.map((project) => (
-            <Link
-              key={project.id}
-              href={`/projects/${project.slug}`}
-              className="group block h-full"
-            >
-              <div className="bg-white dark:bg-neutral-900 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 relative overflow-hidden h-full transition-all duration-300 hover:shadow-md">
-                <CardItem
-                  title={project.name}
-                  subtitle={project.description.text}
-                  rounded
-                  logoImageUrl={project?.logo?.url}
-                />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-      {/* All Projects Section */}
-      {projects.length > selectedWork.length + sideProjects.length && (
-        <section className="col-span-4 sm:col-span-8 mb-16">
-          <h2 className="text-xl md:text-2xl font-medium mb-6 md:mb-8">
-            Other Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects
-              .filter((p) => !p.selectedWork && !p.sideproject)
-              .map((project) => (
-                <Link
-                  key={project.id}
-                  href={`/projects/${project.slug}`}
-                  className="bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 hover:shadow-sm transition-all block h-full"
-                >
-                  <div className="p-4 md:p-6 rounded-lg">
-                    <CardItem
-                      title={project.name}
-                      subtitle={project.industry}
-                      logoImageUrl={project?.logo?.url}
-                    />
-                  </div>
-                </Link>
-              ))}
-          </div>
-        </section>
-      )}
     </main>
   );
 }

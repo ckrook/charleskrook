@@ -174,18 +174,6 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                   <nav className="flex justify-end items-center w-full">
                     <div className="flex overflow-hidden font-medium justify-center items-center">
                       <Link
-                        href="/"
-                        className="px-3 py-1 text-sm text-figma-text-header hover:text-figma-text-secondary"
-                      >
-                        Home
-                      </Link>
-                      <Link
-                        href="/projects"
-                        className="px-3 py-1 text-sm text-figma-text-header hover:text-figma-text-secondary"
-                      >
-                        Projects
-                      </Link>
-                      <Link
                         href="mailto:charles@charleskrook.com"
                         className="ml-2 text-sm bg-figma-surface-button text-figma-text-header rounded-figma-sm px-3 py-1"
                       >
