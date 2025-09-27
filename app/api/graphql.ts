@@ -1,3 +1,4 @@
+import { Workplace } from "../hooks/fetchProjects";
 import { BlogPost, Experience, Work } from "../types";
 
 /**
@@ -216,6 +217,33 @@ export async function fetchProjectBySlug(slug: string): Promise<Work | null> {
 
   const data = await fetchGraphQL(query);
   return data?.project || null;
+}
+
+/**
+ * Fetch all clients from the GraphQL API
+ */
+export async function fetchClients() {
+  const query = `
+    query {
+      workplaces {
+        clients {
+          name
+          role
+          liveSite
+          logo {
+            url
+          }
+        }
+      }
+    }
+  `;
+
+  const data = await fetchGraphQL(query);
+  // Flatten the clients array from all workplaces
+  const allClients =
+    data?.workplaces?.flatMap((workplace: Workplace) => workplace.clients) ||
+    [];
+  return allClients;
 }
 
 /**

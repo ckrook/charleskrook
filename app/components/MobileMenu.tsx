@@ -87,11 +87,9 @@ const MobileMenu = () => {
                 height={100}
               />
             </div>
-            <p className="flex flex-col font-medium text-black dark:text-white text-sm">
+            <p className="flex flex-col font-medium text-white text-sm">
               <span>Charles Krook</span>
-              <span className="text-xs text-gray-600 dark:text-gray-300">
-                Frontend Engineer
-              </span>
+              <span className="text-xs text-gray-300">Frontend Engineer</span>
             </p>
           </Link>
 

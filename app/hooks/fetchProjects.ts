@@ -26,6 +26,9 @@ export interface Workplace {
   };
   startDate: string;
   endDate: string;
+  clients: {
+    name: string;
+  }[];
 }
 
 // Cache for storing fetched data

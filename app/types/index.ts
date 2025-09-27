@@ -97,6 +97,15 @@ export interface BlogPost {
   }>;
 }
 
+export interface Client {
+  name: string;
+  role: string;
+  liveSite: string;
+  logo: {
+    url: string;
+  };
+}
+
 export interface Technology {
   name: string;
   logoWhite: {
