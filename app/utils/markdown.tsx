@@ -60,8 +60,13 @@ export function RichTextContent({
     // Handle different node types
     switch (node.type) {
       case "paragraph":
+        // Check if this is the first paragraph to apply serif styling
+        const isFirstParagraph = index === 0;
         return (
-          <p key={index} className="mb-8 leading-relaxed">
+          <p
+            key={index}
+            className={`mb-8 leading-relaxed ${isFirstParagraph ? "lede" : ""}`}
+          >
             {safeMap(node.children, (child, i) => renderChild(child, i))}
           </p>
         );
