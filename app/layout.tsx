@@ -14,6 +14,7 @@ import CommandMenu from "./components/CommandMenu";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import NowPlaying from "./components/NowPlaying";
 import CookieConsent from "./components/CookieConsent";
+import { GSAPProvider } from "./components/GSAPProvider";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -143,73 +144,75 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body className="min-h-screen bg-figma-background-primary font-figma antialiased text-figma-text-primary transition-colors duration-200">
-        <ThemeProvider>
-          <CommandMenu>
-            <div className="grid grid-cols-12">
-              <header className="px-0 md:px-4 col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6 hidden md:grid">
-                {/* Logo and Name */}
-                <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
-                  <Link href="/" className="flex items-center gap-2 md:gap-2">
-                    <div className="w-[33px] h-[33px] md:w-8 md:h-8">
-                      <Image
-                        src="/logo-avatar.png"
-                        alt="Charles Krook"
-                        className=" rounded-lg"
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                    <p className="flex flex-col font-medium text-figma-text-header md:text-figma-base text-sm">
-                      <span className="text-sm">Charles Krook</span>
-                      <span className="text-sm text-figma-text-header -mt-1">
-                        Fullstack engineer
-                      </span>
-                    </p>
-                  </Link>
+        <GSAPProvider>
+          <ThemeProvider>
+            <CommandMenu>
+              <div className="grid grid-cols-12">
+                <header className="px-0 md:px-4 col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6 hidden md:grid">
+                  {/* Logo and Name */}
+                  <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
+                    <Link href="/" className="flex items-center gap-2 md:gap-2">
+                      <div className="w-[33px] h-[33px] md:w-8 md:h-8">
+                        <Image
+                          src="/logo-avatar.png"
+                          alt="Charles Krook"
+                          className=" rounded-lg"
+                          width={100}
+                          height={100}
+                        />
+                      </div>
+                      <p className="flex flex-col font-medium text-figma-text-header md:text-figma-base text-sm">
+                        <span className="text-sm">Charles Krook</span>
+                        <span className="text-sm text-figma-text-header -mt-1">
+                          Fullstack engineer
+                        </span>
+                      </p>
+                    </Link>
+                  </div>
+
+                  {/* Navigation */}
+                  <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
+                    {/* Desktop Navigation (visible only on desktop) */}
+                    <nav className="flex justify-end items-center w-full">
+                      <div className="flex overflow-hidden font-medium justify-center items-center">
+                        <Link
+                          href="mailto:charles@charleskrook.com"
+                          className="ml-2 text-sm bg-figma-surface-button text-figma-text-header rounded-figma-sm px-3 py-1"
+                        >
+                          Get in touch
+                        </Link>
+                      </div>
+                    </nav>
+                  </div>
+                </header>
+
+                {/* Mobile Menu (shown only on mobile) */}
+                <div className="md:hidden">
+                  <MobileMenu />
+                  {/* Spacer for fixed mobile header */}
+                  <div className="h-16"></div>
                 </div>
 
-                {/* Navigation */}
-                <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
-                  {/* Desktop Navigation (visible only on desktop) */}
-                  <nav className="flex justify-end items-center w-full">
-                    <div className="flex overflow-hidden font-medium justify-center items-center">
-                      <Link
-                        href="mailto:charles@charleskrook.com"
-                        className="ml-2 text-sm bg-figma-surface-button text-figma-text-header rounded-figma-sm px-3 py-1"
-                      >
-                        Get in touch
-                      </Link>
-                    </div>
-                  </nav>
-                </div>
-              </header>
-
-              {/* Mobile Menu (shown only on mobile) */}
-              <div className="md:hidden">
-                <MobileMenu />
-                {/* Spacer for fixed mobile header */}
-                <div className="h-16"></div>
+                {children}
+                <footer className="md:flex md:col-span-6 md:col-start-4 col-span-12 flex-col justify-center text-center md:justify-between items-center py-4">
+                  <div>
+                    <NowPlaying />
+                  </div>
+                  <span className="text-xs text-figma-text-primary font-figma font-figma-regular">
+                    Copyright All right reserved
+                  </span>
+                </footer>
               </div>
 
-              {children}
-              <footer className="md:flex md:col-span-6 md:col-start-4 col-span-12 flex-col justify-center text-center md:justify-between items-center py-4">
-                <div>
-                  <NowPlaying />
-                </div>
-                <span className="text-xs text-figma-text-primary font-figma font-figma-regular">
-                  Copyright All right reserved
-                </span>
-              </footer>
-            </div>
+              {/* Cookie Consent Banner - Loaded before Google Analytics */}
+              <CookieConsent />
 
-            {/* Cookie Consent Banner - Loaded before Google Analytics */}
-            <CookieConsent />
-
-            {/* Google Analytics - Only initialized after consent */}
-            <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
-          </CommandMenu>
-          <PrintHandler />
-        </ThemeProvider>
+              {/* Google Analytics - Only initialized after consent */}
+              <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+            </CommandMenu>
+            <PrintHandler />
+          </ThemeProvider>
+        </GSAPProvider>
       </body>
     </html>
   );
