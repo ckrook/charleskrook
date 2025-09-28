@@ -13,7 +13,6 @@ import MobileMenu from "./components/MobileMenu";
 import CommandMenu from "./components/CommandMenu";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import NowPlaying from "./components/NowPlaying";
-import CookieConsent from "./components/CookieConsent";
 import { GSAPProvider } from "./components/GSAPProvider";
 
 const fontSans = Inter({
@@ -37,20 +36,24 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 export const metadata: Metadata = {
   title: {
-    default: "Charles Krook | Frontend Engineer",
+    default: "Charles Krook | Fullstack Engineer",
     template: "%s | Charles Krook",
   },
   description:
-    "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
+    "I craft modern web applications using React, Next.js, and TypeScript. Passionate about building fast, accessible, and user-friendly digital experiences that make a real impact.",
   metadataBase: new URL("https://charleskrook.com"),
   keywords: [
+    "fullstack",
     "frontend",
+    "backend",
     "developer",
     "engineer",
     "react",
     "nextjs",
     "stockholm",
     "web development",
+    "javascript",
+    "typescript",
   ],
   authors: [{ name: "Charles Krook" }],
   creator: "Charles Krook",
@@ -59,9 +62,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://charleskrook.com",
     siteName: "Charles Krook",
-    title: "Charles Krook | Frontend Engineer",
+    title: "Charles Krook | Fullstack Engineer",
     description:
-      "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
+      "I craft modern web applications using React, Next.js, and TypeScript. Passionate about building fast, accessible, and user-friendly digital experiences that make a real impact.",
     images: [
       {
         url: ogImageUrl,
@@ -73,9 +76,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Charles Krook | Frontend Engineer",
+    title: "Charles Krook | Fullstack Engineer",
     description:
-      "Frontend engineer passionate about crafting beautiful, accessible digital experiences",
+      "I craft modern web applications using React, Next.js, and TypeScript. Passionate about building fast, accessible, and user-friendly digital experiences that make a real impact.",
     images: [ogImageUrl],
     creator: "@charleskrook",
   },
@@ -204,10 +207,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 </footer>
               </div>
 
-              {/* Cookie Consent Banner - Loaded before Google Analytics */}
-              <CookieConsent />
-
-              {/* Google Analytics - Only initialized after consent */}
+              {/* Google Analytics - Always tracking */}
               <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
             </CommandMenu>
             <PrintHandler />

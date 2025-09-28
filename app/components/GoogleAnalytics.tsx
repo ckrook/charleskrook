@@ -28,32 +28,10 @@ interface AnalyticsTrackerProps {
 const AnalyticsTracker = ({ measurementId }: AnalyticsTrackerProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [hasConsent, setHasConsent] = useState(false);
-
-  // Check for cookie consent
-  useEffect(() => {
-    const checkConsent = () => {
-      const consent = localStorage.getItem("cookie-consent") === "true";
-      setHasConsent(consent);
-    };
-
-    // Check initial consent
-    checkConsent();
-
-    // Set up event listener for consent changes
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === "cookie-consent") {
-        checkConsent();
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
-  }, []);
 
   // Track page views when the route changes
   useEffect(() => {
-    if (!measurementId || measurementId === "" || !hasConsent) return;
+    if (!measurementId || measurementId === "") return;
 
     const url =
       pathname +
@@ -63,7 +41,7 @@ const AnalyticsTracker = ({ measurementId }: AnalyticsTrackerProps) => {
     window.gtag?.("config", measurementId, {
       page_path: url,
     });
-  }, [pathname, searchParams, measurementId, hasConsent]);
+  }, [pathname, searchParams, measurementId]);
 
   return null;
 };
@@ -73,38 +51,7 @@ interface GoogleAnalyticsProps {
 }
 
 const GoogleAnalytics = ({ measurementId }: GoogleAnalyticsProps) => {
-  const [hasConsent, setHasConsent] = useState(false);
-
-  // Check for cookie consent
-  useEffect(() => {
-    // Function to check cookie consent
-    const checkConsent = () => {
-      const consent = localStorage.getItem("cookie-consent") === "true";
-      setHasConsent(consent);
-    };
-
-    // Initial check
-    checkConsent();
-
-    // Listen for changes in consent
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === "cookie-consent") {
-        checkConsent();
-      }
-    };
-
-    // Custom event listener for when consent is given from CookieConsent component
-    const handleConsentChange = () => checkConsent();
-    window.addEventListener("consentUpdated", handleConsentChange);
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("consentUpdated", handleConsentChange);
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
-  if (!measurementId || measurementId === "" || !hasConsent) {
+  if (!measurementId || measurementId === "") {
     return null;
   }
 
