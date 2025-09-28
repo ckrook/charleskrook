@@ -110,7 +110,6 @@
     }
 
     p{
-      @apply text-[#706f6c] dark:text-gray-300 text-[16px] leading-[24px] sm:text-[16px] sm:leading-[24px] font-medium;
     }
 
     h2{
@@ -250,4 +249,9 @@ html {
   justify-content: center;
   height: 64px;
   white-space: pre-wrap;
+}
+
+.lede{
+  /* font serif, text-base, leading-relaxed */
+  @apply font-serif text-2xl;
 }
