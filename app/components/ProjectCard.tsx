@@ -78,7 +78,7 @@ const ProjectCard = ({
   return (
     <FadeInOnScroll duration={0.8} y={60}>
       <div className="grid grid-cols-4 sm:grid-cols-8 gap-4">
-        <div className="col-span-4 sm:col-span-8 relative w-full aspect-[1/1] sm:aspect-[6/3] overflow-hidden rounded-2xl">
+        <div className="col-span-4 sm:col-span-8 relative w-full aspect-[3/4] sm:aspect-[6/3] overflow-hidden rounded-2xl">
           {/* Background Image */}
           <div className="absolute inset-0 w-full h-full">
             <Image
