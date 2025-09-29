@@ -25,7 +25,7 @@ const ExperiencesList = ({ experiences }: ExperiencesListProps) => {
 
   return (
     <section className="mb-16 md:mb-32">
-      <FadeInOnScroll delay={0.2}>
+      <FadeInOnScroll delay={0.4}>
         <h2 className="text-figma-xs font-figma font-figma-regular text-figma-text-primary">
           Experiences
         </h2>
@@ -36,59 +36,59 @@ const ExperiencesList = ({ experiences }: ExperiencesListProps) => {
           applications.
         </p>
       </FadeInOnScroll>
-      <FadeInOnScrollContainer stagger={0.2} delay={0.4}>
-        <div className="flex flex-col">
-          {experiences.map((experience) => {
-            const period = formatPeriod(
-              experience?.startDate,
-              experience?.endDate
-            );
+      <div className="flex flex-col">
+        {experiences.map((experience, index) => {
+          const period = formatPeriod(
+            experience?.startDate,
+            experience?.endDate
+          );
 
-            const isHovered = hoveredId === experience.id;
-            const showFaded = hoveredId !== null && !isHovered;
-            const hasUrl = !!experience.url;
+          const isHovered = hoveredId === experience.id;
+          const showFaded = hoveredId !== null && !isHovered;
+          const hasUrl = !!experience.url;
 
-            // Common props shared between link and div
-            const commonProps = {
-              key: experience.id,
-              className: `border-b py-6 md:py-8 border-figma-border-primary transition-opacity duration-300 ${
-                showFaded ? "opacity-40" : "opacity-100"
-              } ${hasUrl ? "cursor-pointer" : "cursor-default"}`,
-              onMouseEnter: () => setHoveredId(experience.id),
-              onMouseLeave: () => setHoveredId(null),
-            };
+          // Common props shared between link and div
+          const commonProps = {
+            key: experience.id,
+            className: `transition-opacity duration-300 ${
+              showFaded ? "opacity-40" : "opacity-100"
+            } ${hasUrl ? "cursor-pointer" : "cursor-default"}`,
+            onMouseEnter: () => setHoveredId(experience.id),
+            onMouseLeave: () => setHoveredId(null),
+          };
 
-            const content = (
-              <div className="flex md:flex-row justify-between gap-4 md:gap-0">
-                <CardItem
-                  title={experience.name}
-                  subtitle={experience.role}
-                  logoImageUrl={experience?.logo?.url}
-                  asLink={false}
-                />
-                <div className="flex shrink-0 flex-col">
-                  <p className="text-figma-text-tertiary font-figma font-figma-regular">
-                    {period}
-                  </p>
-                </div>
+          const content = (
+            <div className="border-b py-6 md:py-8 border-figma-border-primary flex md:flex-row justify-between gap-4 md:gap-0">
+              <CardItem
+                title={experience.name}
+                subtitle={experience.role}
+                logoImageUrl={experience?.logo?.url}
+                asLink={false}
+              />
+              <div className="flex shrink-0 flex-col">
+                <p className="text-figma-text-tertiary font-figma font-figma-regular">
+                  {period}
+                </p>
               </div>
-            );
+            </div>
+          );
 
-            // Render as a link only if URL exists
-            return hasUrl ? (
-              <Link
-                target="_blank"
-                href={experience.url || "#"}
-                {...commonProps}
-              >
+          // Render as a link only if URL exists
+          return hasUrl ? (
+            <Link target="_blank" href={experience.url || "#"} {...commonProps}>
+              <FadeInOnScroll delay={0.4 + index * 0.1} duration={0.6} y={25}>
                 {content}
-              </Link>
-            ) : (
-              <div {...commonProps}>{content}</div>
-            );
-          })}
-        </div>
-      </FadeInOnScrollContainer>
+              </FadeInOnScroll>
+            </Link>
+          ) : (
+            <div {...commonProps}>
+              <FadeInOnScroll delay={0.4 + index * 0.1} duration={0.6} y={25}>
+                {content}
+              </FadeInOnScroll>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };
