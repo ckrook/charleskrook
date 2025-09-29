@@ -17,13 +17,17 @@ const ClientSection = ({ clients }: ClientSectionProps) => {
               <h2 className="px-0 col-span-4 sm:col-start-1 sm:col-end-9 text-figma-xs font-figma font-figma-regular text-figma-text-primary">
                 Projects
               </h2>
-              <FadeInOnScrollContainer stagger={0.1} duration={0.6} y={25}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-20">
-                  {clients.map((client: Client, index: number) => {
-                    if (client.name === "Poc Sports") return null;
-                    return (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-20">
+                {clients
+                  .filter((client: Client) => client.name !== "Poc Sports")
+                  .map((client: Client, index: number) => (
+                    <FadeInOnScroll
+                      key={index}
+                      delay={index * 0.06}
+                      duration={0.6}
+                      y={25}
+                    >
                       <CardItem
-                        key={index}
                         title={client.name}
                         subtitle={client.role}
                         logoImageUrl={client.logo?.url}
@@ -32,10 +36,9 @@ const ClientSection = ({ clients }: ClientSectionProps) => {
                         arrow={true}
                         linkUrl={client.liveSite}
                       />
-                    );
-                  })}
-                </div>
-              </FadeInOnScrollContainer>
+                    </FadeInOnScroll>
+                  ))}
+              </div>
             </div>
           </FadeInOnScroll>
         )}

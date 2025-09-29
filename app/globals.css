@@ -255,3 +255,32 @@ html {
   /* font serif, text-base, leading-relaxed */
   @apply font-serif text-2xl;
 }
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .print\:block {
+    visibility: visible !important;
+  }
+  
+  .print\:block * {
+    visibility: visible !important;
+  }
+  
+  /* Ensure proper print styling */
+  .print\:bg-white {
+    background-color: white !important;
+  }
+  
+  .print\:text-black {
+    color: black !important;
+  }
+  
+  @page {
+    size: A4;
+    margin: 0.5cm;
+  }
+}

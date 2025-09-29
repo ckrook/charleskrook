@@ -44,6 +44,7 @@ const config = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
+      print: { raw: "print" },
     },
     extend: {
       // Color palette - Figma Design Tokens
