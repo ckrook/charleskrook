@@ -159,7 +159,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                         <Image
                           src="/logo-avatar.png"
                           alt="Charles Krook"
-                          className=" rounded-lg"
+                          className=" rounded-md"
                           width={100}
                           height={100}
                         />

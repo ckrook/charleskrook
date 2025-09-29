@@ -76,26 +76,27 @@ const MobileMenu = () => {
           scrolled ? "bg-zinc-950 dark:bg-zinc-950 " : "bg-transparent"
         }`}
       >
-        <div className="flex justify-between items-center h-14 px-4">
+        <div className="flex justify-between items-center py-2 px-4">
           {/* Logo and Name */}
           <Link href="/" className="flex items-center gap-2">
             <div className="w-[33px] h-[33px]">
               <Image
+                className="rounded-sm"
                 src="/logo-avatar.png"
                 alt="Charles Krook"
                 width={100}
                 height={100}
               />
             </div>
-            <p className="flex flex-col font-medium text-white text-sm">
-              <span>Charles Krook</span>
-              <span className="text-xs text-gray-300">Frontend Engineer</span>
+            <p className="flex flex-col font-medium text-figma-text-header md:text-figma-base text-sm">
+              <span className="text-sm">Charles Krook</span>
+              <span className="text-sm text-figma-text-header -mt-1">
+                Fullstack engineer
+              </span>
             </p>
           </Link>
 
           <div className="flex items-center gap-2">
-            {/* Theme Toggle */}
-
             {/* Hamburger Icon */}
             <button
               onClick={() => setIsOpen(!isOpen)}
