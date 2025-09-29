@@ -73,7 +73,7 @@ const MobileMenu = () => {
     <>
       <div
         className={`md:hidden fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-          scrolled ? "bg-white dark:bg-zinc-950 " : "bg-transparent"
+          scrolled ? "bg-zinc-950 dark:bg-zinc-950 " : "bg-transparent"
         }`}
       >
         <div className="flex justify-between items-center h-14 px-4">
