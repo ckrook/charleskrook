@@ -125,6 +125,14 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
         />
+        {/* Theme color for Safari status bar and browser UI */}
+        <meta name="theme-color" content="#0c0a09" />
+        <meta name="msapplication-navbutton-color" content="#0c0a09" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon/favicon.ico" />
         <link
