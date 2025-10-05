@@ -97,6 +97,20 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* iOS Safari status bar styling */
+    @supports (padding: max(0px)) {
+      body {
+        padding-top: max(env(safe-area-inset-top), 0px);
+      }
+    }
+
+    /* Ensure status bar area matches background */
+    @media screen and (max-width: 768px) {
+      html {
+        background-color: #0c0a09;
+      }
+    }
+
     img {
       @apply max-w-full h-auto;
     }
