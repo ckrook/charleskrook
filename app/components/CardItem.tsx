@@ -49,7 +49,9 @@ const CardItem = ({
               style={{ backgroundColor: bgColor }}
             />
           ) : (
-            <div className="w-10 h-10 bg-figma-background-secondary rounded-full" />
+            <div className="w-10 h-10 bg-figma-background-secondary rounded-full flex items-center justify-center text-xl">
+              {title.charAt(0)}
+            </div>
           )}
         </div>
         <div className="flex flex-col">
