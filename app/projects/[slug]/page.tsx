@@ -1,5 +1,5 @@
 import { fetchProjectBySlug } from "@/app/api/graphql";
-import CardItem from "@/app/components/CardItem";
+import CardItem from "@/app/components/parts/CardItem";
 import Image from "next/image";
 import Link from "next/link";
 import RichTextRenderer from "@/app/components/RichTextRenderer";

@@ -1,12 +1,14 @@
-import FadeInOnScroll, { FadeInOnScrollContainer } from "../FadeInOnScroll";
+import FadeInOnScroll, {
+  FadeInOnScrollContainer,
+} from "../wrappers/FadeInOnScroll";
 import { Client } from "../../types";
-import CardItem from "../CardItem";
+import CardItem from "../parts/CardItem";
 
-interface ClientSectionProps {
+interface ClientsBlockProps {
   clients: Client[];
 }
 
-const ClientSection = ({ clients }: ClientSectionProps) => {
+const ClientsBlock = ({ clients }: ClientsBlockProps) => {
   return (
     <div className="col-span-4 sm:col-start-1 sm:col-end-9">
       <div className="mb-16 px-0 md:px-4 md:mb-32 col-span-4 sm:col-span-8">
@@ -47,4 +49,4 @@ const ClientSection = ({ clients }: ClientSectionProps) => {
   );
 };
 
-export default ClientSection;
+export default ClientsBlock;

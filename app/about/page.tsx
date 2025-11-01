@@ -2,12 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import ProfileImageFlip from "../components/ProfileImageFlip";
-import PageHeader from "../components/PageHeader";
 import { fetchTechnologies, fetchTechnologiesCount } from "../api/graphql";
 import type { Technology } from "../types";
-import ContactModal from "../components/ContactModal";
-import { HeroSection } from "../components/sections";
+import HeroBlock from "../components/blocks/HeroBlock";
 
 const About = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -72,7 +69,7 @@ const About = () => {
   return (
     <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-0 md:px-4">
       {/* Header Section */}
-      <HeroSection />
+      <HeroBlock />
 
       {/* Bio Section */}
       <section className="col-span-4 sm:col-span-8 mb-16 md:mb-24">
@@ -165,12 +162,6 @@ const About = () => {
           </button>
         </div>
       </section>
-
-      {/* Contact Modal */}
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-      />
     </main>
   );
 };

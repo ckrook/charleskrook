@@ -2,11 +2,10 @@ import { fetchProjects } from "@/app/api/graphql";
 import { Work } from "@/app/types";
 import Link from "next/link";
 import Image from "next/image";
-import CardItem from "@/app/components/CardItem";
-import ProjectCard from "@/app/components/ProjectCard";
-import PageHeader from "../components/PageHeader";
-import { HeroSection } from "../components/sections";
-import { FadeInOnScroll } from "../components/FadeInOnScroll";
+import CardItem from "@/app/components/parts/CardItem";
+import ProjectCard from "@/app/components/parts/ProjectCard";
+import HeroBlock from "../components/blocks/HeroBlock";
+import { FadeInOnScroll } from "../components/wrappers/FadeInOnScroll";
 
 export default async function Projects() {
   const projects: Work[] = await fetchProjects();
@@ -21,7 +20,7 @@ export default async function Projects() {
 
   return (
     <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
-      <HeroSection />
+      <HeroBlock />
 
       <section className="px-4  col-span-4 sm:col-span-8 mb-16 md:mb-32">
         <div className="flex flex-col gap-6 md:gap-8">
