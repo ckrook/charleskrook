@@ -1,13 +1,16 @@
 import Link from "next/link";
-import ProjectCard from "../ProjectCard";
+import ProjectCard from "../parts/ProjectCard";
 import type { Work } from "../../types";
-import { FadeInOnScroll, FadeInOnScrollContainer } from "../FadeInOnScroll";
+import {
+  FadeInOnScroll,
+  FadeInOnScrollContainer,
+} from "../wrappers/FadeInOnScroll";
 
-interface WorkSectionProps {
+interface SelectedWorkBlockProps {
   selectedWork: Work[];
 }
 
-const WorkSection = ({ selectedWork }: WorkSectionProps) => {
+const SelectedWorkBlock = ({ selectedWork }: SelectedWorkBlockProps) => {
   return (
     <div className="my-16 col-span-4 sm:col-start-1 sm:col-end-9">
       <FadeInOnScroll duration={0.8} y={40}>
@@ -39,4 +42,4 @@ const WorkSection = ({ selectedWork }: WorkSectionProps) => {
   );
 };
 
-export default WorkSection;
+export default SelectedWorkBlock;

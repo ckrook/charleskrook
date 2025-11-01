@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import CardItem from "./CardItem";
-import type { Work } from "../types/index";
-import { FadeInOnScroll } from "./FadeInOnScroll";
+import type { Work } from "../../types/index";
+import { FadeInOnScroll } from "../wrappers/FadeInOnScroll";
 
 interface ProjectCardProps {
   project: Work;

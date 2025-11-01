@@ -1,7 +1,7 @@
-import { FadeInOnScroll } from "../FadeInOnScroll";
+import { FadeInOnScroll } from "../wrappers/FadeInOnScroll";
 import Image from "next/image";
 
-const HeroSection = () => {
+const HeroBlock = () => {
   return (
     <FadeInOnScroll duration={1.2} y={80}>
       <div className="col-span-4 sm:col-start-1 sm:col-end-9 h-[483px] bg-figma-background-primary relative">
@@ -32,4 +32,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default HeroBlock;

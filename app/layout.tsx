@@ -6,14 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "./components/ThemeProvider";
-import ThemeToggle from "./components/ThemeToggle";
-import PrintHandler from "./components/PrintHandler";
+import { ThemeProvider } from "./components/wrappers/ThemeProvider";
 import MobileMenu from "./components/MobileMenu";
-import CommandMenu from "./components/CommandMenu";
-import GoogleAnalytics from "./components/GoogleAnalytics";
-import NowPlaying from "./components/NowPlaying";
-import { GSAPProvider } from "./components/GSAPProvider";
+import CommandMenu from "./components/wrappers/CommandMenu";
+import GSAPProvider from "./components/wrappers/GSAPProvider";
+import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
+import NowPlaying from "./components/parts/NowPlaying/NowPlaying";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -217,7 +215,6 @@ const RootLayout = ({ children }: RootLayoutProps) => {
               {/* Google Analytics - Always tracking */}
               <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
             </CommandMenu>
-            <PrintHandler />
           </ThemeProvider>
         </GSAPProvider>
       </body>
