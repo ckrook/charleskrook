@@ -202,13 +202,23 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 </div>
 
                 {children}
-                <footer className="md:flex md:col-span-6 md:col-start-4 col-span-12 flex-col justify-center text-center md:justify-between items-center py-4">
-                  <div>
+                <footer className="py-16 px-0 md:px-8 col-span-4 sm:col-start-1 sm:col-end-13 flex justify-between gap-8">
+                  <div className=" text-sm text-stone-500 dark:text-gray-300">
+                    <div>
+                      <a
+                        href="/changelog"
+                        className="text-sm text-stone-500 dark:text-gray-300"
+                      >
+                        Changelog
+                      </a>
+                    </div>
+                    <div>
+                      <span className="">Copyright All right reserved</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-end items-center">
                     <NowPlaying />
                   </div>
-                  <span className="text-xs text-figma-text-primary font-figma font-figma-regular">
-                    Copyright All right reserved
-                  </span>
                 </footer>
               </div>
 
