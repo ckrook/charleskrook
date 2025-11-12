@@ -11,7 +11,7 @@ import MobileMenu from "./components/MobileMenu";
 import CommandMenu from "./components/wrappers/CommandMenu";
 import GSAPProvider from "./components/wrappers/GSAPProvider";
 import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
-import NowPlaying from "./components/parts/NowPlaying/NowPlaying";
+import Footer from "./components/Footer";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -202,24 +202,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 </div>
 
                 {children}
-                <footer className="py-16 px-0 md:px-8 col-span-4 sm:col-start-1 sm:col-end-13 flex justify-between gap-8">
-                  <div className=" text-sm text-stone-500 dark:text-gray-300">
-                    <div>
-                      <a
-                        href="/changelog"
-                        className="text-sm text-stone-500 dark:text-gray-300"
-                      >
-                        Changelog
-                      </a>
-                    </div>
-                    <div>
-                      <span className="">Copyright All right reserved</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-end items-center">
-                    <NowPlaying />
-                  </div>
-                </footer>
+                <Footer />
               </div>
 
               {/* Google Analytics - Always tracking */}
