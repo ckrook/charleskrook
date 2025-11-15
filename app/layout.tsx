@@ -188,7 +188,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                       <div className="flex overflow-hidden font-medium justify-center items-center">
                         <Link
                           href="mailto:charles@charleskrook.com"
-                          className="ml-2 text-lg bg-figma-surface-button text-figma-text-primary rounded-full px-4 py-2 "
+                          className="ml-2 text-md bg-figma-surface-button text-figma-text-primary rounded-full px-4 py-2 "
                         >
                           Get in touch
                         </Link>
