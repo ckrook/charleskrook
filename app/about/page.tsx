@@ -5,6 +5,9 @@ import Image from "next/image";
 import { fetchTechnologies, fetchTechnologiesCount } from "../api/graphql";
 import type { Technology } from "../types";
 import HeroBlock from "../components/blocks/HeroBlock";
+import { BlockHeading } from "../components/parts/BlockHeading";
+import { BlockParagraph } from "../components/parts/BlockParagraph";
+import Link from "next/link";
 
 const About = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -72,94 +75,92 @@ const About = () => {
       <HeroBlock />
 
       {/* Bio Section */}
-      <section className="col-span-4 sm:col-span-8 mb-16 md:mb-24">
-        <div className="space-y-4 text-neutral-800 dark:text-neutral-200 text-justify">
-          <p>
-            Based in Stockholm, I&apos;m a frontend engineer at Umain™ with a
-            passion for elegant code and thoughtful design. My work spans
-            e-commerce platforms, design systems, and content-rich websites that
-            prioritize user experience.
-          </p>
-          <p>
-            My background bridges both design and development, allowing me to
-            speak both languages fluently. This dual perspective helps me create
-            solutions that are not only technically robust but also intuitive
-            and visually cohesive.
-          </p>
-          <p>
-            When I&apos;m not coding, you&apos;ll find me exploring
-            Stockholm&apos;s design scene, experimenting with new web
-            technologies, or sharing knowledge with the developer community.
-          </p>
-        </div>
+      <section className="px-4 sm:px-0 col-span-8 sm:col-span-4 sm:col-start-3 mb-16 md:mb-24">
+        <BlockParagraph className=" text-white mb-8">
+          Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
+          frontend engineer at{" "}
+          <Link href="https://umain.com" target="_blank">
+            Umain
+          </Link>{" "}
+          likes to build stuff both at work and on the side. My work spans
+          across e-commerce platforms, design systems, and content-driven
+          websites that puts the user at the center.
+        </BlockParagraph>
+        <BlockParagraph className=" text-white mb-8">
+          I&apos;m a big fan of the nature. Whenever I get the chance, I like to
+          go for a swim or a bike ride.
+        </BlockParagraph>
+        <BlockParagraph className=" text-white mb-8">
+          I grew up outside of Stockholm and moved across different cities until
+          I ended up in Stockholm again in 2019. Since then I have been jumping
+          around at different companies and projects.
+        </BlockParagraph>
       </section>
 
       {/* Skills Section */}
-      <section className="col-span-4 sm:col-span-8 mb-16 md:mb-24">
+      <section className="col-span-8  sm:col-span-4 sm:col-start-3 mb-16 md:mb-24">
         <div>
-          <h2 className="mb-6">Skills & Expertise</h2>
           <div className="overflow-hidden rounded-md">
-            <div className="border-l border-neutral-200 dark:border-neutral-700">
-              <div className="grid grid-cols-2 md:grid-cols-4 -mx-px -mb-px">
-                {technologies.map((tech: Technology) => (
-                  <div
-                    key={tech.name}
-                    className="relative h-12 bg-white p-2 dark:bg-stone-950 border-b border-r border-neutral-200 dark:border-neutral-700 flex items-center justify-center"
-                  >
-                    <div className="relative w-20 h-8">
-                      <Image
-                        src={tech.logoWhite?.url || ""}
-                        alt={tech.name}
-                        className="p-1 object-contain dark:hidden"
-                        fill
-                      />
-                      <Image
-                        src={tech.logoDark?.url || ""}
-                        alt={tech.name}
-                        className="p-1 object-contain hidden dark:block"
-                        fill
-                      />
+            <div className="border-neutral-200 dark:border-neutral-700 marquee-container">
+              <div className="marquee-scroll">
+                {/* First set of technologies */}
+                <div className="flex gap-8 items-center pr-8">
+                  {technologies.map((tech: Technology) => (
+                    <div key={tech.name} className="flex-shrink-0">
+                      <div className="relative w-20 h-8">
+                        <Image
+                          src={tech.logoDark?.url || ""}
+                          alt={tech.name}
+                          className="p-1 object-contain"
+                          fill
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                {/* Duplicated set for seamless loop */}
+                <div
+                  className="flex gap-8 items-center pr-8"
+                  aria-hidden="true"
+                >
+                  {technologies.map((tech: Technology) => (
+                    <div
+                      key={`${tech.name}-duplicate`}
+                      className="flex-shrink-0"
+                    >
+                      <div className="relative w-20 h-8">
+                        <Image
+                          src={tech.logoDark?.url || ""}
+                          alt={tech.name}
+                          className="p-1 object-contain"
+                          fill
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Load More Button */}
-          {technologies.length < totalTechnologies && (
-            <div className="mt-6 text-center">
-              <button
-                onClick={loadMore}
-                disabled={isLoading}
-                className="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 rounded-md transition-colors"
-              >
-                {isLoading ? "Loading..." : "Load More"}
-              </button>
-            </div>
-          )}
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="col-span-4 sm:col-span-8 mb-8">
-        <div className="bg-neutral-50 dark:bg-neutral-900 p-6 md:p-8 rounded-xl border border-neutral-200 dark:border-neutral-800 text-center">
-          <h2 className="text-xl md:text-2xl font-medium mb-4">
-            Let&apos;s Connect
-          </h2>
+      <section className="col-span-4 sm:col-span-4 sm:col-start-3 mb-8">
+        <div className=" dark:bg-neutral-900 p-6 md:p-8 rounded-xl  dark:border-neutral-800 text-center">
+          <BlockHeading>Let&apos;s Connect</BlockHeading>
           <div className="mb-4">
-            <p>
-              Have a project in mind or just want to connect? I&apos;m always
-              interested in hearing about new opportunities and creative
-              collaborations.
-            </p>
+            <BlockParagraph>
+              Have a project in mind or just want to connect?
+            </BlockParagraph>
           </div>
-          <button
-            onClick={() => setIsContactModalOpen(true)}
+          <Link
+            href="mailto:charles.krook@gmail.com"
+            target="_blank"
             className="inline-block bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
           >
             Get in Touch
-          </button>
+          </Link>
         </div>
       </section>
     </main>

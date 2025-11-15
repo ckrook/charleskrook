@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import CardItem from "./CardItem";
 import type { Work } from "../../types/index";
 import { FadeInOnScroll } from "../wrappers/FadeInOnScroll";
+import { BlockParagraph } from "./BlockParagraph";
 
 interface ProjectCardProps {
   project: Work;
@@ -129,24 +130,22 @@ const ProjectCard = ({
             </div>
           )}
         </div>
-        <div className="col-span-4 sm:col-span-8 py-4 md:py-8">
+        <div className="col-span-4 sm:col-span-8 py-4 md:py-4">
           <div className="grid grid-cols-4 sm:grid-cols-8 gap-4 sm:gap-8">
             {/* Logo and Title */}
             <div className="col-span-4 sm:col-span-4">
               <CardItem
                 title={project.name}
                 subtitle={project.industry}
-                imageHeight={33}
-                imageWidth={33}
+                imageHeight={50}
+                imageWidth={50}
                 logoImageUrl={project?.logo?.url}
                 asLink={false}
               />
             </div>
             {/* Description */}
             <div className="col-span-4 sm:col-span-4">
-              <p className="text-figma-text-primary text-figma-base font-figma font-figma-medium">
-                {project.description.text}
-              </p>
+              <BlockParagraph>{project.description.text}</BlockParagraph>
             </div>
           </div>
         </div>
