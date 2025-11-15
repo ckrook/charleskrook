@@ -13,8 +13,8 @@ export const designTokens = {
 
     // Text colors
     text: {
-      primary: "#ffffff",
-      secondary: "#f5f5f4",
+      primary: "#EDEDEC",
+      secondary: "#A1A09A",
       tertiary: "#79716b",
       header: "#fafaf9", // Header text color from Figma
     },

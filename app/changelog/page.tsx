@@ -2,7 +2,9 @@ import { fetchMergedPRs, formatDate, groupPRsByMonth } from "@/lib/github";
 import Link from "next/link";
 import { Metadata } from "next";
 import HeroBlock from "../components/blocks/HeroBlock";
+import { BlockHeading } from "../components/parts/BlockHeading";
 import { FadeInOnScroll } from "../components/wrappers/FadeInOnScroll";
+import { BlockParagraph } from "../components/parts/BlockParagraph";
 
 export const metadata: Metadata = {
   title: "Changelog",
@@ -24,19 +26,12 @@ const ChangelogPage = async () => {
 
   return (
     <main className="col-start-1 col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-4">
-      <HeroBlock />
+      <HeroBlock
+        heading="Changelog"
+        description="Recent updates and improvements to the site. A log of all merged pull requests and changes."
+      />
 
       <div className="col-span-4 sm:col-start-1 sm:col-end-9 mb-16 md:mb-32">
-        <FadeInOnScroll duration={0.8} y={40}>
-          <h2 className="px-0 md:px-4 col-span-4 sm:col-start-1 sm:col-end-9 text-figma-xs font-figma font-figma-regular text-figma-text-primary">
-            Changelog
-          </h2>
-          <p className="px-0 md:px-4 col-span-4 sm:col-start-1 sm:col-end-5 mb-8 w-full md:w-1/2 text-figma-base font-figma font-figma-medium text-figma-text-primary">
-            Recent updates and improvements to the site. A log of all merged
-            pull requests and changes.
-          </p>
-        </FadeInOnScroll>
-
         <div className="px-0 md:px-4 col-span-4 sm:col-span-8">
           {error ? (
             <FadeInOnScroll delay={0.2} duration={0.8} y={40}>
@@ -72,16 +67,7 @@ const ChangelogPage = async () => {
                   );
                 })
                 .map(([month, monthPRs], monthIndex) => (
-                  <div key={month} className="mb-16 md:mb-24">
-                    <FadeInOnScroll
-                      delay={0.2 + monthIndex * 0.1}
-                      duration={0.8}
-                      y={40}
-                    >
-                      <h3 className="text-figma-xs font-figma font-figma-regular text-figma-text-primary mb-6">
-                        {month}
-                      </h3>
-                    </FadeInOnScroll>
+                  <div key={month}>
                     <div className="flex flex-col">
                       {monthPRs
                         .sort((a, b) => {
@@ -106,14 +92,14 @@ const ChangelogPage = async () => {
                             >
                               <div className="border-b py-6 md:py-4 border-figma-border-primary flex md:flex-row justify-between gap-4 md:gap-0 transition-opacity duration-300 group-hover:opacity-80">
                                 <div className="flex-1 min-w-0">
-                                  <h4 className="text-figma-base font-figma font-figma-medium text-figma-text-primary mb-2 group-hover:text-figma-text-secondary transition-colors">
+                                  <BlockHeading headingSize="h4">
                                     {pr.title}
-                                  </h4>
+                                  </BlockHeading>
 
                                   <div className="flex items-center gap-3 flex-wrap">
-                                    <span className="text-xs text-figma-text-tertiary font-figma font-figma-regular">
+                                    <BlockParagraph>
                                       {formatDate(pr.merged_at)}
-                                    </span>
+                                    </BlockParagraph>
                                     {pr.labels.length > 0 && (
                                       <div className="flex gap-2 flex-wrap">
                                         {pr.labels.map((label) => (

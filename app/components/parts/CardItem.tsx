@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { BlockParagraph } from "./BlockParagraph";
+import { BlockHeading } from "./BlockHeading";
 
 interface CardItemProps {
   title: string;
@@ -43,24 +45,23 @@ const CardItem = ({
               alt={`${title} image`}
               width={imageWidth}
               height={imageHeight}
-              className={`w-auto h-auto rounded-figma-sm mr-[11px] border border-figma-border-primary ${
+              className={`w-auto h-auto rounded-xl mr-[11px] border border-stone-900 ${
                 rounded ? "rounded-full" : ""
               }`}
               style={{ backgroundColor: bgColor }}
             />
           ) : (
-            <div className="w-10 h-10 bg-figma-background-secondary rounded-full flex items-center justify-center text-xl">
+            <div
+              className="bg-figma-background-secondary rounded-full flex items-center justify-center text-xl"
+              style={{ width: imageWidth, height: imageHeight }}
+            >
               {title.charAt(0)}
             </div>
           )}
         </div>
         <div className="flex flex-col">
-          <h3 className="font-figma-regular leading-6 text-figma-text-primary text-figma-base font-figma">
-            {title}
-          </h3>
-          <p className="leading-6 text-figma-text-secondary text-figma-base font-figma font-figma-regular">
-            {subtitle}
-          </p>
+          <BlockHeading headingSize="h3">{title}</BlockHeading>
+          <BlockParagraph>{subtitle}</BlockParagraph>
         </div>
       </div>
       {arrow && (

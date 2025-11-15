@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Experience } from "../../types";
 import CardItem from "../parts/CardItem";
+import { BlockHeading } from "../parts/BlockHeading";
 import { FadeInOnScroll } from "../wrappers/FadeInOnScroll";
+import { BlockParagraph } from "../parts/BlockParagraph";
 
 interface ExperienceBlockProps {
   experiences: Experience[];
@@ -23,18 +25,20 @@ const ExperienceBlock = ({ experiences }: ExperienceBlockProps) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <div className="py-16 px-0 md:px-4 col-span-4 sm:col-start-1 sm:col-end-9">
+    <div className="py-16 px-0 md:px-4 col-span-8 sm:col-start-1 sm:col-end-9">
       <section className="mb-16 md:mb-32">
         <FadeInOnScroll delay={0.4}>
-          <h2 className="text-figma-xs font-figma font-figma-regular text-figma-text-primary">
-            Experiences
-          </h2>
-          <p className="col-span-4 sm:col-start-1 sm:col-end-4 mb-8 w-full md:w-1/2 text-figma-base font-figma font-figma-medium text-figma-text-primary">
-            My professional journey across different companies and roles. Each
-            experience has shaped my approach to frontend development and taught
-            me valuable lessons about building scalable, user-focused
-            applications.
-          </p>
+          <div className="w-full md:w-1/2 mb-8 md:mb-16">
+            <BlockHeading headingSize="h2" className="mb-4">
+              Experiences
+            </BlockHeading>
+            <BlockParagraph>
+              My professional journey across different companies and roles. Each
+              experience has shaped my approach to frontend development and
+              taught me valuable lessons about building scalable, user-focused
+              applications.
+            </BlockParagraph>
+          </div>
         </FadeInOnScroll>
         <div className="flex flex-col">
           {experiences.map((experience, index) => {
@@ -66,9 +70,7 @@ const ExperienceBlock = ({ experiences }: ExperienceBlockProps) => {
                   asLink={false}
                 />
                 <div className="flex shrink-0 flex-col">
-                  <p className="text-figma-text-tertiary font-figma font-figma-regular">
-                    {period}
-                  </p>
+                  <BlockParagraph>{period}</BlockParagraph>
                 </div>
               </div>
             );

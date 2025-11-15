@@ -1,4 +1,5 @@
 import { fetchProjects, fetchExperiences, fetchClients } from "./api/graphql";
+import SocialBlock from "./components/blocks/SocialBlock";
 import PageBuilder from "./components/PageBuilder";
 
 const Home = async () => {
@@ -34,6 +35,7 @@ const Home = async () => {
   return (
     <main className="col-start-1 col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-4">
       <PageBuilder blocks={page.blocks} />
+      <SocialBlock />
     </main>
   );
 };

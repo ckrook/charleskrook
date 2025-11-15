@@ -1,5 +1,7 @@
 import Link from "next/link";
 import ProjectCard from "../parts/ProjectCard";
+import { BlockHeading } from "../parts/BlockHeading";
+import { BlockParagraph } from "../parts/BlockParagraph";
 import type { Work } from "../../types";
 import {
   FadeInOnScroll,
@@ -12,16 +14,16 @@ interface SelectedWorkBlockProps {
 
 const SelectedWorkBlock = ({ selectedWork }: SelectedWorkBlockProps) => {
   return (
-    <div className="my-16 col-span-4 sm:col-start-1 sm:col-end-9">
+    <div className="my-16 col-span-8 sm:col-start-1 sm:col-end-9">
       <FadeInOnScroll duration={0.8} y={40}>
-        <h2 className="px-0 md:px-4 col-span-4 sm:col-start-1 sm:col-end-9 text-figma-xs font-figma font-figma-regular text-figma-text-primary">
-          Selected work
-        </h2>
-        <p className="px-0 md:px-4 col-span-4 sm:col-start-1 sm:col-end-5 mb-8 w-full md:w-1/2 text-figma-base font-figma font-figma-medium text-figma-text-primary">
-          A selection of my work over the years that I&apos;m extra proud of.
-          These projects represent my journey in crafting digital experiences
-          that balance technical excellence with thoughtful design.
-        </p>
+        <div className="px-0 md:px-4 flex flex-col gap-4 w-full md:w-1/2 mb-8 md:mb-16">
+          <BlockHeading>Selected work</BlockHeading>
+          <BlockParagraph>
+            A selection of my work over the years that I&apos;m extra proud of.
+            These projects represent my journey in crafting digital experiences
+            that balance technical excellence with thoughtful design.
+          </BlockParagraph>
+        </div>
       </FadeInOnScroll>
       <div className="mb-16 px-0 md:px-4 md:mb-16 col-span-4 sm:col-span-8">
         <FadeInOnScrollContainer stagger={0.2} duration={0.8} y={50}>

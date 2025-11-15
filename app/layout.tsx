@@ -12,6 +12,9 @@ import CommandMenu from "./components/wrappers/CommandMenu";
 import GSAPProvider from "./components/wrappers/GSAPProvider";
 import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
 import Footer from "./components/Footer";
+import { BlockHeading } from "./components/parts/BlockHeading";
+import { BlockParagraph } from "./components/parts/BlockParagraph";
+import FallingBadges from "./components/blocks/FallingBadges";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -159,8 +162,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 <header className="px-0 md:px-4 col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6 hidden md:grid">
                   {/* Logo and Name */}
                   <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
-                    <Link href="/" className="flex items-center gap-2 md:gap-2">
-                      <div className="w-[33px] h-[33px] md:w-8 md:h-8">
+                    <Link href="/" className="flex items-center gap-2 md:gap-4">
+                      <div className="w-[33px] h-[33px] md:w-[45px] md:h-[45px]">
                         <Image
                           src="/logo-avatar.png"
                           alt="Charles Krook"
@@ -169,12 +172,12 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                           height={100}
                         />
                       </div>
-                      <p className="flex flex-col font-medium text-figma-text-header md:text-figma-base text-sm">
-                        <span className="text-sm">Charles Krook</span>
-                        <span className="text-sm text-figma-text-header -mt-1">
-                          Fullstack engineer
-                        </span>
-                      </p>
+                      <div className=" leading-tight">
+                        <BlockHeading headingSize="h1">
+                          Charles Krook
+                        </BlockHeading>
+                        <BlockParagraph>Fullstack engineer</BlockParagraph>
+                      </div>
                     </Link>
                   </div>
 
@@ -185,7 +188,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                       <div className="flex overflow-hidden font-medium justify-center items-center">
                         <Link
                           href="mailto:charles@charleskrook.com"
-                          className="ml-2 text-sm bg-figma-surface-button text-figma-text-header rounded-figma-sm px-3 py-1"
+                          className="ml-2 text-lg bg-figma-surface-button text-figma-text-primary rounded-full px-4 py-2 "
                         >
                           Get in touch
                         </Link>
@@ -193,7 +196,6 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                     </nav>
                   </div>
                 </header>
-
                 {/* Mobile Menu (shown only on mobile) */}
                 <div className="md:hidden">
                   <MobileMenu />
