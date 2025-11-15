@@ -147,7 +147,7 @@ const About = () => {
 
       {/* Contact Section */}
       <section className="col-span-4 sm:col-span-4 sm:col-start-3 mb-8">
-        <div className=" dark:bg-neutral-900 p-6 md:p-8 rounded-xl  dark:border-neutral-800 text-center">
+        <div className="  p-6 md:p-8 rounded-xl  dark:border-neutral-800 text-center">
           <BlockHeading>Let&apos;s Connect</BlockHeading>
           <div className="mb-4">
             <BlockParagraph>
@@ -157,7 +157,7 @@ const About = () => {
           <Link
             href="mailto:charles.krook@gmail.com"
             target="_blank"
-            className="inline-block bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+            className="inline-block bg-black text-white  px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
           >
             Get in Touch
           </Link>
