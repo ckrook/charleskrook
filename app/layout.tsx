@@ -155,10 +155,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body className="min-h-screen bg-figma-background-primary font-figma antialiased text-figma-text-primary transition-colors duration-200">
-        <GSAPProvider>
-          <ThemeProvider>
-            <CommandMenu>
-              <div className="grid grid-cols-12">
+        <div className=" w-full md:w-[90vw] lg:w-[70vw] mx-auto">
+          <GSAPProvider>
+            <ThemeProvider>
+              <CommandMenu>
                 <header className="px-0 md:px-4 col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6 hidden md:grid">
                   {/* Logo and Name */}
                   <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
@@ -172,7 +172,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                           height={100}
                         />
                       </div>
-                      <div className=" leading-tight">
+                      <div className=" leading-[0px]">
                         <BlockHeading headingSize="h1">
                           Charles Krook
                         </BlockHeading>
@@ -182,19 +182,36 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                   </div>
 
                   {/* Navigation */}
-                  <div className="col-span-1 sm:col-span-4 flex justify-end items-center">
-                    {/* Desktop Navigation (visible only on desktop) */}
-                    <nav className="flex justify-end items-center w-full">
-                      <div className="flex overflow-hidden font-medium justify-center items-center">
+                  {/* Desktop Navigation (visible only on desktop) */}
+                  <nav className="col-span-1 sm:col-span-4 flex justify-end items-center font-medium">
+                    <ol className="grid grid-cols-6 justify-end items-center w-full">
+                      <li className=" col-span-1">
+                        <Link
+                          href="/about"
+                          className="ml-2 text-md  text-figma-text-primary rounded-full px-4 py-2 "
+                        >
+                          About
+                        </Link>
+                      </li>
+                      <li className=" col-span-1">
+                        <Link
+                          href="/projects"
+                          className="ml-2 text-md  text-figma-text-primary rounded-full px-4 py-2 "
+                        >
+                          Projects
+                        </Link>
+                      </li>
+
+                      <li className="text-right col-span-4">
                         <Link
                           href="mailto:charles@charleskrook.com"
-                          className="ml-2 text-md bg-figma-surface-button text-figma-text-primary rounded-full px-4 py-2 "
+                          className="ml-2 text-md  text-figma-text-primary rounded-full px-4 py-2 "
                         >
-                          Get in touch
+                          Contact
                         </Link>
-                      </div>
-                    </nav>
-                  </div>
+                      </li>
+                    </ol>
+                  </nav>
                 </header>
                 {/* Mobile Menu (shown only on mobile) */}
                 <div className="md:hidden">
@@ -205,13 +222,13 @@ const RootLayout = ({ children }: RootLayoutProps) => {
 
                 {children}
                 <Footer />
-              </div>
 
-              {/* Google Analytics - Always tracking */}
-              <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
-            </CommandMenu>
-          </ThemeProvider>
-        </GSAPProvider>
+                {/* Google Analytics - Always tracking */}
+                <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+              </CommandMenu>
+            </ThemeProvider>
+          </GSAPProvider>
+        </div>
       </body>
     </html>
   );

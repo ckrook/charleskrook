@@ -12,7 +12,7 @@ export const BlockHeading = ({
   headingSize = "h2",
 }: BlockHeadingProps) => {
   const baseClasses =
-    "text-md font-figma font-figma-medium text-figma-text-primary";
+    "text-lg font-figma font-figma-medium text-figma-text-primary";
 
   const HeadingTag = headingSize;
 

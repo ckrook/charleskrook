@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { RichTextContent } from "@/app/utils/markdown";
 import { adaptRichTextFromCMS } from "@/app/utils/richTextUtils";
+import { BlockParagraph } from "./parts/BlockParagraph";
 
 interface RichTextRendererProps {
   content: any; // Accept any content format
@@ -21,15 +22,7 @@ const RichTextRenderer = React.memo(
     debug = false,
     fallback,
   }: RichTextRendererProps) => {
-    // Memoize the normalized content to prevent unnecessary re-computation
     const normalizedContent = useMemo(() => {
-      // For debugging - check if content has a children array directly
-      if (content?.children && Array.isArray(content.children)) {
-        console.log(
-          "Content has a direct children array - structure looks good!"
-        );
-      }
-
       // Transform CMS content to normalized rich text format
       return adaptRichTextFromCMS(content);
     }, [content]);
@@ -60,7 +53,7 @@ const RichTextRenderer = React.memo(
             className="text-red-500 p-4 border border-red-300 rounded-md"
             role="alert"
           >
-            <p className="font-semibold mb-2">Unable to render content</p>
+            <BlockParagraph>Unable to render content</BlockParagraph>
             <details>
               <summary className="cursor-pointer text-sm">
                 Show content data
@@ -72,20 +65,16 @@ const RichTextRenderer = React.memo(
             <div className="mt-4">
               <p className="text-sm">Content type: {typeof content}</p>
               {typeof content === "object" && content !== null && (
-                <p className="text-sm">
+                <BlockParagraph>
                   Has children: {content.children ? "Yes" : "No"}
-                </p>
+                </BlockParagraph>
               )}
             </div>
           </div>
         );
       }
 
-      return (
-        <p className="text-red-500" role="alert">
-          Unable to render content
-        </p>
-      );
+      return <BlockParagraph>Unable to render content</BlockParagraph>;
     }
 
     // Render the content using the RichTextContent component
