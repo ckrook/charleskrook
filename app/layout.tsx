@@ -173,11 +173,13 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                           height={100}
                         />
                       </div>
+
                       <div className="">
                         <BlockHeading
                           headingSize="h1"
                           className="!leading-[20px]"
                         >
+
                           Charles Krook
                         </BlockHeading>
                         <BlockParagraph className="!leading-[20px]">
@@ -190,6 +192,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                   {/* Navigation */}
                   {/* Desktop Navigation (visible only on desktop) */}
                   <DesktopNav />
+
                 </header>
                 {/* Mobile Menu (shown only on mobile) */}
                 <div className="md:hidden">

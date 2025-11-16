@@ -77,6 +77,7 @@ const About = () => {
       {/* Bio Section */}
       <section className="px-4 sm:px-4 col-span-8 col-start-1 col-end-9 mb-16 md:mb-24  columns-1 sm:columns-2">
         <BlockParagraph className=" text-white mb-4">
+
           Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
           frontend engineer at{" "}
           <Link href="https://umain.com" target="_blank">
