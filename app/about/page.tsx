@@ -75,8 +75,9 @@ const About = () => {
       <HeroBlock />
 
       {/* Bio Section */}
-      <section className="px-4 sm:px-0 col-span-8 col-start-1 col-end-8 mb-16 md:mb-24">
-        <BlockParagraph className=" text-white mb-8">
+      <section className="px-4 sm:px-4 col-span-8 col-start-1 col-end-9 mb-16 md:mb-24  columns-1 sm:columns-2">
+        <BlockParagraph className=" text-white mb-4">
+
           Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
           frontend engineer at{" "}
           <Link href="https://umain.com" target="_blank">
@@ -86,11 +87,11 @@ const About = () => {
           work spans across e-commerce platforms, design systems, and
           content-driven websites that puts the user at the center.
         </BlockParagraph>
-        <BlockParagraph className=" text-white mb-8">
+        <BlockParagraph className=" text-white mb-4">
           I&apos;m a big fan of the nature. Whenever I get the chance, I like to
-          go for a swim or a bike ride.
+          go for a swim or a bike ride on my road bike.
         </BlockParagraph>
-        <BlockParagraph className=" text-white mb-8">
+        <BlockParagraph className=" text-white mb-4">
           I grew up outside of Stockholm and moved across different cities until
           I ended up in Stockholm again in 2019. Since then I have been jumping
           around at different companies and projects.
@@ -98,7 +99,7 @@ const About = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="col-span-8  sm:col-span-4 sm:col-start-3 mb-16 md:mb-24">
+      <section className="col-span-12 sm:col-span-8 sm:col-start-1 sm:col-end-8 mb-16 md:mb-24">
         <div>
           <div className="overflow-hidden rounded-md">
             <div className="border-neutral-200 dark:border-neutral-700 marquee-container">
