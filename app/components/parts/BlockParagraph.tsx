@@ -12,7 +12,7 @@ export const BlockParagraph = ({
   return (
     <p
       className={cn(
-        "text-md font-figma font-figma-medium text-figma-text-secondary",
+        "text-lg font-figma font-figma-medium text-figma-text-secondary",
         className
       )}
     >

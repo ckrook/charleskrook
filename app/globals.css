@@ -107,7 +107,7 @@
     /* Ensure status bar area matches background */
     @media screen and (max-width: 768px) {
       html {
-        background-color: #0c0a09;
+        background-color: #15161A;
       }
     }
 
@@ -116,7 +116,7 @@
     }
 
     ::selection{
-      @apply bg-gray-900 text-white dark:bg-white dark:text-stone-900;
+      @apply bg-[#15161A] text-white dark:bg-white dark:text-stone-900;
     }
 
     body {

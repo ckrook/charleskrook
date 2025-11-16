@@ -12,7 +12,7 @@ interface CardItemProps {
   logoImageUrl?: string;
   imageWidth?: number;
   imageHeight?: number;
-  bgColor?: string;
+  brandColor?: string;
   industry?: string;
   rounded?: boolean;
   arrow?: boolean;
@@ -26,15 +26,13 @@ const CardItem = ({
   logoImageUrl,
   imageWidth = 48,
   imageHeight = 48,
-  bgColor,
-  industry,
+  brandColor,
   rounded = false,
   arrow = false,
   linkUrl,
   asLink = true, // Default to true for backward compatibility
 }: CardItemProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-
   const content = (
     <div className="flex justify-between w-full" ref={cardRef}>
       <div className="flex items-center gap-4">
@@ -48,12 +46,15 @@ const CardItem = ({
               className={`w-auto h-auto rounded-xl mr-[11px] border border-stone-900 ${
                 rounded ? "rounded-full" : ""
               }`}
-              style={{ backgroundColor: bgColor }}
+              style={{ backgroundColor: brandColor }}
             />
           ) : (
             <div
-              className="bg-figma-background-secondary rounded-full flex items-center justify-center text-xl"
-              style={{ width: imageWidth, height: imageHeight }}
+              className={`rounded-full flex items-center justify-center bg-stone-900`}
+              style={{
+                width: imageWidth,
+                height: imageHeight,
+              }}
             >
               {title.charAt(0)}
             </div>
