@@ -104,6 +104,7 @@ export interface Client {
   logo: {
     url: string;
   };
+  brandColor: string;
 }
 
 export interface Technology {

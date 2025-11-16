@@ -1,5 +1,5 @@
 import { Workplace } from "../hooks/fetchProjects";
-import { BlogPost, Experience, Work } from "../types";
+import { BlogPost, Client, Experience, Work } from "../types";
 
 /**
  * Fetch data from the GraphQL API with the provided query
@@ -222,7 +222,7 @@ export async function fetchProjectBySlug(slug: string): Promise<Work | null> {
 /**
  * Fetch all clients from the GraphQL API
  */
-export async function fetchClients() {
+export async function fetchClients(): Promise<Client[]> {
   const query = `
     query {
       workplaces {
@@ -233,6 +233,7 @@ export async function fetchClients() {
           logo {
             url
           }
+          brandColor
         }
       }
     }

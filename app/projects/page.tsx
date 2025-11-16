@@ -1,6 +1,7 @@
 import { fetchProjects } from "@/app/api/graphql";
 import { Work } from "@/app/types";
 import Link from "next/link";
+import CardItem from "@/app/components/parts/CardItem";
 import ProjectCard from "@/app/components/parts/ProjectCard";
 import HeroBlock from "../components/blocks/HeroBlock";
 import { FadeInOnScroll } from "../components/wrappers/FadeInOnScroll";

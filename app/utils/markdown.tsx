@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { BlockParagraph } from "../components/parts/BlockParagraph";
 
 // Define types for the rich text content
 type RichTextNode = {
@@ -63,12 +64,9 @@ export function RichTextContent({
         // Check if this is the first paragraph to apply serif styling
         const isFirstParagraph = index === 0;
         return (
-          <p
-            key={index}
-            className={`mb-8 leading-relaxed ${isFirstParagraph ? "lede" : ""}`}
-          >
+          <BlockParagraph key={index} className="mb-8 text-white">
             {safeMap(node.children, (child, i) => renderChild(child, i))}
-          </p>
+          </BlockParagraph>
         );
 
       case "heading-one":
@@ -256,7 +254,7 @@ export function MarkdownContent({
           h3: ({ children }) => <h3>{children}</h3>,
 
           // Paragraphs and text - simplified
-          p: ({ children }) => <p>{children}</p>,
+          p: ({ children }) => <BlockParagraph>{children}</BlockParagraph>,
 
           // Code blocks - simplified using any to bypass type checking
           code: (props: any) => {

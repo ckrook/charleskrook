@@ -75,16 +75,16 @@ const About = () => {
       <HeroBlock />
 
       {/* Bio Section */}
-      <section className="px-4 sm:px-0 col-span-8 sm:col-span-4 sm:col-start-3 mb-16 md:mb-24">
+      <section className="px-4 sm:px-0 col-span-8 col-start-1 col-end-8 mb-16 md:mb-24">
         <BlockParagraph className=" text-white mb-8">
           Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
           frontend engineer at{" "}
           <Link href="https://umain.com" target="_blank">
             Umain
           </Link>{" "}
-          likes to build stuff both at work and on the side. My work spans
-          across e-commerce platforms, design systems, and content-driven
-          websites that puts the user at the center.
+          who likes to build stuff both at work and on the side. My previous
+          work spans across e-commerce platforms, design systems, and
+          content-driven websites that puts the user at the center.
         </BlockParagraph>
         <BlockParagraph className=" text-white mb-8">
           I&apos;m a big fan of the nature. Whenever I get the chance, I like to
