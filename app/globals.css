@@ -224,22 +224,7 @@
     .mobile-menu-overlay {
       @apply fixed inset-0 z-50 bg-white dark:bg-zinc-950;
     }
-    
-    .hamburger-line {
-      @apply block h-[1.5px] w-5 bg-black dark:bg-white transition-all duration-300;
-    }
-    
-    .hamburger-active .hamburger-line:nth-child(1) {
-      @apply rotate-45 top-1/2 -translate-y-1/2;
-    }
-    
-    .hamburger-active .hamburger-line:nth-child(2) {
-      @apply opacity-0 scale-0;
-    }
-    
-    .hamburger-active .hamburger-line:nth-child(3) {
-      @apply -rotate-45 top-1/2 -translate-y-1/2;
-    }
+
   }
 
 @media (max-width: 640px) {

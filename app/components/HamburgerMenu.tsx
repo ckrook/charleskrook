@@ -58,7 +58,7 @@ const HamburgerMenu = () => {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex justify-center items-center w-10 h-10 relative z-[101]"
+        className="flex justify-center items-center w-10 h-10 relative z-[101] text-white"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
@@ -68,7 +68,6 @@ const HamburgerMenu = () => {
           <div className="text-xl">Menu</div>
         )}
       </button>
-
       {/* Fullscreen Menu Overlay */}
       <AnimatePresence>
         {isOpen && (

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import HamburgerMenu from "./HamburgerMenu";
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,21 +98,7 @@ const MobileMenu = () => {
 
           <div className="flex items-center gap-2">
             {/* Hamburger Icon */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex justify-center items-center w-10 h-10 relative z-[101]"
-              aria-label="Toggle menu"
-            >
-              <div
-                className={`relative w-5 h-4 ${
-                  isOpen ? "hamburger-active" : ""
-                }`}
-              >
-                <span className="hamburger-line absolute top-0"></span>
-                <span className="hamburger-line absolute top-1/2 -translate-y-1/2"></span>
-                <span className="hamburger-line absolute bottom-0"></span>
-              </div>
-            </button>
+            <HamburgerMenu />
           </div>
         </div>
       </div>
