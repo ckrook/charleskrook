@@ -8,6 +8,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./components/wrappers/ThemeProvider";
 import MobileMenu from "./components/MobileMenu";
+import DesktopNav from "./components/DesktopNav";
 import CommandMenu from "./components/wrappers/CommandMenu";
 import GSAPProvider from "./components/wrappers/GSAPProvider";
 import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
@@ -172,46 +173,23 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                           height={100}
                         />
                       </div>
-                      <div className=" leading-[0px]">
-                        <BlockHeading headingSize="h1">
+                      <div className="">
+                        <BlockHeading
+                          headingSize="h1"
+                          className="!leading-[20px]"
+                        >
                           Charles Krook
                         </BlockHeading>
-                        <BlockParagraph>Fullstack engineer</BlockParagraph>
+                        <BlockParagraph className="!leading-[20px]">
+                          Fullstack engineer
+                        </BlockParagraph>
                       </div>
                     </Link>
                   </div>
 
                   {/* Navigation */}
                   {/* Desktop Navigation (visible only on desktop) */}
-                  <nav className="col-span-1 sm:col-span-4 flex justify-end items-center font-medium">
-                    <ol className="grid grid-cols-6 justify-end items-center w-full">
-                      <li className=" col-span-1">
-                        <Link
-                          href="/about"
-                          className="ml-2 text-md  text-figma-text-primary rounded-full px-4 py-2 "
-                        >
-                          About
-                        </Link>
-                      </li>
-                      <li className=" col-span-1">
-                        <Link
-                          href="/projects"
-                          className="ml-2 text-md  text-figma-text-primary rounded-full px-4 py-2 "
-                        >
-                          Projects
-                        </Link>
-                      </li>
-
-                      <li className="text-right col-span-4">
-                        <Link
-                          href="mailto:charles@charleskrook.com"
-                          className="ml-2 text-md  text-figma-text-primary rounded-full px-4 py-2 "
-                        >
-                          Contact
-                        </Link>
-                      </li>
-                    </ol>
-                  </nav>
+                  <DesktopNav />
                 </header>
                 {/* Mobile Menu (shown only on mobile) */}
                 <div className="md:hidden">
