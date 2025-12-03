@@ -17,7 +17,7 @@ const ClientsBlock = ({ clients }: ClientsBlockProps) => {
           <FadeInOnScroll duration={0.8} y={40}>
             <div className="mb-8">
               <BlockHeading headingSize="h2" className="mb-4">
-                Previous clients
+                Client Portfolio
               </BlockHeading>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-x-20">
                 {clients

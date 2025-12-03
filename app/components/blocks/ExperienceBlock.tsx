@@ -30,7 +30,7 @@ const ExperienceBlock = ({ experiences }: ExperienceBlockProps) => {
         <FadeInOnScroll delay={0.4}>
           <div className="w-full md:w-1/2 mb-8 md:mb-16">
             <BlockHeading headingSize="h2" className="mb-4">
-              Experiences
+              Professional Experience
             </BlockHeading>
             <BlockParagraph>
               My professional journey across different companies and roles. Each

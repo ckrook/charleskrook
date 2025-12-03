@@ -161,7 +161,7 @@ const About = () => {
         {/* Contact Section */}
         <section className="col-span-4 sm:col-span-4 sm:col-start-3 mb-8">
           <div className="  p-6 md:p-8 rounded-xl  dark:border-neutral-800 text-center">
-            <BlockHeading>Let&apos;s Connect</BlockHeading>
+            <BlockHeading>Get in Touch</BlockHeading>
             <div className="mb-4">
               <BlockParagraph>
                 Have a project in mind or just want to connect?
