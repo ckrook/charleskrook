@@ -40,7 +40,7 @@ export default async function ProjectPage({
       <main className="flex items-center mx-auto flex-col justify-between scroll-auto">
         <div className="px-4 sm:px-6 md:px-8">
           <section className="mb-16 md:mb-32">
-            <h1 className="text-2xl font-semibold mb-4">Project not found</h1>
+            <h2 className="text-2xl font-semibold mb-4">Project not found</h2>
             <Link href="/" className="text-blue-600 hover:underline">
               Return to home
             </Link>
@@ -55,7 +55,7 @@ export default async function ProjectPage({
       <div className="col-span-12 md:col-span-12 py-32">
         <div className="flex flex-row items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
           <div className=" flex-1">
-            <BlockHeading headingSize="h1" className="text-2xl">
+            <BlockHeading headingSize="h2" className="text-2xl">
               {project.name}
             </BlockHeading>
             <BlockParagraph>{project.role}</BlockParagraph>
