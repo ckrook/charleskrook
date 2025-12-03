@@ -26,9 +26,12 @@ interface SocialBlockProps {
 
 const SocialBlock = ({ socialLinks = mockSocialLinks }: SocialBlockProps) => {
   return (
-    <div className="my-16 col-span-12 sm:col-start-1 sm:col-end-12">
+    <section className="my-16 col-span-12 sm:col-start-1 sm:col-end-12">
       <FadeInOnScroll duration={0.8} y={40}>
-        <div className="px-0 md:px-4 flex justify-center gap-4 mb-8 md:mb-16">
+        <nav
+          className="px-0 md:px-4 flex justify-center gap-4 mb-8 md:mb-16"
+          aria-label="Social media links"
+        >
           {mockSocialLinks.map((socialLink) => (
             <Link
               key={socialLink.name}
@@ -38,9 +41,9 @@ const SocialBlock = ({ socialLinks = mockSocialLinks }: SocialBlockProps) => {
               <BlockHeading>{socialLink.name}</BlockHeading>
             </Link>
           ))}
-        </div>
+        </nav>
       </FadeInOnScroll>
-    </div>
+    </section>
   );
 };
 

@@ -81,7 +81,7 @@ const About = () => {
         />
 
         {/* Bio Section */}
-        <section className="px-4 sm:px-4 col-span-8 col-start-1 col-end-9 mb-16 md:mb-24  columns-1 sm:columns-2">
+        <article className="px-4 sm:px-4 col-span-8 col-start-1 col-end-9 mb-16 md:mb-24  columns-1 sm:columns-2">
           <BlockParagraph className=" text-white mb-4">
             Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
             frontend engineer at{" "}
@@ -108,7 +108,7 @@ const About = () => {
             until I ended up in Stockholm again in 2019. Since then I have been
             jumping around at different companies and projects.
           </BlockParagraph>
-        </section>
+        </article>
 
         {/* Skills Section */}
         <section className="col-span-12 sm:col-span-8 sm:col-start-1 sm:col-end-8 mb-16 md:mb-24">
@@ -159,7 +159,7 @@ const About = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="col-span-4 sm:col-span-4 sm:col-start-3 mb-8">
+        <aside className="col-span-4 sm:col-span-4 sm:col-start-3 mb-8">
           <div className="  p-6 md:p-8 rounded-xl  dark:border-neutral-800 text-center">
             <BlockHeading>Get in Touch</BlockHeading>
             <div className="mb-4">
@@ -176,7 +176,7 @@ const About = () => {
               Get in Touch
             </Link>
           </div>
-        </section>
+        </aside>
       </main>
     </>
   );

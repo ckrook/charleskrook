@@ -10,7 +10,7 @@ interface ClientsBlockProps {
 const ClientsBlock = ({ clients }: ClientsBlockProps) => {
   const date = clients.map((client: Client) => client.name);
   return (
-    <div className="col-span-8 sm:col-start-1 sm:col-end-9">
+    <section className="col-span-8 sm:col-start-1 sm:col-end-9">
       <div className="mb-16 px-0 md:px-4 md:mb-32 col-span-4 sm:col-span-8">
         {/* Clients section */}
         {clients && clients.length > 0 && (
@@ -46,7 +46,7 @@ const ClientsBlock = ({ clients }: ClientsBlockProps) => {
           </FadeInOnScroll>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -30,20 +30,17 @@ export default async function Projects() {
         <section className="px-4  col-span-4 sm:col-span-8 mb-16 md:mb-32">
           <div className="flex flex-col gap-6 md:gap-8">
             {selectedWork.map((project, index) => (
-              <FadeInOnScroll
-                key={project.id}
-                delay={0.2 + index * 0.3}
-                duration={0.8}
-                y={60}
-              >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="mb-10 last:mb-0"
-                  aria-label={`View ${project.name} project case study`}
-                >
-                  <ProjectCard project={project} />
-                </Link>
-              </FadeInOnScroll>
+              <article key={project.id}>
+                <FadeInOnScroll delay={0.2 + index * 0.3} duration={0.8} y={60}>
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="mb-10 last:mb-0"
+                    aria-label={`View ${project.name} project case study`}
+                  >
+                    <ProjectCard project={project} />
+                  </Link>
+                </FadeInOnScroll>
+              </article>
             ))}
           </div>
         </section>

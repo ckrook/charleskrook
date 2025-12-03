@@ -25,8 +25,8 @@ const ExperienceBlock = ({ experiences }: ExperienceBlockProps) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <div className="py-16 px-0 md:px-4 col-span-8 sm:col-start-1 sm:col-end-9">
-      <section className="mb-16 md:mb-32">
+    <section className="py-16 px-0 md:px-4 col-span-8 sm:col-start-1 sm:col-end-9">
+      <div className="mb-16 md:mb-32">
         <FadeInOnScroll delay={0.4}>
           <div className="w-full md:w-1/2 mb-8 md:mb-16">
             <BlockHeading headingSize="h2" className="mb-4">
@@ -53,7 +53,6 @@ const ExperienceBlock = ({ experiences }: ExperienceBlockProps) => {
 
             // Common props shared between link and div
             const commonProps = {
-              key: experience.id,
               className: `transition-opacity duration-300 ${
                 showFaded ? "opacity-40" : "opacity-100"
               } ${hasUrl ? "cursor-pointer" : "cursor-default"}`,
@@ -76,27 +75,39 @@ const ExperienceBlock = ({ experiences }: ExperienceBlockProps) => {
             );
 
             // Render as a link only if URL exists
-            return hasUrl ? (
-              <Link
-                target="_blank"
-                href={experience.url || "#"}
-                {...commonProps}
-              >
-                <FadeInOnScroll delay={0.4 + index * 0.1} duration={0.6} y={25}>
-                  {content}
-                </FadeInOnScroll>
-              </Link>
-            ) : (
-              <div {...commonProps}>
-                <FadeInOnScroll delay={0.4 + index * 0.1} duration={0.6} y={25}>
-                  {content}
-                </FadeInOnScroll>
-              </div>
+            return (
+              <article key={experience.id}>
+                {hasUrl ? (
+                  <Link
+                    target="_blank"
+                    href={experience.url || "#"}
+                    {...commonProps}
+                  >
+                    <FadeInOnScroll
+                      delay={0.4 + index * 0.1}
+                      duration={0.6}
+                      y={25}
+                    >
+                      {content}
+                    </FadeInOnScroll>
+                  </Link>
+                ) : (
+                  <div {...commonProps}>
+                    <FadeInOnScroll
+                      delay={0.4 + index * 0.1}
+                      duration={0.6}
+                      y={25}
+                    >
+                      {content}
+                    </FadeInOnScroll>
+                  </div>
+                )}
+              </article>
             );
           })}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

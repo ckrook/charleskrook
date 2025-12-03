@@ -67,7 +67,7 @@ const ChangelogPage = async () => {
                   );
                 })
                 .map(([month, monthPRs], monthIndex) => (
-                  <div key={month}>
+                  <section key={month}>
                     <div className="flex flex-col">
                       {monthPRs
                         .sort((a, b) => {
@@ -78,58 +78,59 @@ const ChangelogPage = async () => {
                           );
                         })
                         .map((pr, index) => (
-                          <Link
-                            key={pr.number}
-                            href={pr.html_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`View pull request #${pr.number}: ${pr.title} (opens in new tab)`}
-                            className="group"
-                          >
-                            <FadeInOnScroll
-                              delay={0.3 + monthIndex * 0.1 + index * 0.05}
-                              duration={0.6}
-                              y={25}
+                          <article key={pr.number}>
+                            <Link
+                              href={pr.html_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`View pull request #${pr.number}: ${pr.title} (opens in new tab)`}
+                              className="group"
                             >
-                              <div className="border-b py-6 md:py-4 border-figma-border-primary flex md:flex-row justify-between gap-4 md:gap-0 transition-opacity duration-300 group-hover:opacity-80">
-                                <div className="flex-1 min-w-0">
-                                  <BlockHeading headingSize="h4">
-                                    {pr.title}
-                                  </BlockHeading>
+                              <FadeInOnScroll
+                                delay={0.3 + monthIndex * 0.1 + index * 0.05}
+                                duration={0.6}
+                                y={25}
+                              >
+                                <div className="border-b py-6 md:py-4 border-figma-border-primary flex md:flex-row justify-between gap-4 md:gap-0 transition-opacity duration-300 group-hover:opacity-80">
+                                  <div className="flex-1 min-w-0">
+                                    <BlockHeading headingSize="h4">
+                                      {pr.title}
+                                    </BlockHeading>
 
-                                  <div className="flex items-center gap-3 flex-wrap">
-                                    <BlockParagraph>
-                                      {formatDate(pr.merged_at)}
-                                    </BlockParagraph>
-                                    {pr.labels.length > 0 && (
-                                      <div className="flex gap-2 flex-wrap">
-                                        {pr.labels.map((label) => (
-                                          <span
-                                            key={label.name}
-                                            className="text-xs px-2 py-0.5 rounded-full font-figma font-figma-regular"
-                                            style={{
-                                              backgroundColor: `#${label.color}20`,
-                                              color: `#${label.color}`,
-                                            }}
-                                          >
-                                            {label.name}
-                                          </span>
-                                        ))}
-                                      </div>
-                                    )}
+                                    <div className="flex items-center gap-3 flex-wrap">
+                                      <BlockParagraph>
+                                        {formatDate(pr.merged_at)}
+                                      </BlockParagraph>
+                                      {pr.labels.length > 0 && (
+                                        <div className="flex gap-2 flex-wrap">
+                                          {pr.labels.map((label) => (
+                                            <span
+                                              key={label.name}
+                                              className="text-xs px-2 py-0.5 rounded-full font-figma font-figma-regular"
+                                              style={{
+                                                backgroundColor: `#${label.color}20`,
+                                                color: `#${label.color}`,
+                                              }}
+                                            >
+                                              {label.name}
+                                            </span>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="flex shrink-0 items-start">
+                                    <span className="text-xs text-figma-text-tertiary font-figma font-figma-regular group-hover:text-figma-text-primary transition-colors">
+                                      #{pr.number}
+                                    </span>
                                   </div>
                                 </div>
-                                <div className="flex shrink-0 items-start">
-                                  <span className="text-xs text-figma-text-tertiary font-figma font-figma-regular group-hover:text-figma-text-primary transition-colors">
-                                    #{pr.number}
-                                  </span>
-                                </div>
-                              </div>
-                            </FadeInOnScroll>
-                          </Link>
+                              </FadeInOnScroll>
+                            </Link>
+                          </article>
                         ))}
                     </div>
-                  </div>
+                  </section>
                 ))}
             </div>
           )}

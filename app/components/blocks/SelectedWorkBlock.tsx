@@ -14,7 +14,7 @@ interface SelectedWorkBlockProps {
 
 const SelectedWorkBlock = ({ selectedWork }: SelectedWorkBlockProps) => {
   return (
-    <div className="my-16 col-span-8 sm:col-start-1 sm:col-end-9">
+    <section className="my-16 col-span-8 sm:col-start-1 sm:col-end-9">
       <FadeInOnScroll duration={0.8} y={40}>
         <div className="px-0 md:px-4 flex flex-col gap-4 w-full md:w-1/2 mb-8 md:mb-16">
           <BlockHeading>Selected Projects</BlockHeading>
@@ -29,19 +29,20 @@ const SelectedWorkBlock = ({ selectedWork }: SelectedWorkBlockProps) => {
         <FadeInOnScrollContainer stagger={0.2} duration={0.8} y={50}>
           <div className="flex flex-col gap-6 md:gap-8">
             {selectedWork.map((project) => (
-              <Link
-                key={project.id}
-                href={`/projects/${project.slug}`}
-                className="mb-10 last:mb-0"
-                aria-label={`View ${project.name} project case study`}
-              >
-                <ProjectCard project={project} />
-              </Link>
+              <article key={project.id}>
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="mb-10 last:mb-0"
+                  aria-label={`View ${project.name} project case study`}
+                >
+                  <ProjectCard project={project} />
+                </Link>
+              </article>
             ))}
           </div>
         </FadeInOnScrollContainer>
       </div>
-    </div>
+    </section>
   );
 };
 
