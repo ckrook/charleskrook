@@ -41,7 +41,7 @@ export default async function ProjectPage({
       <main className="flex items-center mx-auto flex-col justify-between scroll-auto">
         <div className="px-4 sm:px-6 md:px-8">
           <section className="mb-16 md:mb-32">
-            <h1 className="text-2xl font-semibold mb-4">Project not found</h1>
+            <h2 className="text-2xl font-semibold mb-4">Project not found</h2>
             <Link href="/" className="text-blue-600 hover:underline">
               Return to home
             </Link>
@@ -63,6 +63,7 @@ export default async function ProjectPage({
               </BlockHeading>
               <BlockParagraph>{project.role}</BlockParagraph>
             </div>
+
           </div>
         </div>
 

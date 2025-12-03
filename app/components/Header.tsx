@@ -22,7 +22,7 @@ const Header = () => {
           </div>
 
           <div className="">
-            <BlockHeading headingSize="h1" className="!leading-[20px]">
+            <BlockHeading headingSize="h2" className="!leading-[20px]">
               Charles Krook
             </BlockHeading>
             <BlockParagraph className="!leading-[20px]">
