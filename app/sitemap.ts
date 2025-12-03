@@ -1,64 +1,56 @@
 import { MetadataRoute } from "next";
-import { fetchBlogPosts, fetchProjects } from "./api/graphql";
+import { fetchProjects } from "./api/graphql";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch dynamic routes from CMS
-  const blogPosts = await fetchBlogPosts();
-  const projects = await fetchProjects();
-
   // Base URL of your website
-  const baseUrl = "https://charleskrook.com"; // Replace with your actual domain
+  const baseUrl = "https://charleskrook.com";
+
+  // Fetch dynamic routes from CMS with error handling
+  let projects: Awaited<ReturnType<typeof fetchProjects>> = [];
+
+  try {
+    projects = await fetchProjects();
+  } catch (error) {
+    console.error("Error fetching projects for sitemap:", error);
+    // Continue with empty array if fetch fails
+  }
 
   // Static routes
-  const staticRoutes = [
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "monthly" as const,
+      changeFrequency: "monthly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: "monthly" as const,
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/projects`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/changelog`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      changeFrequency: "weekly",
       priority: 0.7,
     },
   ];
 
-  // Blog post routes
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt || post.createdAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
   // Project routes
-  const projectRoutes = projects.map((project) => ({
+  const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    changeFrequency: "monthly",
     priority: 0.7,
   }));
 
   // Combine all routes
-  return [...staticRoutes, ...blogRoutes, ...projectRoutes];
+  return [...staticRoutes, ...projectRoutes];
 }
