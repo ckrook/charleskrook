@@ -19,7 +19,10 @@ export default async function Projects() {
 
   return (
     <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-0">
-      <HeroBlock />
+      <HeroBlock
+        heading="Projects"
+        description="A selection of projects I've worked on. Some of them are side projects, some of them are work projects."
+      />
 
       <section className="px-4  col-span-4 sm:col-span-8 mb-16 md:mb-32">
         <div className="flex flex-col gap-6 md:gap-8">

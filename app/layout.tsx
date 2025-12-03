@@ -13,8 +13,6 @@ import CommandMenu from "./components/wrappers/CommandMenu";
 import GSAPProvider from "./components/wrappers/GSAPProvider";
 import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
 import Footer from "./components/Footer";
-import { BlockHeading } from "./components/parts/BlockHeading";
-import { BlockParagraph } from "./components/parts/BlockParagraph";
 import FallingBadges from "./components/blocks/FallingBadges";
 
 const fontSans = Inter({
@@ -175,15 +173,20 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                       </div>
 
                       <div className="">
-                        <BlockHeading
-                          headingSize="h1"
-                          className="!leading-[20px]"
+                        <div
+                          className={cn(
+                            "text-lg font-figma font-figma-medium text-figma-text-primary !leading-[20px]"
+                          )}
                         >
                           Charles Krook
-                        </BlockHeading>
-                        <BlockParagraph className="!leading-[20px]">
+                        </div>
+                        <div
+                          className={cn(
+                            "text-lg font-figma font-figma-medium text-figma-text-secondary !leading-[20px]"
+                          )}
+                        >
                           Fullstack engineer
-                        </BlockParagraph>
+                        </div>
                       </div>
                     </Link>
                   </div>

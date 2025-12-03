@@ -71,9 +71,9 @@ export function RichTextContent({
 
       case "heading-one":
         return (
-          <h1 key={index} className="text-3xl font-semibold mb-6">
+          <h2 key={index} className="text-3xl font-semibold mb-6">
             {safeMap(node.children, (child, i) => renderChild(child, i))}
-          </h1>
+          </h2>
         );
 
       case "heading-two":
@@ -248,7 +248,7 @@ export function MarkdownContent({
         components={{
           // Headings - simplified to avoid parsing issues
           h1: ({ children }) => (
-            <h1 className="text-3xl font-semibold mb-6">{children}</h1>
+            <h2 className="text-3xl font-semibold mb-6">{children}</h2>
           ),
           h2: ({ children }) => <h2>{children}</h2>,
           h3: ({ children }) => <h3>{children}</h3>,

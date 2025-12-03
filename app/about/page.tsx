@@ -72,12 +72,14 @@ const About = () => {
   return (
     <main className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-0 md:px-4">
       {/* Header Section */}
-      <HeroBlock />
+      <HeroBlock
+        heading="About"
+        description="Charles Krook is a fullstack engineer based in Stockholm, Sweden."
+      />
 
       {/* Bio Section */}
       <section className="px-4 sm:px-4 col-span-8 col-start-1 col-end-9 mb-16 md:mb-24  columns-1 sm:columns-2">
         <BlockParagraph className=" text-white mb-4">
-
           Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
           frontend engineer at{" "}
           <Link href="https://umain.com" target="_blank">
