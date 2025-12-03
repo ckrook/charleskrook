@@ -17,9 +17,9 @@ const DesktopNav = () => {
   }>({ left: 0, width: 0, height: 0, top: 0 });
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
+    { href: "/", label: "Home", ariaLabel: "Go to homepage" },
+    { href: "/about", label: "About", ariaLabel: "View about page" },
+    { href: "/projects", label: "Projects", ariaLabel: "Browse all projects" },
   ];
 
   const isActive = (href: string) => {
@@ -63,6 +63,7 @@ const DesktopNav = () => {
     // Also update on window resize to handle responsive changes
     window.addEventListener("resize", updateSliderPosition);
     return () => window.removeEventListener("resize", updateSliderPosition);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
@@ -93,6 +94,7 @@ const DesktopNav = () => {
                   itemRefs.current[index] = el;
                 }}
                 href={item.href}
+                aria-label={item.ariaLabel || item.label}
                 className={cn(
                   "ml-2 text-md text-figma-text-primary rounded-full px-4 py-2 relative z-10 transition-colors",
                   active ? "" : "hover:opacity-80"
@@ -106,6 +108,7 @@ const DesktopNav = () => {
         <li className="text-right col-span-4 relative z-10">
           <Link
             href="mailto:charles@charleskrook.com"
+            aria-label="Contact Charles Krook via email"
             className="ml-2 text-md text-figma-text-primary rounded-full px-4 py-2 hover:opacity-80 transition-colors"
           >
             Contact

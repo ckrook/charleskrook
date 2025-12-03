@@ -83,6 +83,7 @@ const ChangelogPage = async () => {
                             href={pr.html_url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`View pull request #${pr.number}: ${pr.title} (opens in new tab)`}
                             className="group"
                           >
                             <FadeInOnScroll

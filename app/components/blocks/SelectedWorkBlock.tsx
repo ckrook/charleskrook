@@ -33,6 +33,7 @@ const SelectedWorkBlock = ({ selectedWork }: SelectedWorkBlockProps) => {
                 key={project.id}
                 href={`/projects/${project.slug}`}
                 className="mb-10 last:mb-0"
+                aria-label={`View ${project.name} project case study`}
               >
                 <ProjectCard project={project} />
               </Link>

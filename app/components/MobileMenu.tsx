@@ -78,7 +78,11 @@ const MobileMenu = () => {
       >
         <div className="flex justify-between items-center py-2 px-4">
           {/* Logo and Name */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link
+            href="/"
+            aria-label="Go to homepage"
+            className="flex items-center gap-2"
+          >
             <div className="w-[33px] h-[33px]">
               <Image
                 className="rounded-sm"
@@ -125,6 +129,7 @@ const MobileMenu = () => {
                 <Link
                   href="/"
                   onClick={handleNavigate}
+                  aria-label="Go to homepage"
                   className="block text-2xl font-medium text-black dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   Home
@@ -140,6 +145,7 @@ const MobileMenu = () => {
                 <Link
                   href="/projects"
                   onClick={handleNavigate}
+                  aria-label="Browse all projects"
                   className="block text-2xl font-medium text-black dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   Projects

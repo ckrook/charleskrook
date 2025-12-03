@@ -85,7 +85,12 @@ const About = () => {
           <BlockParagraph className=" text-white mb-4">
             Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
             frontend engineer at{" "}
-            <Link href="https://umain.com" target="_blank">
+            <Link
+              href="https://umain.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Umain website (opens in new tab)"
+            >
               Umain
             </Link>{" "}
             who likes to build stuff both at work and on the side.
@@ -165,6 +170,7 @@ const About = () => {
             <Link
               href="mailto:charles.krook@gmail.com"
               target="_blank"
+              aria-label="Contact Charles Krook via email"
               className="inline-block bg-black text-white  px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
             >
               Get in Touch

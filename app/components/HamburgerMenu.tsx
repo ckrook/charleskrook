@@ -11,9 +11,9 @@ const HamburgerMenu = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
+    { href: "/", label: "Home", ariaLabel: "Go to homepage" },
+    { href: "/about", label: "About", ariaLabel: "View about page" },
+    { href: "/projects", label: "Projects", ariaLabel: "Browse all projects" },
   ];
 
   // Prevent scrolling when menu is open
@@ -91,7 +91,11 @@ const HamburgerMenu = () => {
                     transition={{ delay: 0.05 + index * 0.1 }}
                     className="py-6 w-full text-6xl"
                   >
-                    <Link href={item.href} onClick={handleNavigate}>
+                    <Link
+                      href={item.href}
+                      onClick={handleNavigate}
+                      aria-label={item.ariaLabel || item.label}
+                    >
                       {item.label}
                     </Link>
                   </motion.div>
@@ -106,6 +110,7 @@ const HamburgerMenu = () => {
                 <Link
                   href="mailto:charles@charleskrook.com"
                   onClick={handleNavigate}
+                  aria-label="Contact Charles Krook via email"
                   className="block text-6xl font-medium text-white transition-colors"
                 >
                   Contact

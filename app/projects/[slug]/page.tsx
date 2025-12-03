@@ -42,7 +42,11 @@ export default async function ProjectPage({
         <div className="px-4 sm:px-6 md:px-8">
           <section className="mb-16 md:mb-32">
             <h2 className="text-2xl font-semibold mb-4">Project not found</h2>
-            <Link href="/" className="text-blue-600 hover:underline">
+            <Link
+              href="/"
+              aria-label="Return to homepage"
+              className="text-blue-600 hover:underline"
+            >
               Return to home
             </Link>
           </section>
@@ -63,7 +67,6 @@ export default async function ProjectPage({
               </BlockHeading>
               <BlockParagraph>{project.role}</BlockParagraph>
             </div>
-
           </div>
         </div>
 

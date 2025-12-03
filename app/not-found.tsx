@@ -33,12 +33,14 @@ const NotFound = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/"
+            aria-label="Return to homepage"
             className="bg-figma-surface-button text-figma-text-header rounded-figma-sm px-6 py-3 text-sm font-medium hover:bg-opacity-80 transition-all duration-200"
           >
             Go Home
           </Link>
           <Link
             href="/projects"
+            aria-label="Browse all projects"
             className="text-figma-text-secondary hover:text-figma-text-primary transition-colors duration-200 text-sm font-medium"
           >
             View Projects

@@ -9,6 +9,7 @@ const Footer = () => {
           <div>
             <Link
               href="/changelog"
+              aria-label="View site changelog and recent updates"
               className="text-sm text-figma-text-tertiary font-figma font-figma-medium hover:text-figma-text-primary transition-colors"
             >
               Changelog
