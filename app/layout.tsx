@@ -153,6 +153,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           href="/favicon/apple-touch-icon.png"
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <StructuredData />
       </head>
       <body className="min-h-screen bg-figma-background-primary font-figma antialiased text-figma-text-primary transition-colors duration-200">
