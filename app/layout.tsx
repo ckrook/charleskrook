@@ -14,6 +14,7 @@ import GSAPProvider from "./components/wrappers/GSAPProvider";
 import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
 import Footer from "./components/Footer";
 import FallingBadges from "./components/blocks/FallingBadges";
+import StructuredData from "./components/StructuredData";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -152,6 +153,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           href="/favicon/apple-touch-icon.png"
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
+        <StructuredData />
       </head>
       <body className="min-h-screen bg-figma-background-primary font-figma antialiased text-figma-text-primary transition-colors duration-200">
         <div className=" w-full md:w-[90vw] lg:w-[70vw] mx-auto">

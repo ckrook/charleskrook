@@ -5,6 +5,7 @@ import Link from "next/link";
 import RichTextRenderer from "@/app/components/RichTextRenderer";
 import { BlockParagraph } from "@/app/components/parts/BlockParagraph";
 import { BlockHeading } from "@/app/components/parts/BlockHeading";
+import StructuredData from "@/app/components/StructuredData";
 
 export async function generateMetadata({
   params,
@@ -51,36 +52,40 @@ export default async function ProjectPage({
   }
 
   return (
-    <main className="col-span-12 grid grid-cols-12 justify-between scroll-auto px-4 sm:px-6 md:px-4">
-      <div className="col-span-12 md:col-span-12 py-32">
-        <div className="flex flex-row items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-          <div className=" flex-1">
-            <BlockHeading headingSize="h2" className="text-2xl">
-              {project.name}
-            </BlockHeading>
-            <BlockParagraph>{project.role}</BlockParagraph>
+    <>
+      <StructuredData type="project" projectData={project} />
+      <main className="col-span-12 grid grid-cols-12 justify-between scroll-auto px-4 sm:px-6 md:px-4">
+        <div className="col-span-12 md:col-span-12 py-32">
+          <div className="flex flex-row items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className=" flex-1">
+              <BlockHeading headingSize="h2" className="text-2xl">
+                {project.name}
+              </BlockHeading>
+              <BlockParagraph>{project.role}</BlockParagraph>
+            </div>
+
           </div>
         </div>
-      </div>
 
-      <div className="col-span-12 md:col-span-12">
-        {parsedContent && (
-          <RichTextRenderer
-            content={parsedContent}
-            className="project-content"
+        <div className="col-span-12 md:col-span-12">
+          {parsedContent && (
+            <RichTextRenderer
+              content={parsedContent}
+              className="project-content"
+            />
+          )}
+        </div>
+
+        <div className="col-span-12 md:col-span-12 mb-16">
+          <Image
+            src={project?.bannerImage?.url}
+            alt={project.name}
+            width={1000}
+            height={1000}
+            className="w-full h-full object-cover rounded-lg"
           />
-        )}
-      </div>
-
-      <div className="col-span-12 md:col-span-12 mb-16">
-        <Image
-          src={project?.bannerImage?.url}
-          alt={project.name}
-          width={1000}
-          height={1000}
-          className="w-full h-full object-cover rounded-lg"
-        />
-      </div>
-    </main>
+        </div>
+      </main>
+    </>
   );
 }
