@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Playfair_Display as FontSerif, Inter } from "next/font/google";
+import { Playfair_Display as FontSerif } from "next/font/google";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Image from "next/image";
@@ -15,12 +15,6 @@ import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
 import Footer from "./components/Footer";
 import FallingBadges from "./components/blocks/FallingBadges";
 import StructuredData from "./components/StructuredData";
-
-const fontSans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
 
 const fontSerif = FontSerif({
   subsets: ["latin"],
@@ -119,7 +113,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html
       lang="en"
-      className={cn("scroll-smooth", fontSans.variable, fontSerif.variable)}
+      className={cn("scroll-smooth", fontSerif.variable)}
     >
       <head>
         <meta

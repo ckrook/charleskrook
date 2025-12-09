@@ -33,7 +33,7 @@ export const designTokens = {
 
   typography: {
     fontFamily: {
-      primary: "Inter",
+      primary: "PP Neue Montreal",
     },
 
     fontSize: {
@@ -42,8 +42,11 @@ export const designTokens = {
     },
 
     fontWeight: {
+      thin: 100,
       regular: 400,
-      medium: 500, // Medium weight from Figma
+      medium: 500,
+      semibold: 600,
+      bold: 700,
     },
 
     lineHeight: {
@@ -52,7 +55,7 @@ export const designTokens = {
 
     // Typography scales
     heading: {
-      fontFamily: "Inter",
+      fontFamily: "PP Neue Montreal",
       fontSize: "12px",
       fontWeight: 400,
       lineHeight: "14.52px",
@@ -60,7 +63,7 @@ export const designTokens = {
     },
 
     body: {
-      fontFamily: "Inter",
+      fontFamily: "PP Neue Montreal",
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: "19.36px",
@@ -68,7 +71,7 @@ export const designTokens = {
     },
 
     bodyMedium: {
-      fontFamily: "Inter",
+      fontFamily: "PP Neue Montreal",
       fontSize: "16px",
       fontWeight: 500,
       lineHeight: "19.36px",
@@ -76,7 +79,7 @@ export const designTokens = {
     },
 
     subtitle: {
-      fontFamily: "Inter",
+      fontFamily: "PP Neue Montreal",
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: "19.36px",
@@ -84,7 +87,7 @@ export const designTokens = {
     },
 
     secondary: {
-      fontFamily: "Inter",
+      fontFamily: "PP Neue Montreal",
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: "19.36px",
@@ -92,7 +95,7 @@ export const designTokens = {
     },
 
     header: {
-      fontFamily: "Inter",
+      fontFamily: "PP Neue Montreal",
       fontSize: "14px",
       fontWeight: 400,
       lineHeight: "16.94px",

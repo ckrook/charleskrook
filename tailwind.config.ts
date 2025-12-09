@@ -118,7 +118,7 @@ const config = {
       },
       // Typography
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["PP Neue Montreal", ...fontFamily.sans],
         serif: ["var(--font-serif)", ...fontFamily.serif],
         mono: ["IBM Plex Mono", ...fontFamily.mono],
         // Figma design tokens
@@ -159,9 +159,12 @@ const config = {
         bold: "700",
         extrabold: "800",
         black: "900",
-        // Figma design tokens
-        "figma-regular": designTokens.typography.fontWeight.regular.toString(),
-        "figma-medium": designTokens.typography.fontWeight.medium.toString(),
+        // Figma design tokens (mapped to PP Neue Montreal weights)
+        "figma-thin": "100",
+        "figma-regular": "400",
+        "figma-medium": "500",
+        "figma-semibold": "600",
+        "figma-bold": "700",
       },
       // Border radius
       borderRadius: {
