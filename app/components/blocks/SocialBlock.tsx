@@ -12,8 +12,8 @@ const mockSocialLinks = [
     url: "https://github.com/ckrook",
   },
   {
-    name: "Twitter",
-    url: "https://twitter.com/charleskrook",
+    name: "Instagram",
+    url: "https://www.instagram.com/charleskrook/",
   },
 ];
 

@@ -32,7 +32,7 @@ const StructuredData = ({
     sameAs: [
       "https://www.linkedin.com/in/charleskrook/",
       "https://github.com/ckrook",
-      "https://twitter.com/charleskrook",
+      "https://www.instagram.com/charleskrook/",
     ],
     worksFor: {
       "@type": "Organization",
