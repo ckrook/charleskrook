@@ -81,10 +81,9 @@ const About = () => {
         />
 
         {/* Bio Section */}
-        <article className="px-4 sm:px-4 col-span-8 col-start-1 col-end-9 mb-16 md:mb-24  columns-1 sm:columns-2">
+        <article className="px-4 sm:px-4 col-span-8 col-start-1 col-end-9 mb-16 md:mb-24 columns-1 sm:columns-2 [column-gap:3rem] md:[column-gap:5rem]">
           <BlockParagraph className=" text-white mb-4">
-            Hi I&apos;m Charles! Stockholm based fullstack engineer, I&apos;m a
-            frontend engineer at{" "}
+            I&apos;m Charles, a Stockholm-based fullstack engineer at{" "}
             <Link
               href="https://umain.com"
               target="_blank"
@@ -92,28 +91,30 @@ const About = () => {
               aria-label="Visit Umain website (opens in new tab)"
             >
               Umain
-            </Link>{" "}
-            who likes to build stuff both at work and on the side.
+            </Link>
+            , where I focus on the kind of details that decide whether a product
+            feels considered or not.
           </BlockParagraph>
           <BlockParagraph className=" text-white mb-4">
-            My previous work spans across e-commerce platforms, design systems,
-            and content-driven websites that puts the user at the center.
+            My work spans e-commerce platforms, design systems, and
+            content-driven sites — I gravitate toward projects where the
+            engineering exists to serve the design, not the other way around.
           </BlockParagraph>
           <BlockParagraph className=" text-white mb-4">
-            I&apos;m a big fan of the nature. Whenever I get the chance, I like
-            to go for a swim or a bike ride on my road bike.
+            Outside of work I spend time outdoors whenever I can, mostly on the
+            road bike or in cold water around the archipelago.
           </BlockParagraph>
           <BlockParagraph className=" text-white mb-4">
-            I grew up outside of Stockholm and moved across different cities
-            until I ended up in Stockholm again in 2019. Since then I have been
-            jumping around at different companies and projects.
+            I grew up just outside Stockholm, spent a few years moving between
+            cities, and came back in 2019. Since then I&apos;ve been working
+            across a handful of companies and side projects.
           </BlockParagraph>
         </article>
 
         {/* Skills Section */}
         <section className="col-span-12 sm:col-span-8 sm:col-start-1 sm:col-end-8 mb-16 md:mb-24">
           <div>
-            <div className="overflow-hidden rounded-md">
+            <div className="overflow-hidden rounded-2xl">
               <div className="border-neutral-200 dark:border-neutral-700 marquee-container">
                 <div className="marquee-scroll">
                   {/* First set of technologies */}
@@ -157,26 +158,39 @@ const About = () => {
             </div>
           </div>
         </section>
-
         {/* Contact Section */}
-        <aside className="col-span-4 sm:col-span-4 sm:col-start-3 mb-8">
-          <div className="  p-6 md:p-8 rounded-xl  dark:border-neutral-800 text-center">
-            <BlockHeading>Get in Touch</BlockHeading>
-            <div className="mb-4">
-              <BlockParagraph>
-                Have a project in mind or just want to connect?
-              </BlockParagraph>
-            </div>
-            <Link
-              href="mailto:charles.krook@gmail.com"
-              target="_blank"
-              aria-label="Contact Charles Krook via email"
-              className="inline-block bg-black text-white  px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+        <section className="col-span-8 col-start-1 col-end-9 px-4 mb-16 md:mb-24">
+          <div className="rounded-2xl bg-figma-background-secondary p-8 md:p-12">
+            <BlockHeading
+              headingSize="h2"
+              className="text-[20px] leading-[1.5] mb-3"
             >
-              Get in Touch
-            </Link>
+              Get in touch
+            </BlockHeading>
+            <BlockParagraph className="mb-8 max-w-[480px]">
+              Got something to build, or just want to connect? <br />
+              The inbox is open.
+            </BlockParagraph>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="mailto:charles.krook@gmail.com"
+                aria-label="Contact Charles Krook via email"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium bg-figma-text-primary text-figma-background-primary hover:opacity-85 transition-opacity"
+              >
+                Send an email
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/charleskrook/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Charles Krook's LinkedIn profile"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium bg-figma-background-primary text-figma-text-primary border border-figma-border-primary hover:opacity-85 transition-opacity"
+              >
+                LinkedIn
+              </Link>
+            </div>
           </div>
-        </aside>
+        </section>
       </main>
     </>
   );
