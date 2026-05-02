@@ -142,7 +142,7 @@
 
     /* Basic responsive adjustments */
     html, body {
-      @apply overflow-x-hidden;
+      @apply overflow-x-clip;
       -webkit-tap-highlight-color: transparent;
     }
 

@@ -15,6 +15,7 @@ import GoogleAnalytics from "./components/wrappers/GoogleAnalytics";
 import Footer from "./components/Footer";
 import FallingBadges from "./components/blocks/FallingBadges";
 import StructuredData from "./components/StructuredData";
+import { StickyAutoHide } from "./components/StickyAutoHide";
 
 const fontSerif = FontSerif({
   subsets: ["latin"],
@@ -111,10 +112,7 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html
-      lang="en"
-      className={cn("scroll-smooth", fontSerif.variable)}
-    >
+    <html lang="en" className={cn("scroll-smooth", fontSerif.variable)}>
       <head>
         <meta
           name="viewport"
@@ -155,7 +153,8 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           <GSAPProvider>
             <ThemeProvider>
               <CommandMenu>
-                <header className="px-0 md:px-4 col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6 hidden md:grid">
+                <StickyAutoHide className="hidden md:block bg-figma-background-primary">
+                <header className="px-0 md:px-4 col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-1 md:col-end-13 grid grid-cols-4 sm:grid-cols-8 py-1 md:py-4 gap-4 md:gap-6">
                   {/* Logo and Name */}
                   <div className="col-span-3 sm:col-span-4 flex items-center gap-2 md:gap-4">
                     <Link
@@ -176,14 +175,14 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                       <div className="">
                         <div
                           className={cn(
-                            "text-lg font-figma font-figma-medium text-figma-text-primary !leading-[20px]"
+                            "text-lg font-figma font-figma-medium text-figma-text-primary !leading-[20px]",
                           )}
                         >
                           Charles Krook
                         </div>
                         <div
                           className={cn(
-                            "text-lg font-figma font-figma-medium text-figma-text-secondary !leading-[20px]"
+                            "text-lg font-figma font-figma-medium text-figma-text-secondary !leading-[20px]",
                           )}
                         >
                           Fullstack engineer
@@ -196,6 +195,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                   {/* Desktop Navigation (visible only on desktop) */}
                   <DesktopNav />
                 </header>
+                </StickyAutoHide>
                 {/* Mobile Menu (shown only on mobile) */}
                 <div className="md:hidden">
                   <MobileMenu />
