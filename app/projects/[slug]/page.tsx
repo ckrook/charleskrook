@@ -63,10 +63,9 @@ export default async function ProjectPage({
           <div className="col-span-12 md:col-span-12 py-32">
             <div className="flex flex-row items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
               <div className=" flex-1">
-                <BlockHeading headingSize="h2" className="text-2xl">
+                <BlockHeading headingSize="h2" className="text-[20px] leading-[1.5]">
                   {project.name}
                 </BlockHeading>
-                <BlockParagraph>{project.role}</BlockParagraph>
               </div>
             </div>
           </div>
@@ -86,7 +85,7 @@ export default async function ProjectPage({
               alt={project.name}
               width={1000}
               height={1000}
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
         </article>

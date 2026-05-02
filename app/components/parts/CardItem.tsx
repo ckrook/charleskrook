@@ -43,14 +43,12 @@ const CardItem = ({
               alt={`${title} image`}
               width={imageWidth}
               height={imageHeight}
-              className={`w-auto h-auto rounded-xl mr-[11px] border border-stone-900 ${
-                rounded ? "rounded-full" : ""
-              }`}
+              className="w-auto h-auto rounded-2xl mr-[11px] border border-stone-900"
               style={{ backgroundColor: brandColor }}
             />
           ) : (
             <div
-              className={`rounded-full flex items-center justify-center bg-stone-900`}
+              className="rounded-2xl flex items-center justify-center bg-stone-900"
               style={{
                 width: imageWidth,
                 height: imageHeight,

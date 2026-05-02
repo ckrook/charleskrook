@@ -64,7 +64,7 @@ export function RichTextContent({
         // Check if this is the first paragraph to apply serif styling
         const isFirstParagraph = index === 0;
         return (
-          <BlockParagraph key={index} className="mb-8 text-white">
+          <BlockParagraph key={index} className="mb-8">
             {safeMap(node.children, (child, i) => renderChild(child, i))}
           </BlockParagraph>
         );
