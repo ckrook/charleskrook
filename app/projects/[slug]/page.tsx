@@ -1,6 +1,5 @@
 import { fetchProjectBySlug } from "@/app/api/graphql";
 import CardItem from "@/app/components/parts/CardItem";
-import Image from "next/image";
 import Link from "next/link";
 import RichTextRenderer from "@/app/components/RichTextRenderer";
 import { BlockParagraph } from "@/app/components/parts/BlockParagraph";
@@ -77,16 +76,6 @@ export default async function ProjectPage({
                 className="project-content"
               />
             )}
-          </div>
-
-          <div className="col-span-12 md:col-span-12 mb-16">
-            <Image
-              src={project?.bannerImage?.url}
-              alt={project.name}
-              width={1000}
-              height={1000}
-              className="w-full h-full object-cover rounded-2xl"
-            />
           </div>
         </article>
       </main>

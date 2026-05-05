@@ -32,10 +32,6 @@ const Home = async () => {
 
   return (
     <main className="col-start-1 col-end-13 grid grid-cols-4 sm:grid-cols-8 justify-between scroll-auto px-4 md:px-4">
-      <HeroBlock
-        heading="Charles Krook | Fullstack engineer"
-        description="I'm a fullstack engineer based in Stockholm, Sweden."
-      />
       <PageBuilder blocks={page.blocks} />
       <SocialBlock />
     </main>
